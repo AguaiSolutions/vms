@@ -1,8 +1,0 @@
-C:\Users\Veera\Documents\Visual Studio 2013\Projects\Aguai Leave Management System\Aguai Leave Management System\bin\Aguai Leave Management System.dll.config
-C:\Users\Veera\Documents\Visual Studio 2013\Projects\Aguai Leave Management System\Aguai Leave Management System\bin\Aguai Leave Management System.dll
-C:\Users\Veera\Documents\Visual Studio 2013\Projects\Aguai Leave Management System\Aguai Leave Management System\bin\Aguai Leave Management System.pdb
-C:\Users\Veera\Documents\Visual Studio 2013\Projects\Aguai Leave Management System\Aguai Leave Management System\bin\Newtonsoft.Json.dll
-C:\Users\Veera\Documents\Visual Studio 2013\Projects\Aguai Leave Management System\Aguai Leave Management System\bin\Newtonsoft.Json.xml
-C:\Users\Veera\Documents\Visual Studio 2013\Projects\Aguai Leave Management System\Aguai Leave Management System\obj\Debug\Aguai Leave Management System.csprojResolveAssemblyReference.cache
-C:\Users\Veera\Documents\Visual Studio 2013\Projects\Aguai Leave Management System\Aguai Leave Management System\obj\Debug\Aguai Leave Management System.dll
-C:\Users\Veera\Documents\Visual Studio 2013\Projects\Aguai Leave Management System\Aguai Leave Management System\obj\Debug\Aguai Leave Management System.pdb
