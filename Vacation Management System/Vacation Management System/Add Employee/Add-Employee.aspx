@@ -11,137 +11,196 @@
                 <div class="container-fluid">
                     <!-- /.row -->
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
+            <script>
+                $(function () {
+                    $("#txtDOB").datepicker();
+                    $("#txtDOJ").datepicker();
+                });
+            </script>
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <asp:Label ID="lblEmpid" runat="server" Text="Employee ID:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtEmpid" runat="server"></asp:TextBox>
+                        <br />
+                    </td>
+                    <br/>
+                    <td>
+                        <asp:Label ID="lblFirstName" runat="server" Text="First Name:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <asp:Label ID="lblLastName" runat="server" Text="Last Name:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                        <br />
+                    </td>
+                    <td>
+                        <asp:Label ID="lblGender" runat="server" Text="Select Gender:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="drpGender" runat="server">
+                            <asp:ListItem Text="Male"></asp:ListItem>
+                            <asp:ListItem Text="Female"></asp:ListItem>
+                            <asp:ListItem Text="Other"></asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblPersonalEmail" runat="server" Text="Personal Email:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtPersonalEmail" runat="server"></asp:TextBox>
+                        <br />
+                    </td>
+                    <td>
+                        <asp:Label ID="lblOfficialEmail" runat="server" Text="Official Email:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtOfficialEmail" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblDOJ" runat="server" Text="Date of Joining:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDOJ" runat="server"></asp:TextBox>
+                        <br />
+                    </td>
+                    <td>
+                        <asp:Label ID="lblDOB" runat="server" Text="Date of Birth:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblPAN" runat="server" Text="PAN Number:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtPAN" runat="server"></asp:TextBox>
+                        <br />
+                    </td>
+                    <td>
+                        <asp:Label ID="lblPassport" runat="server" Text="Passport Number"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtPassport" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblContactNo" runat="server" Text="Contact Number:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtContactNo" runat="server"></asp:TextBox>
+                        <br />
+                    </td>
+                    <td>
+                        <asp:Label ID="lblEmergencyNo" runat="server" Text="Emergency Contact Number:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtEmergencyNo" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblLocalAdd" runat="server" Text="Local Address:"></asp:Label>
+                    </td>
+                    <td>
+                        <textarea id="txtLocalAdd" cols="20" name="S1" rows="2"></textarea><br />
+                    </td>
+                    <td>
+                        <asp:Label ID="lblPermanentAdd" runat="server" Text="Permanent Address:"></asp:Label>
+                    </td>
+                    <td>
+                        <textarea id="txtPermanentAdd" cols="20" name="S2" rows="2"></textarea></td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblBankName" runat="server" Text="Bank Name:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtBankName" runat="server"></asp:TextBox>
+                        <br />
+                    </td>
+                    <td>
+                        <asp:Label ID="lblBranch" runat="server" Text="Branch Location:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtBranchLocation" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblAccount" runat="server" Text="Account Number:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtAccountNo" runat="server"></asp:TextBox>
+                        <br />
+                    </td>
+                    <td>
+                        <asp:Label ID="lblIFSC" runat="server" Text="IFSC Code:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtIFSC" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="lblRole" runat="server" Text="Role:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="drpRole" runat="server" OnSelectedIndexChanged="drpRole_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                        <br />
+                    </td>
+                    <td>
+                        <asp:Label ID="lblImage" runat="server" Text="Image:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:FileUpload ID="imgEmployee" runat="server" />
+                    </td>
+                </tr>
+                <br/>
+                <tr>
+                    <td></td>
+                    <td>
+                        <br />
+                        <br />
+                        <br />
+                    </td>
+                    <td class="auto-style2">
+                        <asp:Button ID="btnAddEmployee" runat="server" Text="Add Employee" />
+                    </td>
+                <td>
+                    <input type="reset"/>
+                </td>
+                    
+                </tr>
 
-                                    <%-- txtFirstname--%>
 
-                                    <div class="form-group">
-                                        <label for="firstname" class="col-md-3 control-label">First Name</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox ID="txtFN" class="form-control" name="firstname" placeholder="First Name" runat="server" />
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
+            </table>
 
-                                    <%-- txtLastname--%>
+                    
+                    
+                    
 
-                                    <div class="form-group">
-                                        <label for="lastname" class="col-md-3 control-label">Last Name</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox ID="txtLN" class="form-control" name="lastname" placeholder="Last Name" runat="server" />
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-
-                                    <%-- ddlGender--%>
-
-                                    <div class="form-group">
-                                        <label for="lastname" class="col-md-3 control-label">Gender:</label>
-                                        <div class="col-md-8">
-                                            <asp:DropDownList ID="ddlgender" runat="server" class="form-control" placeholder="" Width="200px" Font-Size="Large">
-                                                <asp:ListItem Text="Male"></asp:ListItem>
-                                                <asp:ListItem Text="Female"></asp:ListItem>
-                                                <asp:ListItem Text="Other"></asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-
-                                    <%-- txtEmailId--%>
-
-                                    <div class="form-group">
-                                        <label for="email" class="col-md-3 control-label">Email Id:</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox ID="txtEmail" class="form-control" name="email" placeholder="Email Address" runat="server" />
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-
-                                    <%-- txtPassword--%>
-
-                                    <div class="form-group">
-                                        <label for="password" class="col-md-3 control-label">Password</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox ID="txtPassword" TextMode="password" class="form-control" name="passwd" placeholder="Password" runat="server" />
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-
-                                    <%-- txtDate_Of_Joining--%>
-
-                                    <div class="form-group">
-                                        <label for="Date Of Joining" class="col-md-3 control-label">Date Of Joining</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox ID="txtDOJ" class="form-control" name="Date Of Joining" placeholder="Date Of Joining" runat="server" />
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-
-                                    <%-- txtDate_Of_Birth--%>
-
-                                    <div class="form-group">
-                                        <label for="Date Of Birth" class="col-md-3 control-label">Date Of Birth</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox ID="txtDOB" class="form-control" name="Date Of Birth" placeholder="Date Of Birth" runat="server" />
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-
-                                    <%-- txtContact--%>
-
-                                    <div class="form-group">
-                                        <label for="Contact" class="col-md-3 control-label">Contact</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox ID="txtCON" class="form-control numeric" name="Contact" placeholder="Contact" MaxLength="10" runat="server" />
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-
-                                    <%-- txtarea_Of_Address--%>
-
-                                    <div class="form-group">
-                                        <label for="Address" class="col-md-3 control-label">Address</label>
-                                        <div class="col-md-8">
-                                            <textarea id="txtAddress" class="form-control" rows="3" runat="server" />
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-                                    <br />
-
-                                    <%-- btnSignUp--%>
-
-                                    <div class="form-group">
-                                        <!-- Button -->
-                                        <div class="col-md-offset-3 col-md-9">
-
-                                            <asp:Button ID="btnSave" Text="SignUp" OnClick="btnSignUp_Click" OnClientClick="return validate();" type="button" class="btn btn-primary" runat="server" />
-                                            <%--  <button onclick="btnSave_Click" type="button" class="btn btn-primary">&nbsp;SignUp&nbsp; </button>
-					                        <span style="margin-left:4px;">or&nbsp;</span>--%>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <div id="morris-area-chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
             <!-- /.container-fluid -->
+        
         </div>
         <!-- /#wrapper -->
 
