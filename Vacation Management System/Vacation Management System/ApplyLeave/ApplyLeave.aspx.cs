@@ -18,7 +18,7 @@ namespace Aguai_Leave_Management_System
         SqlDataReader rd;
         List<DateTime> holidays = new List<DateTime>();
         string toAdminAddress = null;
-
+        //Test
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
