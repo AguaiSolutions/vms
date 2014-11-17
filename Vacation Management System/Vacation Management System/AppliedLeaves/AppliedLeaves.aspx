@@ -22,12 +22,12 @@
                                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" onrowcommand="GridView1_RowCommand" class="table table-bordered bg-danger" DataKeyNames="ID" BackColor="White" BorderStyle="None" BorderWidth="1px" CellPadding="6">
                                             <Columns>
                                                 <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" Visible="false" />
-                                                <asp:BoundField DataField="From_date" HeaderText="From_date" SortExpression="From_date" />
-                                                <asp:BoundField DataField="To_date" HeaderText="To_date" SortExpression="To_date" />
+                                                <asp:BoundField DataField="From_date" HeaderText="From Date" SortExpression="From_date" />
+                                                <asp:BoundField DataField="To_date" HeaderText="To Date" SortExpression="To_date" />
                                                 <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                                                 <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
                                                 <asp:BoundField DataField="Approver" HeaderText="Approver" SortExpression="Approver" />
-                                                <asp:BoundField DataField="Approval_Status" HeaderText="Approval_Status" SortExpression="Approval_Status" />
+                                                <asp:BoundField DataField="Approval_Status" HeaderText="Status" SortExpression="Approval_Status" />
                                                 <asp:BoundField DataField="Reason" HeaderText="Reason" SortExpression="Reason" />
                                                 <asp:TemplateField>
                                                     <ItemTemplate>

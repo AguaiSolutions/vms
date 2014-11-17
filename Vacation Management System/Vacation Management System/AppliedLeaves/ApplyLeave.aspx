@@ -20,7 +20,9 @@
                                         <asp:Label ID="lblregno" class="navbar-brand navbar-left top-nav" runat="server">Registration No : </asp:Label><br />
                                         <br />
                                         <br />
-
+                                           <asp:Label ID="lblResult" runat="server" Font-Size="Large" Text="koidofdkv" ForeColor="Red"></asp:Label>
+                                           <br />
+                                        <br />
                                         <div>
                                             <label>Type:</label>
                                             <asp:DropDownList ID="ddltype" runat="server" Width="200px">

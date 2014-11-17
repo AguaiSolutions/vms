@@ -97,6 +97,8 @@
     <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -147,7 +149,7 @@
     <Content Include="Content\Bootstrap\css\bootstrap-theme.css" />
     <Content Include="Content\Bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Dashboard\Dashboard.aspx" />
-    <Content Include="ApplyLeave\ApplyLeave.aspx" />
+    <Content Include="AppliedLeaves\ApplyLeave.aspx" />
     <Content Include="AppliedLeaves\AppliedLeaves.aspx" />
     <Content Include="Login\Login.aspx" />
     <Content Include="Global.asax" />
@@ -231,11 +233,11 @@
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Database\Database.cs" />
-    <Compile Include="ApplyLeave\ApplyLeave.aspx.cs">
+    <Compile Include="AppliedLeaves\ApplyLeave.aspx.cs">
       <DependentUpon>ApplyLeave.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ApplyLeave\ApplyLeave.aspx.designer.cs">
+    <Compile Include="AppliedLeaves\ApplyLeave.aspx.designer.cs">
       <DependentUpon>ApplyLeave.aspx</DependentUpon>
     </Compile>
     <Compile Include="AppliedLeaves\AppliedLeaves.aspx.cs">
@@ -262,6 +264,20 @@
     </Compile>
     <Compile Include="Roles\Roles.aspx.designer.cs">
       <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

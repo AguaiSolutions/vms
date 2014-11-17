@@ -19,7 +19,8 @@ namespace Aguai_Leave_Management_System
         void Session_Start(object sender, EventArgs e)
         {
             Database ob = new Database();
-            string query1 = "select weekly_off from weekly_off_days";
+            //weekly off day data table
+            string query1 = "select week_off_days from weekly_off_days";
             SqlDataReader data;
             ob.RunQuery(out data, query1);
             DataTable weekly_dt = new DataTable();
@@ -27,8 +28,8 @@ namespace Aguai_Leave_Management_System
             Session["weekly_off"] = weekly_dt;
             data.Close();
             ob.Close();
-
-            string query2 = "select Date from Holidays";
+            //holidays list data table
+            string query2 = "select holiday_name, holiday_date from holidays";
             Database ob2 = new Database();
             SqlDataReader data2;
             ob2.RunQuery(out data2, query2);

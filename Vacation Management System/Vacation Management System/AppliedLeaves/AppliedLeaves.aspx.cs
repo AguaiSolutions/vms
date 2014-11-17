@@ -22,7 +22,7 @@ namespace Aguai_Leave_Management_System
                 //Employee Leave Management
                 int EmpID = Convert.ToInt32(Session["EmpID"]);
 
-                string query = "SELECT  L.ID,L.From_date,L.To_date,L.Description,LeaveType.Description as Type,T.Approver, 'Approval_Status'= CASE L.Approval_Status  WHEN '0' THEN 'Pending' WHEN '1' THEN 'Approved' WHEN '2' THEN 'Rejected' END,L.Reason FROM LeaveManagement as L left JOIN LeaveType ON LeaveType.ID=L.Type Left join EmployeeTable as E on E.ID = L.EmpID  left join (select ID,UserName as Approver from EmployeeTable where IsAdmin = 1) as T on T.ID = L.Approver_ID where EmpID=" + EmpID + " order by 1 DESC";
+                string query = "SELECT  L.id,L.from_date,L.to_date,L.description,leave_type.leave_type as Type,T.Approver, 'approval_status'= CASE L.approval_status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' then 'Cancel' END,L.reason FROM leave_management as L left JOIN leave_type ON leave_type.ID=L.type_id Left join employee as E on E.id = L.emp_id  left join (select id,first_name as Approver from employee where role_id = 1) as T on T.id = L.approver_id where E.id=5 order by 1 DESC";
                 ds.RunQuery(out rd, query);
                 DataTable table = new DataTable();
                 table.Load(rd);
@@ -39,13 +39,17 @@ namespace Aguai_Leave_Management_System
 
             if (e.CommandName == "Cancel")
             {
-                string query = "delete[dbo].[LeaveManagement] where Approval_Status=0 and ID=" + id + "";
-                ds.RunCommand(query);
+                string query = "INSERT INTO cancel_leave (cancel_leave.emp_id, cancel_leave.leave_id, reason) SELECT leave_management.emp_id, leave_management.id,leave_management.reason  FROM leave_management where leave_management.id=" + id + "";
+                string query1="update leave_management set approval_status='c' where id="+id+"";
+                var rest= ds.RunCommand(query);
+                var res = ds.RunCommand(query1);
                 ds.Close();
             }
 
             Response.Redirect("~/AppliedLeaves/AppliedLeaves.aspx");
         }
+
+
 
         protected void btnApplyLeave_Click(object sender, EventArgs e)
         {
