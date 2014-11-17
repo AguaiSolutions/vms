@@ -7,6 +7,7 @@ using System.Web.SessionState;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.UI;
 
 namespace Aguai_Leave_Management_System
 {
@@ -14,6 +15,14 @@ namespace Aguai_Leave_Management_System
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
+    new ScriptResourceDefinition
+    {
+        Path = "~/scripts/jquery-2.1.1.min.js",
+        DebugPath = "~/scripts/jquery-2.1.1.min.js",
+        CdnPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.min.js",
+        CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.js"
+    });
         }
 
         void Session_Start(object sender, EventArgs e)

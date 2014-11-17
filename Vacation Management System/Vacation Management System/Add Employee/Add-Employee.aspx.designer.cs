@@ -13,22 +13,31 @@ namespace Aguai_Leave_Management_System {
     public partial class Add_Employee {
         
         /// <summary>
-        /// lblEmpid control.
+        /// lblEmpNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmpid;
+        protected global::System.Web.UI.WebControls.Label lblEmpNo;
         
         /// <summary>
-        /// txtEmpid control.
+        /// txtEmpNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmpid;
+        protected global::System.Web.UI.WebControls.TextBox txtEmpNo;
+        
+        /// <summary>
+        /// rftxtEmpNo1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rftxtEmpNo1;
         
         /// <summary>
         /// lblFirstName control.
@@ -49,6 +58,15 @@ namespace Aguai_Leave_Management_System {
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
         
         /// <summary>
+        /// rftxtFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rftxtFirstName;
+        
+        /// <summary>
         /// lblLastName control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace Aguai_Leave_Management_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        
+        /// <summary>
+        /// rftxtLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rftxtLastName;
         
         /// <summary>
         /// lblGender control.
@@ -103,6 +130,15 @@ namespace Aguai_Leave_Management_System {
         protected global::System.Web.UI.WebControls.TextBox txtPersonalEmail;
         
         /// <summary>
+        /// extxtPersonalEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator extxtPersonalEmail;
+        
+        /// <summary>
         /// lblOfficialEmail control.
         /// </summary>
         /// <remarks>
@@ -121,6 +157,15 @@ namespace Aguai_Leave_Management_System {
         protected global::System.Web.UI.WebControls.TextBox txtOfficialEmail;
         
         /// <summary>
+        /// rftxtOfficialEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rftxtOfficialEmail;
+        
+        /// <summary>
         /// lblDOJ control.
         /// </summary>
         /// <remarks>
@@ -137,6 +182,15 @@ namespace Aguai_Leave_Management_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDOJ;
+        
+        /// <summary>
+        /// rftxtDOJ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rftxtDOJ;
         
         /// <summary>
         /// lblDOB control.
@@ -173,6 +227,15 @@ namespace Aguai_Leave_Management_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPAN;
+        
+        /// <summary>
+        /// rftxtPAN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rftxtPAN;
         
         /// <summary>
         /// lblPassport control.
@@ -238,6 +301,15 @@ namespace Aguai_Leave_Management_System {
         protected global::System.Web.UI.WebControls.Label lblLocalAdd;
         
         /// <summary>
+        /// txtLocalAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtLocalAdd;
+        
+        /// <summary>
         /// lblPermanentAdd control.
         /// </summary>
         /// <remarks>
@@ -245,6 +317,15 @@ namespace Aguai_Leave_Management_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPermanentAdd;
+        
+        /// <summary>
+        /// txtPermanentAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtPermanentAdd;
         
         /// <summary>
         /// lblBankName control.
@@ -362,5 +443,14 @@ namespace Aguai_Leave_Management_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddEmployee;
+        
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
     }
 }
