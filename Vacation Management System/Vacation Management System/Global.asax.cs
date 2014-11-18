@@ -16,19 +16,19 @@ namespace Aguai_Leave_Management_System
         protected void Application_Start(object sender, EventArgs e)
         {
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
-    new ScriptResourceDefinition
-    {
-        Path = "~/scripts/jquery-2.1.1.min.js",
-        DebugPath = "~/scripts/jquery-2.1.1.min.js",
-        CdnPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.min.js",
-        CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.js"
-    });
+            new ScriptResourceDefinition
+            {
+                Path = "~/scripts/jquery-2.1.1.min.js",
+                DebugPath = "~/scripts/jquery-2.1.1.min.js",
+                CdnPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.min.js",
+                CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.js"
+            });
         }
 
         void Session_Start(object sender, EventArgs e)
         {
             Database ob = new Database();
-<<<<<<< HEAD
+
             //weekly off day data table
             string query1 = "select week_off_days from weekly_off_days";
             SqlDataReader data;
@@ -48,7 +48,7 @@ namespace Aguai_Leave_Management_System
             Session["holiday"] = holiday;
             data2.Close();
             ob2.Close();
-=======
+
             //string query1 = "select weekly_off from weekly_off_days";
             //SqlDataReader data;
             //ob.RunQuery(out data, query1);
@@ -67,7 +67,7 @@ namespace Aguai_Leave_Management_System
             //Session["holiday"] = holiday;
             //data2.Close();
             //ob2.Close();
->>>>>>> 6e8eee11cb8565596a480f8183445d791ca46101
+
 
         }
 

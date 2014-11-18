@@ -21,3 +21,10 @@ C:\Project\VMS\Vacation Management System\Vacation Management System\bin\System.
 C:\Project\VMS\Vacation Management System\Vacation Management System\bin\System.Web.WebPages.Razor.xml
 C:\Project\VMS\Vacation Management System\Vacation Management System\obj\Debug\Aguai Leave Management System.dll
 C:\Project\VMS\Vacation Management System\Vacation Management System\obj\Debug\Aguai Leave Management System.pdb
+D:\Aguai\leave\Vacation Management System\Vacation Management System\obj\Debug\Aguai Leave Management System.dll
+D:\Aguai\leave\Vacation Management System\Vacation Management System\obj\Debug\Aguai Leave Management System.pdb
+D:\Aguai\leave\Vacation Management System\Vacation Management System\bin\Aguai Leave Management System.dll.config
+D:\Aguai\leave\Vacation Management System\Vacation Management System\bin\Aguai Leave Management System.dll
+D:\Aguai\leave\Vacation Management System\Vacation Management System\bin\Aguai Leave Management System.pdb
+D:\Aguai\leave\Vacation Management System\Vacation Management System\bin\Microsoft.Web.Infrastructure.dll
+D:\Aguai\leave\Vacation Management System\Vacation Management System\bin\Microsoft.Web.Infrastructure.xml
