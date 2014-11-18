@@ -159,7 +159,7 @@ namespace Aguai_Leave_Management_System
 
                 oCommand.CommandText = sqlQuery;
 
-                ret = (long)oCommand.ExecuteScalar();
+                ret = Convert.ToInt64(oCommand.ExecuteScalar());
             }
             catch
             {
