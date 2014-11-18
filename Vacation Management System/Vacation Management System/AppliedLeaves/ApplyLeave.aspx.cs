@@ -154,14 +154,15 @@ namespace Aguai_Leave_Management_System
             var year = DateTime.Parse(todate).Year;
             int i = holidaylist.Rows.Count;
             var lastholidaydate = (DateTime)holidaylist.Rows[i-1]["holiday_date"];
-            if (year!= lastholidaydate.Year)
+            if (year>= lastholidaydate.Year)
             {
                 lblResult.Visible = true;
-                //lblResult.Text = "Holiday list is not available";
-                lblResult.Text += "Holiday list is not available";
+                
+                lblResult.Text = "Holiday list is not available";
                 txtdescription.InnerText = null;
                 txtstartdate.Text = null;
                 txtenddate.Text = null;
+               // ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('apply leave')</script>");
                 Response.Redirect("ApplyLeave.aspx");
                
             }

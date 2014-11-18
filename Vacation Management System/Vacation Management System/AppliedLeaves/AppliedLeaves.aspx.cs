@@ -22,7 +22,7 @@ namespace Aguai_Leave_Management_System
                 //Employee Leave Management
                 int EmpID = Convert.ToInt32(Session["EmpID"]);
 
-                string query = "SELECT  L.id,L.from_date,L.to_date,L.description,leave_type.leave_type as Type,T.Approver, 'approval_status'= CASE L.approval_status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' then 'Cancel' END,L.reason FROM leave_management as L left JOIN leave_type ON leave_type.ID=L.type_id Left join employee as E on E.id = L.emp_id  left join (select id,first_name as Approver from employee where role_id = 1) as T on T.id = L.approver_id where E.id=5 order by 1 DESC";
+                string query = "SELECT  L.id,L.from_date, L.to_date,L.description,leave_type.leave_type as Type,T.Approver, 'approval_status'= CASE L.approval_status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' then 'Cancel' END,L.reason FROM leave_management as L left JOIN leave_type ON leave_type.ID=L.type_id Left join employee as E on E.id = L.emp_id  left join (select id,first_name as Approver from employee where role_id = 1) as T on T.id = L.approver_id where E.id=5 order by 1 DESC";
                 ds.RunQuery(out rd, query);
                 DataTable table = new DataTable();
                 table.Load(rd);
@@ -49,7 +49,24 @@ namespace Aguai_Leave_Management_System
             Response.Redirect("~/AppliedLeaves/AppliedLeaves.aspx");
         }
 
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            LinkButton lbtCancel = (LinkButton)e.Row.FindControl("lbtnCancel");
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
 
+                if (e.Row.Cells[6].Text.Equals("Cancel") || e.Row.Cells[6].Text.Equals("Rejected"))
+                    {
+                        lbtCancel.Enabled = false;
+                    }
+                else
+                    if (e.Row.Cells[6].Text.Equals("Approved"))
+                    {
+                        lbtCancel.Enabled = false;
+                    }
+                    
+            }
+        }
 
         protected void btnApplyLeave_Click(object sender, EventArgs e)
         {

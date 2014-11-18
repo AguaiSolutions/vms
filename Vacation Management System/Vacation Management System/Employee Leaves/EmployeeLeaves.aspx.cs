@@ -172,6 +172,16 @@ namespace Aguai_Leave_Management_System
                 if (e.CommandName == "Reject")
                 {
                     Session["id"] = Convert.ToInt32(e.CommandArgument);
+
+                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                     sb.Append(@"<script type='text/javascript'>");
+
+                     sb.Append("$('#myModal').modal('show');");
+
+                     sb.Append(@"</script>");
+
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "DetailModalScript", sb.ToString(), false);
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
                
                int cancel_id = Convert.ToInt32(e.CommandArgument);

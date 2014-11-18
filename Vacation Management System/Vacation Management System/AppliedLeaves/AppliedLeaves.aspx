@@ -19,7 +19,7 @@
                                     <div>
                                         <br />
 
-                                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" onrowcommand="GridView1_RowCommand" class="table table-bordered bg-danger" DataKeyNames="ID" BackColor="White" BorderStyle="None" BorderWidth="1px" CellPadding="6">
+                                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" onrowcommand="GridView1_RowCommand" OnRowDataBound="GridView1_RowDataBound" class="table table-bordered bg-danger" DataKeyNames="ID" BackColor="White" BorderStyle="None" BorderWidth="1px" CellPadding="6">
                                             <Columns>
                                                 <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" Visible="false" />
                                                 <asp:BoundField DataField="From_date" HeaderText="From Date" SortExpression="From_date" />
@@ -28,10 +28,10 @@
                                                 <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
                                                 <asp:BoundField DataField="Approver" HeaderText="Approver" SortExpression="Approver" />
                                                 <asp:BoundField DataField="Approval_Status" HeaderText="Status" SortExpression="Approval_Status" />
-                                                <asp:BoundField DataField="Reason" HeaderText="Reason" SortExpression="Reason" />
+                                                <asp:BoundField DataField="Reason" HeaderText="Reason" SortExpression="Reason" Visible="false" />
                                                 <asp:TemplateField>
                                                     <ItemTemplate>
-                                                        <asp:LinkButton ID="lbtnCancel" class="btn btn-default btn-danger" runat="server" CommandArgument='<%# Eval("ID")%>' CommandName="Cancel" Text="Cancel" />
+                                                        <asp:LinkButton ID="lbtnCancel" class="btn btn-default btn-danger" runat="server" Text="Cancel" />
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                             </Columns>

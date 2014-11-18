@@ -25,6 +25,7 @@
         }
     </style>
     <section>
+        
         <script type="text/javascript">
             $(function () {
                 var date = new Date();
@@ -55,9 +56,10 @@
                       }
                   }
               });
-          });
+            });
 
-                    </script>
+   </script>
+
         <div id="wrapper">
 
             <div id="page-wrapper">
@@ -96,7 +98,7 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField>
                                                     <ItemTemplate>
-                                                        <asp:LinkButton ID="btnReject"  class="btn btn-default btn-danger" data-toggle="modal"  data-target="#myModal" runat="server" CommandArgument='<%# Eval("ID")%>' CommandName="Reject" Text="Reject" />
+                                                        <asp:LinkButton ID="btnReject"  class="btn btn-default btn-danger" runat="server" CommandArgument='<%# Eval("ID")%>' CommandName="Reject" Text="Reject" />
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:TemplateField>
@@ -229,17 +231,7 @@
         </div>
         <!-- /#wrapper -->
 
-        <!-- jQuery -->
-        <script src="js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
-
-        <!-- Morris Charts JavaScript -->
-        <script src="js/plugins/morris/raphael.min.js"></script>
-        <script src="js/plugins/morris/morris.min.js"></script>
-        <script src="js/plugins/morris/morris-data.js"></script>
-
+       
     </section>
 
 </asp:Content>

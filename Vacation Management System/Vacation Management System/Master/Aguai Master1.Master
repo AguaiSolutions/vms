@@ -11,21 +11,25 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <%--  <title>Aguai- Leave Management System</title>--%>
-      <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.js" type="text/javascript"></script>
+    <%--  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.js" type="text/javascript"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/jquery-ui.js" type="text/javascript"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>--%>
 
-    <script src="Scripts/jquery-ui-1.11.1.js"></script>
-    <script src="Scripts/jquery-ui.min-1.11.1.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <%-- <script src="Scripts/jquery-ui-1.11.1.js"></script>
+<%--    <script src="Scripts/jquery-ui.min-1.11.1.js"></script>--%>
+    <script src="../Scripts/jquery-2.1.1.js"></script>
 
-    <script src="Scripts/jquery-2.1.1.js"></script>
-
-    <script src="Scripts/jquery-2.1.1.min.js"></script>
-    <script src="Scripts/jquery-2.1.1.intellisense.js"></script>
+    <script src="../Scripts/jquery-2.1.1.min.js"></script>
+    <script src="../Scripts/jquery-2.1.1.intellisense.js"></script>
+    <a href="../Scripts/jquery-2.1.1.min.map">../Scripts/jquery-2.1.1.min.map</a>
+    <script src="../Scripts/jquery-ui-1.11.2.js"></script>
+    <script src="../Scripts/jquery-ui-1.11.2.min.js"></script>
     <script src="../Content/Bootstrap/js/bootstrap.js"></script>
-    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    
+   <%-- <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>--%>
     <script src="../Content/Bootstrap/js/bootstrap.min.js"></script>
     <script src="../Content/Bootstrap/js/bootstrap-datetimepicker.min.js"></script>
     <link href="../Content/Bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
@@ -58,14 +62,13 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   
-    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/themes/humanity/jquery-ui.css"
+   <%-- <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/themes/humanity/jquery-ui.css"
         rel="stylesheet" type="text/css" />
 
-  
+  --%>
     
     <link href="../Content/Bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-    <link href="Content/themes/base/datepicker.css" rel="stylesheet" />
-   
+    <link href="../Content/themes/base/datepicker.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
 
