@@ -159,7 +159,7 @@ namespace Aguai_Leave_Management_System
 
                 oCommand.CommandText = sqlQuery;
 
-                ret = Convert.ToInt64(oCommand.ExecuteScalar());
+                ret = (long)oCommand.ExecuteScalar();
             }
             catch
             {
@@ -192,6 +192,34 @@ namespace Aguai_Leave_Management_System
                 oCommand.CommandText = sqlQuery;
 
                 ret = (string)oCommand.ExecuteScalar();
+            }
+            catch
+            {
+                ret = "";
+            }
+            finally
+            {
+                Close();
+            }
+
+            return ret;
+        }
+
+        public Object ExecuteObjectQuery(string sqlQuery)
+        {
+            Object ret;
+
+            try
+            {
+                Open();
+
+                SqlCommand oCommand = con.CreateCommand();
+
+                oCommand.Connection = con;
+
+                oCommand.CommandText = sqlQuery;
+
+                ret = oCommand.ExecuteScalar();
             }
             catch
             {
