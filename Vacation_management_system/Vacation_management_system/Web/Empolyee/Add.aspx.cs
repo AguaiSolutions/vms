@@ -69,7 +69,6 @@ namespace Vacation_management_system.Web.Empolyee
             }
 
 
-            btnClear_Click(sender, e);
 
         }
 
@@ -115,7 +114,7 @@ namespace Vacation_management_system.Web.Empolyee
             return new string(chars);
         }
 
-        protected void btnClear_Click(object sender, EventArgs e)
+        protected void btnSaveandAdd_Click(object sender, EventArgs e)
         {
             txtEmpNo.Text = null;
             txtFirstName.Text = null;
@@ -133,6 +132,16 @@ namespace Vacation_management_system.Web.Empolyee
             txtAccountNo.Text = null;
             txtPAN.Text = null;
             txtPassport.Text = null;
+        }
+
+        protected void Update_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Cancel_Click(object sender, EventArgs e)
+        {
+
         }
 
 
