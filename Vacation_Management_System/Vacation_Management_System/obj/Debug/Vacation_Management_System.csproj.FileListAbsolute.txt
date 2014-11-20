@@ -28,3 +28,33 @@ D:\Aguai Leave Management System\Vacation_Management_System\Vacation_Management_
 D:\Aguai Leave Management System\Vacation_Management_System\Vacation_Management_System\obj\Debug\Vacation_Management_System.csprojResolveAssemblyReference.cache
 D:\Aguai Leave Management System\Vacation_Management_System\Vacation_Management_System\obj\Debug\Vacation_Management_System.dll
 D:\Aguai Leave Management System\Vacation_Management_System\Vacation_Management_System\obj\Debug\Vacation_Management_System.pdb
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\Vacation_Management_System.dll.config
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\Vacation_Management_System.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\Vacation_Management_System.pdb
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\AspNet.ScriptManager.jQuery.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.AspNet.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.Core.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.OAuth.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.OpenId.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\EntityFramework.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\Microsoft.Web.Infrastructure.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\System.Web.Providers.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\System.Net.Http.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\EntityFramework.xml
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.Core.xml
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.OAuth.xml
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.OpenId.xml
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\DotNetOpenAuth.AspNet.xml
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\Microsoft.AspNet.Membership.OpenAuth.xml
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\bin\System.Net.Http.xml
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\obj\Debug\Vacation_Management_System.csprojResolveAssemblyReference.cache
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\obj\Debug\Vacation_Management_System.dll
+D:\Aguai\leave\Vacation_Management_System\Vacation_Management_System\obj\Debug\Vacation_Management_System.pdb
