@@ -55,7 +55,7 @@ namespace Aguai_Leave_Management_System
                 "','" + password + "'," + Session["roleID"] + ",'" + txtDOJ.Text + "','" + txtDOB.Text + "','" +
                 txtContactNo.Text.Trim() + "','" + txtEmergencyNo.Text.Trim() + "','" + txtLocalAdd.InnerText + "','" +
                 txtPermanentAdd.InnerText + "') SELECT SCOPE_IDENTITY() ";
-            Int64 empId = Convert.ToInt64(ds.ExecuteObjectQuery(addEmployee));
+           long empId = ds.RunScalarQuery(addEmployee);
             string addEmpAdditional =
                 "INSERT into [employee_additional] (emp_id,bank_name,bank_branch,holder_name,account_number,pan,passport,image) VALUES ("+empId+",'" +
                 txtBankName.Text + "','" + txtBranchLocation.Text + "','" +
@@ -64,7 +64,7 @@ namespace Aguai_Leave_Management_System
             
             ds.RunCommand(addEmpAdditional);
             ds.Close();
-            if (empId > 0)
+            if (empId != null)
             {
                 calReminingLeaves(empId, txtDOJ.Text);
             }

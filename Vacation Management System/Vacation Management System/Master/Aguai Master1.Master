@@ -1,0 +1,282 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Aguai Master1.master.cs" Inherits="Aguai_Leave_Management_System.Aguai_Master1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+   <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <%--  <title>Aguai- Leave Management System</title>--%>
+    <%--  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/jquery-ui.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>--%>
+
+   <%-- <script src="Scripts/jquery-ui-1.11.1.js"></script>
+<%--    <script src="Scripts/jquery-ui.min-1.11.1.js"></script>--%>
+    <script src="../Scripts/jquery-2.1.1.js"></script>
+
+    <script src="../Scripts/jquery-2.1.1.min.js"></script>
+   <%-- <script src="../Scripts/jquery-2.1.1.intellisense.js"></script>--%>
+    <%--<a href="../Scripts/jquery-2.1.1.min.map">../Scripts/jquery-2.1.1.min.map</a>--%>
+    <script src="../Scripts/jquery-ui-1.11.2.js"></script>
+    <script src="../Scripts/jquery-ui-1.11.2.min.js"></script>
+    <script src="../Content/Bootstrap/js/bootstrap.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    
+   <%-- <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>--%>
+    <script src="../Content/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Content/Bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+    <link href="../Content/Bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+   
+    <link href="../Content/Bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../Content/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Core CSS -->
+    <link href="../Content/Bootstrap/css/sb-admin.css" rel="stylesheet" />
+
+   
+    <!-- Custom Fonts -->
+   
+    <link href="../Content/Bootstrap/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    
+
+    <title>Aguai Leave Management System</title>
+
+   
+
+    <!-- Morris Charts CSS -->
+   
+
+    <link href="../Content/Bootstrap/css/plugins/morris.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+   <%-- <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/themes/humanity/jquery-ui.css"
+        rel="stylesheet" type="text/css" />
+
+  --%>
+    
+    <link href="../Content/Bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="../Content/themes/base/datepicker.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+
+
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+
+<body>
+    <form id="form1" runat="server">
+
+        <header>
+
+
+            <div id="wrapper">
+
+                <!-- Navigation -->
+                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <asp:Label ID="lblWelcome" class="navbar-brand navbar-left top-nav" runat="server">Welcome  </asp:Label>
+                    </div>
+                    <!-- Top Menu Items -->
+                    <ul class="nav navbar-right top-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i><b class="caret"></b></a>
+                            <ul class="dropdown-menu message-dropdown">
+                                <li class="message-preview">
+                                    <a href="#">
+                                        <div class="media">
+                                            <span class="pull-left">
+                                                <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                            </span>
+                                            <div class="media-body">
+                                                <h5 class="media-heading"><strong>John Smith</strong>
+                                                </h5>
+                                                <p class="small text-muted"><i class="fa fa-clock-o"></i>Yesterday at 4:32 PM</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="message-preview">
+                                    <a href="#">
+                                        <div class="media">
+                                            <span class="pull-left">
+                                                <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                            </span>
+                                            <div class="media-body">
+                                                <h5 class="media-heading"><strong>John Smith</strong>
+                                                </h5>
+                                                <p class="small text-muted"><i class="fa fa-clock-o"></i>Yesterday at 4:32 PM</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="message-preview">
+                                    <a href="#">
+                                        <div class="media">
+                                            <span class="pull-left">
+                                                <img class="media-object" src="http://placehold.it/50x50" alt=""/>
+                                            </span>
+                                            <div class="media-body">
+                                                <h5 class="media-heading"><strong>John Smith</strong>
+                                                </h5>
+                                                <p class="small text-muted"><i class="fa fa-clock-o"></i>Yesterday at 4:32 PM</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="message-footer">
+                                    <a href="#">Read All New Messages</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><b class="caret"></b></a>
+                            <ul class="dropdown-menu alert-dropdown">
+                                <li>
+                                    <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                                </li>
+                                <li>
+                                    <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                                </li>
+                                <li>
+                                    <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                                </li>
+                                <li>
+                                    <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                                </li>
+                                <li>
+                                    <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                                </li>
+                                <li>
+                                    <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">View All</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>John Smith <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-user"></i>Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-envelope"></i>Inbox</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-gear"></i>Settings</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="Login.aspx"><i class="fa fa-fw fa-power-off"></i>Log Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul class="nav navbar-nav side-nav">
+                            <li class="active">
+                                <a href="Dashboard.aspx"><i class="fa fa-fw fa-dashboard"></i>Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i>User Management <i class="fa fa-fw fa-caret-down"></i></a>
+                                <ul id="demo" class="collapse">
+                                    <li>
+                                        <a href="~/Add Employee/Add-Employee.aspx" runat="server">Add Employee</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Personal Details/PersonalDetails.aspx" runat="server">Personal Details</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Employee Details/EmployeeDetails.aspx" runat="server">Employee Details</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Roles/Roles.aspx" runat="server">Roles</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="~/Holidays/Holidays.aspx" runat="server"><i class="fa fa-fw fa-table"></i>Holidays</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-arrows-v"></i>Leave Management <i class="fa fa-fw fa-caret-down"></i></a>
+                                <ul id="demo1" class="collapse">
+                                    <li>
+                                        <a href="~/AppliedLeaves/AppliedLeaves.aspx" runat="server">Applied Leaves</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Employee Leaves/EmployeeLeaves.aspx" runat="server">Employee Leaves</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+            </div>
+
+
+            <style>
+                .modal-body {
+                    position: relative;
+                    padding: 20px;
+                    width: 800px;
+                    /*SET THE WIDTH OF THE MODAL*/
+                }
+
+                .modal.modal-wide.modal-dialog {
+                    width: 70%;
+                    height: auto;
+                }
+
+                .modal-wide.modal-body {
+                    overflow-y: auto;
+                }
+
+                .auto-style1 {
+                    width: 120px;
+                }
+
+                .auto-style2 {
+                    width: 382px;
+                }
+            </style>
+
+
+
+        </header>
+
+
+        <div id="body">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    </form>
+</body>
+</html>
