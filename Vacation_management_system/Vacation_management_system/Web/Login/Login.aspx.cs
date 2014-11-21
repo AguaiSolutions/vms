@@ -66,6 +66,10 @@ namespace Vacation_management_system.Web.Login
 
 
             }
+            else
+            {
+                ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('EmpNo/Email or Password should not be empty')</script>");
+            }
 
         }
 
