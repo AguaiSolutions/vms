@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="Vacation_management_system.Web.Empolyee.WebForm1" %>
+﻿<%@ Page Title="Add Employee" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="Vacation_management_system.Web.Empolyee.Add" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         $(function () {
@@ -13,9 +13,10 @@
             height: 60px;
         }
     </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <div id="wrapper"  >
+     <div id="wrapper"  >
 
             <div id="page-wrapper">
 
@@ -224,13 +225,13 @@
                                     <asp:Button ID="btnAddEmployee" runat="server" Text="Add Employee" OnClick="btnAddEmployee_Click" />
                                 </td>
                                 <td class="auto-style1">
-                                    <asp:Button ID="btnClear" runat="server" Text="Save & Add" OnClick="btnSaveandAdd_Click" />
+                                    <asp:Button ID="btnsaveandadd" runat="server" Text="Save & Add" OnClick="btnSaveandAdd_Click" />
                                 </td>
                                 <td class="auto-style1">
-                                    <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Update_Click" />
+                                    <asp:Button ID="btnupdate" runat="server" Text="Update" OnClick="Update_Click" />
                                 </td>
                                 <td class="auto-style1">
-                                    <asp:Button ID="Button2" runat="server" OnClick="Cancel_Click" Text="Cancel" />
+                                    <asp:Button ID="btncancel" runat="server" OnClick="Cancel_Click" Text="Cancel" />
                                 </td>
                             </tr>
                             
@@ -255,4 +256,5 @@
 
         </div>
         <!-- /#wrapper -->
+
 </asp:Content>

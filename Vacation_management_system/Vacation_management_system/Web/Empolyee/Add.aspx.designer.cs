@@ -10,7 +10,7 @@
 namespace Vacation_management_system.Web.Empolyee {
     
     
-    public partial class WebForm1 {
+    public partial class Add {
         
         /// <summary>
         /// lblEmpNo control.
@@ -382,30 +382,30 @@ namespace Vacation_management_system.Web.Empolyee {
         protected global::System.Web.UI.WebControls.Button btnAddEmployee;
         
         /// <summary>
-        /// btnClear control.
+        /// btnsaveandadd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
+        protected global::System.Web.UI.WebControls.Button btnsaveandadd;
         
         /// <summary>
-        /// Button1 control.
+        /// btnupdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnupdate;
         
         /// <summary>
-        /// Button2 control.
+        /// btncancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btncancel;
     }
 }
