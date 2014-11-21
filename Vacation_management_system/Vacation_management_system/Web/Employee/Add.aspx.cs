@@ -70,6 +70,7 @@ namespace Vacation_management_system.Web.Employee
                     txtBranchLocation.Text = Convert.ToString(_data1["bank_branch"]);
                     txtAccountNo.Text = Convert.ToString(_data1["account_number"]);
                     txtIFSC.Text = Convert.ToString(_data1["ifsc_code"]);
+                    txtAccountHolder.Text = Convert.ToString(_data1["holder_name"]);
                    
                 }
                 _data1.Close();
@@ -91,6 +92,7 @@ namespace Vacation_management_system.Web.Employee
 
         protected void insertemployee()
         {
+            _utilities = new Utilities();
             string RandomString = generateString(8);
 
             string password = _utilities.EncodePassword(RandomString);
@@ -106,7 +108,7 @@ namespace Vacation_management_system.Web.Employee
             string addEmpAdditional =
                 "INSERT into [employee_additional] (emp_id,bank_name,bank_branch,holder_name,account_number,pan,passport,image,ifsc_code) VALUES (" + empId + ",'" +
                 txtBankName.Text + "','" + txtBranchLocation.Text + "','" +
-                (txtFirstName.Text.Trim() + " " + txtLastName.Text.Trim()) + "','" + txtAccountNo.Text.Trim() + "','" +
+                txtAccountHolder.Text.Trim() + "','" + txtAccountNo.Text.Trim() + "','" +
                 txtPAN.Text.Trim() + "','" + txtPassport.Text.Trim() + "','" + empImage.FileName + "','" + txtIFSC.Text + "')";
 
             ds.RunCommand(addEmpAdditional);
@@ -187,7 +189,7 @@ namespace Vacation_management_system.Web.Employee
             var employee_Id = Request.QueryString["id"];
             string update_query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + txtFirstName.Text + "', last_name='" + txtLastName.Text + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + drdRole.Text + "', date_of_join='" + txtDOJ.Text + "', date_of_birth='" + txtDOB.Text + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' where id=" + employee_Id + "";
             var res=  ds.RunCommand(update_query);
-            string update_query1 = "update employee_additional set  bank_name='" + txtBankName.Text + "', bank_branch='" + txtBranchLocation.Text + "', holder_name='" + txtEmpNo.Text + "', account_number='" + txtEmpNo.Text + "', pan='" + txtEmpNo.Text + "', passport='" + txtEmpNo.Text + "', ifsc_code='" + txtEmpNo.Text + "' where emp_id=" + employee_Id + "";
+            string update_query1 = "update employee_additional set  bank_name='" + txtBankName.Text + "', bank_branch='" + txtBranchLocation.Text + "', holder_name='" + txtAccountHolder.Text + "', account_number='" + txtAccountNo.Text + "', pan='" + txtPAN.Text + "', passport='" + txtPassport.Text + "', ifsc_code='" + txtIFSC.Text + "' where emp_id=" + employee_Id + "";
             var result=  ds.RunCommand(update_query1);
             if(res && result)
             {

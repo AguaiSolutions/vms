@@ -9,12 +9,7 @@
             $("[id$=txtDOB]").datepicker();
         });
     </script>
-    <style type="text/css">
-        .auto-style1 {
-            height: 60px;
-        }
-    </style>
-
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="wrapper">
@@ -199,9 +194,9 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label class="col-md-4 control-label">IFSC Code:</label>
+                        <label class="col-md-4 control-label">Account Holder:</label>
 
-                        <asp:TextBox ID="txtIFSC" class="col-md-6 form-control" name="IFSC Code" placeholder="IFSC Code" runat="server" />
+                        <asp:TextBox ID="txtAccountHolder" class="col-md-6 form-control" name="Account Holder" placeholder="Account Holder" runat="server" />
                     </div>
 
                 </div>
@@ -212,10 +207,10 @@
                 <div class="form-group form-inline">
 
                     <div class="col-md-6">
-                        <label class="col-md-4 control-label">Select Role:</label>
+                        <label class="col-md-4 control-label">IFSC Code:</label>
                         <span style="color: red">*</span>
 
-                        <asp:DropDownList ID="drdRole" class="col-md-6 form-control" runat="server" OnSelectedIndexChanged="drdRole_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                         <asp:TextBox ID="txtIFSC" class="col-md-6 form-control" name="Account Holder" placeholder="IFSC Code" runat="server" />
                     </div>
 
                     <div class="col-md-6">
@@ -229,15 +224,26 @@
                 <br />
                 <br />
 
+                <div class="form-group form-inline">
 
-                <div class="form-group form-inline fa-align-right">
-                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Select Role:</label>
+                        <span style="color: red">*</span>
 
-                     <asp:Button ID="btnSaveandaddnew" runat="server" Text="Save&AddNew" OnClick="btnSaveandAddNew_Click" />
+                        <asp:DropDownList ID="drdRole" class="col-md-6 form-control" runat="server" OnSelectedIndexChanged="drdRole_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                    </div>
+
+                    </div>
+                 <br />
+                <br />
+                <div class="form-group form-inline fa-align-right" style="float:right; margin-right:250px">
+                    <asp:Button ID="btnSave" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="btnSave_Click" />
+
+                     <asp:Button ID="btnSaveandaddnew" CssClass="btn btn-primary" runat="server" Text="Save&AddNew" OnClick="btnSaveandAddNew_Click" />
                     
-                    <asp:Button ID="btnupdate" runat="server" Text="Update" OnClick="Update_Click" />
+                    <asp:Button ID="btnupdate" CssClass="btn btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
 
-                    <asp:Button ID="btncancel" runat="server" OnClick="Cancel_Click" Text="Cancel" />
+                    <asp:HyperLink ID="hlinkCancel" CssClass="btn btn-primary" runat="server" NavigateUrl="~/Web/Employee/EmployeeList.aspx">Cancel</asp:HyperLink>
                 </div>
 
 

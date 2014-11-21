@@ -166,6 +166,15 @@ namespace Vacation_management_system.Web.Employee {
         protected global::System.Web.UI.WebControls.TextBox txtAccountNo;
         
         /// <summary>
+        /// txtAccountHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAccountHolder;
+        
+        /// <summary>
         /// txtIFSC control.
         /// </summary>
         /// <remarks>
@@ -173,15 +182,6 @@ namespace Vacation_management_system.Web.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIFSC;
-        
-        /// <summary>
-        /// drdRole control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drdRole;
         
         /// <summary>
         /// lblImage control.
@@ -200,6 +200,15 @@ namespace Vacation_management_system.Web.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload empImage;
+        
+        /// <summary>
+        /// drdRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drdRole;
         
         /// <summary>
         /// btnSave control.
@@ -229,12 +238,12 @@ namespace Vacation_management_system.Web.Employee {
         protected global::System.Web.UI.WebControls.Button btnupdate;
         
         /// <summary>
-        /// btncancel control.
+        /// hlinkCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btncancel;
+        protected global::System.Web.UI.WebControls.HyperLink hlinkCancel;
     }
 }
