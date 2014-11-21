@@ -158,13 +158,13 @@
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav side-nav">
                             <li class="active">
-                                <a href="Dashboard.aspx"><i class="glyphicon glyphicon-home"></i>   Dashboard</a>
+                                <a href="~/Web/Dashboard/Dashboard.aspx"><i class="glyphicon glyphicon-home"></i>   Dashboard</a>
                             </li>
                             <li>
                                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="glyphicon glyphicon-user"></i>  User Management <i class="fa fa-fw fa-caret-down"></i></a>
                                 <ul id="demo" class="collapse">
                                     <li>
-                                        <a href="~/Add Employee/Add-Employee.aspx" runat="server"><i class="glyphicon glyphicon-plus-sign"></i>  Add Employee</a>
+                                        <a href="~/Web/Empolyee/Add.aspx" runat="server"><i class="glyphicon glyphicon-plus-sign"></i>  Add Employee</a>
                                     </li>
                                     <li>
                                         <a href="~/Personal Details/PersonalDetails.aspx" runat="server"><i class="glyphicon glyphicon-edit"></i>  Personal Details</a>
