@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using Aguai_Leave_Management_System;
+using Vacation_management_system.Web.Common;
 
 namespace Vacation_management_system.Web.Employee
 {
@@ -14,6 +15,7 @@ namespace Vacation_management_system.Web.Employee
     {
         Database ds = new Database();
         private SqlDataReader _data;
+        private Utilities _utilities;
         protected void Page_Load(object sender, EventArgs e)
         {
             var employee_Id = Request.QueryString["id"];
@@ -89,7 +91,10 @@ namespace Vacation_management_system.Web.Employee
 
         protected void insertemployee()
         {
-            string password = generatePassword(8);
+            string RandomString = generateString(8);
+
+            string password = _utilities.EncodePassword(RandomString);
+
             string addEmployee =
                 "insert into [employee] (emp_no,first_name,last_name,gender,personal_email,official_email,password,role_id,date_of_join,date_of_birth,contact_number,emergency_contact_number,permanent_address,temp_address) VALUES('" +
                 txtEmpNo.Text.Trim() + "','" + txtFirstName.Text.Trim() + "','" + txtLastName.Text.Trim() + "','" +
@@ -128,7 +133,7 @@ namespace Vacation_management_system.Web.Employee
 
         }
 
-        private string generatePassword(int length)
+        private string generateString(int length)
         {
 
             string allowedLetterChars = "abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
