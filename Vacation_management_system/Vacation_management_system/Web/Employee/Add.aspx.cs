@@ -91,6 +91,7 @@ namespace Vacation_management_system.Web.Employee
 
         protected void insertemployee()
         {
+            _utilities = new Utilities();
             string RandomString = generateString(8);
 
             string password = _utilities.EncodePassword(RandomString);

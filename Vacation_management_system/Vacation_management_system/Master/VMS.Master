@@ -184,7 +184,7 @@
                                 <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="glyphicon glyphicon-plane"></i> Leave Management <i class="fa fa-fw fa-caret-down"></i></a>
                                 <ul id="demo1" class="collapse">
                                     <li>
-                                        <a href="~/AppliedLeaves/AppliedLeaves.aspx" runat="server">  <i class="glyphicon glyphicon-thumbs-up"></i>       <i class="glyphicon glyphicon-thumbs-down"></i>  My Vacation</a>
+                                        <a href="~/Web/MyVacation/ApplyNewVacation.aspx" runat="server">  <i class="glyphicon glyphicon-thumbs-up"></i>       <i class="glyphicon glyphicon-thumbs-down"></i>  My Vacation</a>
                                     </li>
                                     <li>
                                         <a href="~/Employee Leaves/EmployeeLeaves.aspx" runat="server"> <i class="glyphicon glyphicon-ok-sign"></i>       <i class="glyphicon glyphicon-remove"> </i>  Employee Vacation</a>
