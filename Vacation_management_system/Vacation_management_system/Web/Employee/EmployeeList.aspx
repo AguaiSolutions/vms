@@ -41,7 +41,7 @@
                                                 <asp:BoundField DataField="gender" HeaderText="Gender" SortExpression="To_date" />
                                                 <asp:BoundField DataField="official_email" HeaderText="Ofical EmailID" SortExpression="Description" />
                                                 <asp:BoundField DataField="date_of_join" HeaderText="Date of joining" SortExpression="Type" />
-                                                <asp:BoundField DataField="mobile_number" HeaderText="Phone number" SortExpression="Approver" />
+                                                <asp:BoundField DataField="contact_number" HeaderText="Phone number" SortExpression="Approver" />
                                                 <asp:BoundField DataField="permanent_address" HeaderText="Address" SortExpression="Approval_Status" />
                              <asp:BoundField DataField="isactive" HeaderText=" Status" SortExpression="Approval_Status" />
                              <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="Add.aspx?id={0}" Text="Edit"></asp:HyperLinkField>

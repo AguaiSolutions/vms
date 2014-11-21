@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Add Employee" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="Vacation_management_system.Web.Empolyee.Add" %>
+﻿<%@ Page Title="Add Employee" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="Vacation_management_system.Web.Employee.Add" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         $(function () {
@@ -7,7 +8,7 @@
         $(function () {
             $("[id$=txtDOB]").datepicker();
         });
-                        </script>
+    </script>
     <style type="text/css">
         .auto-style1 {
             height: 60px;
@@ -16,245 +17,238 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div id="wrapper"  >
+    <div id="wrapper">
 
-            <div id="page-wrapper">
+        <div id="page-wrapper">
 
-                <div class="container-fluid"  style="background-color:white;">
-                    <!-- /.row -->
+            <div class="container-fluid" style="background-color: white;">
+                <!-- /.row -->
 
-                    <!-- Page Heading -->
+                <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Add Employees
+                        <h1 class="page-header">Add Employees
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="glyphicon glyphicon-home"></i>  <a href="~/Web/Dashboard/Dashboard.aspx" runat="server">Dashboard</a>
+                                <i class="glyphicon glyphicon-home"></i><a href="~/Web/Dashboard/Dashboard.aspx" runat="server">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="glyphicon glyphicon-plus-sign"></i> Add Employees
+                                <i class="glyphicon glyphicon-plus-sign"></i>Add Employees
                             </li>
                         </ol>
                     </div>
                 </div>
-                    <!-- /.table -->
-                    <table style="width: 100%;">
-                            <tr>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblEmpNo" runat="server">Employee Number:
-                            <span style="color: red">*</span>
-                                    </asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtEmpNo" runat="server"></asp:TextBox>
-                                   
-                                    <br />
-                                </td>
-                                
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblFirstName" runat="server">First Name:
-                            <span style="color: red">*</span>
-                                    </asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
-                                    
-                                </td>
-                            </tr>
+                <!-- /.Add Employee Details -->
 
-                            <tr>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblLastName" runat="server">Last Name:
-                            <span style="color: red">*</span>
-                                    </asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
-                                    
-                                    <br />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblGender" runat="server">Select Gender:
-                            <span style="color: red">*</span>
-                                    </asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:DropDownList ID="drpGender" runat="server">
-                                        <asp:ListItem Value="M">Male</asp:ListItem>
-                                        <asp:ListItem Value="F">Female</asp:ListItem>
-                                        <asp:ListItem Value="O">other</asp:ListItem>
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="lblPersonalEmail" runat="server" Text="Personal Email:"></asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtPersonalEmail" runat="server"></asp:TextBox>
-                                   
-                                    <br />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblOfficialEmail" runat="server">Official Email:
-                            <span style="color: red">*</span>
-                                    </asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtOfficialEmail" runat="server"></asp:TextBox>
-                                   
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblDOJ" runat="server">Date of Joining:
-                            <span style="color: red">*</span>
-                                    </asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtDOJ" runat="server"></asp:TextBox>
-                                  
-                                    <br />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblDOB" runat="server" Text="Date of Birth:"></asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblPAN" runat="server">PAN Number:
-                            <span style="color: red">*</span>
-                                    </asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtPAN" runat="server"></asp:TextBox>
-                                  
-                                    <br />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblPassport" runat="server" Text="Passport Number"></asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtPassport" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblContactNo" runat="server" Text="Contact Number:"></asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtContactNo" runat="server"></asp:TextBox>
-                                    
-                                    <br />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblEmergencyNo" runat="server" Text="Emergency Contact Number:"></asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtEmergencyNo" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblLocalAdd" runat="server" Text="Local Address:"></asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <textarea id="txtLocalAdd" runat="server" cols="20" name="S1" rows="2"></textarea><br />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblPermanentAdd" runat="server" Text="Permanent Address:"></asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <textarea id="txtPermanentAdd" runat="server" cols="20" name="S2" rows="2"></textarea></td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblBankName" runat="server" Text="Bank Name:"></asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtBankName" runat="server"></asp:TextBox>
-                                    <br />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblBranch" runat="server" Text="Branch Location:"></asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtBranchLocation" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblAccount" runat="server" Text="Account Number:"></asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtAccountNo" runat="server"></asp:TextBox>
-                                    <br />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblIFSC" runat="server" Text="IFSC Code:"></asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:TextBox ID="txtIFSC" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblRole" runat="server">Select Role:
-                            <span style="color: red">*</span>
-                                    </asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:DropDownList ID="drpRole" runat="server" OnSelectedIndexChanged="drpRole_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-                                    <br />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Label ID="lblImage" runat="server" Text="Image:"></asp:Label>
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:FileUpload ID="imgEmployee" runat="server" />
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td class="auto-style1">
-                                    <asp:Button ID="btnAddEmployee" runat="server" Text="Add Employee" OnClick="btnAddEmployee_Click" />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Button ID="btnsaveandadd" runat="server" Text="Save & Add" OnClick="btnSaveandAdd_Click" />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Button ID="btnupdate" runat="server" Text="Update" OnClick="Update_Click" />
-                                </td>
-                                <td class="auto-style1">
-                                    <asp:Button ID="btncancel" runat="server" OnClick="Cancel_Click" Text="Cancel" />
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                
-                                <td class="auto-style1">
-                                    &nbsp;</td>
-                                <td class="auto-style1">
-                                    &nbsp;</td>
+                <div class="form-group form-inline">
 
-                            </tr>
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Employee Number:</label>
+                        <span style="color: red">*</span>
+                        <asp:TextBox ID="txtEmpNo" class="col-md-4 form-control" name="Employee Number" placeholder="Enter Number" runat="server" />
+                    </div>
 
-                        </table>
-            
-
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">First Name:</label>
+                        <span style="color: red">*</span>
+                        <asp:TextBox ID="txtFirstName" class="col-md-4 form-control" name="firstname" placeholder="First Name" runat="server" />
+                    </div>
 
                 </div>
-                <!-- /.container-fluid -->
+                <br />
+                <br />
+                <div class="form-group form-inline">
+                    <%-- txtLastname--%>
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Last Name:</label>
+                        <span style="color: red">*</span>
+                        <asp:TextBox ID="txtLastName" class="col-md-4 form-control" name="lastname" placeholder="Last Name" runat="server" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Select Gender:</label>
+                        <span style="color: red">*</span>
+                        <asp:DropDownList class="col-md-4 form-control" ID="drdGender" runat="server">
+                            <asp:ListItem Value="M">Male</asp:ListItem>
+                            <asp:ListItem Value="F">Female</asp:ListItem>
+                            <asp:ListItem Value="O">other</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="form-group form-inline">
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Personal Email:</label>
+
+                        <asp:TextBox ID="txtPersonalEmail" class="col-md-4 form-control" name="Personal Email" placeholder="Personal Email" runat="server" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Official Email:</label>
+                        <span style="color: red">*</span>
+                        <asp:TextBox ID="txtOfficialEmail" class="col-md-4 form-control" name="Official Email" placeholder="Official Email" runat="server" />
+                    </div>
+
+                </div>
+                <br />
+                <br />
+                <div class="form-group form-inline">
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Date of Joining:</label>
+                        <span style="color: red">*</span>
+                        <asp:TextBox ID="txtDOJ" class="col-md-6 form-control" name="Date of Joining" placeholder="Date of Joining" runat="server" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Date of Birth:</label>
+                        <span style="color: red">*</span>
+                        <asp:TextBox ID="txtDOB" class="col-md-6 form-control" name="Date of Birth" placeholder="Date of Birth" runat="server" />
+                    </div>
+
+                </div>
+                <br />
+                <br />
+                <div class="form-group form-inline">
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Contact Number:</label>
+                        <span style="color: red">*</span>
+                        <asp:TextBox ID="txtContactNo" class="col-md-6 form-control" name="Contact Number" placeholder="Contact Number" runat="server" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Emergency Contact Number:</label>
+
+                        <asp:TextBox ID="txtEmergencyNo" class="col-md-6 form-control" name="Emergency Contact Number" placeholder="Emergency Contact Number" runat="server" />
+                    </div>
+
+                </div>
+                <br />
+                <br />
+
+                <div class="form-group form-inline">
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Local Address:</label>
+                       
+
+                        <textarea id="txtLocalAdd" class="col-md-6 form-control" placeholder="Local Address" runat="server"></textarea>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Permanent Address:</label>
+                    
+                        <textarea id="txtPermanentAdd" class="col-md-6 form-control" placeholder="Permanent Address" runat="server"></textarea>
+                    </div>
+
+                </div>
+                <br />
+                <br />
+                <br />
+      
+                <div class="form-group form-inline">
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">PAN Number:</label>
+                        <span style="color: red">*</span>
+                        <asp:TextBox ID="txtPAN" class="col-md-6 form-control" name="PAN Number" placeholder="PAN Number" runat="server" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Passport Number:</label>
+                       
+                        <asp:TextBox ID="txtPassport" class="col-md-6 form-control" name="Passport Number" placeholder="Passport Number" runat="server" />
+                    </div>
+
+                </div>
+                <br />
+                <br />
+
+                <div class="form-group form-inline">
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Bank Name:</label>
+
+                        <asp:TextBox ID="txtBankName" class="col-md-6 form-control" name="Bank Name" placeholder="Bank Name" runat="server" />
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Branch Location:</label>
+
+                        <asp:TextBox ID="txtBranchLocation" class="col-md-6 form-control" name="Branch Location" placeholder="Branch Location" runat="server" />
+                    </div>
+
+                </div>
+                <br />
+                <br />
+
+
+                <div class="form-group form-inline">
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Account Number:</label>
+
+                        <asp:TextBox ID="txtAccountNo" class="col-md-6 form-control" name="Account Number" placeholder="Account Number" runat="server" />
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">IFSC Code:</label>
+
+                        <asp:TextBox ID="txtIFSC" class="col-md-6 form-control" name="IFSC Code" placeholder="IFSC Code" runat="server" />
+                    </div>
+
+                </div>
+                <br />
+                <br />
+
+
+                <div class="form-group form-inline">
+
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Select Role:</label>
+                        <span style="color: red">*</span>
+
+                        <asp:DropDownList ID="drdRole" class="col-md-6 form-control" runat="server" OnSelectedIndexChanged="drdRole_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label id="lblImage" runat="server" class="col-md-4 control-label">Image:</label>
+
+
+                        <asp:FileUpload ID="empImage" class="col-md-6 form-control" runat="server" />
+                    </div>
+
+                </div>
+                <br />
+                <br />
+
+
+                <div class="form-group form-inline fa-align-right">
+                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+
+                     <asp:Button ID="btnSaveandaddnew" runat="server" Text="Save&AddNew" OnClick="btnSaveandAddNew_Click" />
+                    
+                    <asp:Button ID="btnupdate" runat="server" Text="Update" OnClick="Update_Click" />
+
+                    <asp:Button ID="btncancel" runat="server" OnClick="Cancel_Click" Text="Cancel" />
+                </div>
+
+
 
             </div>
-            <!-- /#page-wrapper -->
+            <!-- /.container-fluid -->
 
         </div>
-        <!-- /#wrapper -->
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
 
 </asp:Content>

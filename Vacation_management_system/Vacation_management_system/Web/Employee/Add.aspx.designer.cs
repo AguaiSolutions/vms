@@ -7,19 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vacation_management_system.Web.Empolyee {
+namespace Vacation_management_system.Web.Employee {
     
     
     public partial class Add {
-        
-        /// <summary>
-        /// lblEmpNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmpNo;
         
         /// <summary>
         /// txtEmpNo control.
@@ -31,15 +22,6 @@ namespace Vacation_management_system.Web.Empolyee {
         protected global::System.Web.UI.WebControls.TextBox txtEmpNo;
         
         /// <summary>
-        /// lblFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFirstName;
-        
-        /// <summary>
         /// txtFirstName control.
         /// </summary>
         /// <remarks>
@@ -47,15 +29,6 @@ namespace Vacation_management_system.Web.Empolyee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
-        
-        /// <summary>
-        /// lblLastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLastName;
         
         /// <summary>
         /// txtLastName control.
@@ -67,31 +40,13 @@ namespace Vacation_management_system.Web.Empolyee {
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
         
         /// <summary>
-        /// lblGender control.
+        /// drdGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGender;
-        
-        /// <summary>
-        /// drpGender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpGender;
-        
-        /// <summary>
-        /// lblPersonalEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPersonalEmail;
+        protected global::System.Web.UI.WebControls.DropDownList drdGender;
         
         /// <summary>
         /// txtPersonalEmail control.
@@ -103,15 +58,6 @@ namespace Vacation_management_system.Web.Empolyee {
         protected global::System.Web.UI.WebControls.TextBox txtPersonalEmail;
         
         /// <summary>
-        /// lblOfficialEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOfficialEmail;
-        
-        /// <summary>
         /// txtOfficialEmail control.
         /// </summary>
         /// <remarks>
@@ -119,15 +65,6 @@ namespace Vacation_management_system.Web.Empolyee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOfficialEmail;
-        
-        /// <summary>
-        /// lblDOJ control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDOJ;
         
         /// <summary>
         /// txtDOJ control.
@@ -139,15 +76,6 @@ namespace Vacation_management_system.Web.Empolyee {
         protected global::System.Web.UI.WebControls.TextBox txtDOJ;
         
         /// <summary>
-        /// lblDOB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDOB;
-        
-        /// <summary>
         /// txtDOB control.
         /// </summary>
         /// <remarks>
@@ -155,51 +83,6 @@ namespace Vacation_management_system.Web.Empolyee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDOB;
-        
-        /// <summary>
-        /// lblPAN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPAN;
-        
-        /// <summary>
-        /// txtPAN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPAN;
-        
-        /// <summary>
-        /// lblPassport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPassport;
-        
-        /// <summary>
-        /// txtPassport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassport;
-        
-        /// <summary>
-        /// lblContactNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblContactNo;
         
         /// <summary>
         /// txtContactNo control.
@@ -211,15 +94,6 @@ namespace Vacation_management_system.Web.Empolyee {
         protected global::System.Web.UI.WebControls.TextBox txtContactNo;
         
         /// <summary>
-        /// lblEmergencyNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmergencyNo;
-        
-        /// <summary>
         /// txtEmergencyNo control.
         /// </summary>
         /// <remarks>
@@ -227,15 +101,6 @@ namespace Vacation_management_system.Web.Empolyee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmergencyNo;
-        
-        /// <summary>
-        /// lblLocalAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocalAdd;
         
         /// <summary>
         /// txtLocalAdd control.
@@ -247,15 +112,6 @@ namespace Vacation_management_system.Web.Empolyee {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtLocalAdd;
         
         /// <summary>
-        /// lblPermanentAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPermanentAdd;
-        
-        /// <summary>
         /// txtPermanentAdd control.
         /// </summary>
         /// <remarks>
@@ -265,13 +121,22 @@ namespace Vacation_management_system.Web.Empolyee {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtPermanentAdd;
         
         /// <summary>
-        /// lblBankName control.
+        /// txtPAN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBankName;
+        protected global::System.Web.UI.WebControls.TextBox txtPAN;
+        
+        /// <summary>
+        /// txtPassport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPassport;
         
         /// <summary>
         /// txtBankName control.
@@ -283,15 +148,6 @@ namespace Vacation_management_system.Web.Empolyee {
         protected global::System.Web.UI.WebControls.TextBox txtBankName;
         
         /// <summary>
-        /// lblBranch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBranch;
-        
-        /// <summary>
         /// txtBranchLocation control.
         /// </summary>
         /// <remarks>
@@ -299,15 +155,6 @@ namespace Vacation_management_system.Web.Empolyee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBranchLocation;
-        
-        /// <summary>
-        /// lblAccount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAccount;
         
         /// <summary>
         /// txtAccountNo control.
@@ -319,15 +166,6 @@ namespace Vacation_management_system.Web.Empolyee {
         protected global::System.Web.UI.WebControls.TextBox txtAccountNo;
         
         /// <summary>
-        /// lblIFSC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIFSC;
-        
-        /// <summary>
         /// txtIFSC control.
         /// </summary>
         /// <remarks>
@@ -337,22 +175,13 @@ namespace Vacation_management_system.Web.Empolyee {
         protected global::System.Web.UI.WebControls.TextBox txtIFSC;
         
         /// <summary>
-        /// lblRole control.
+        /// drdRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRole;
-        
-        /// <summary>
-        /// drpRole control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpRole;
+        protected global::System.Web.UI.WebControls.DropDownList drdRole;
         
         /// <summary>
         /// lblImage control.
@@ -361,34 +190,34 @@ namespace Vacation_management_system.Web.Empolyee {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblImage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblImage;
         
         /// <summary>
-        /// imgEmployee control.
+        /// empImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload imgEmployee;
+        protected global::System.Web.UI.WebControls.FileUpload empImage;
         
         /// <summary>
-        /// btnAddEmployee control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddEmployee;
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// btnsaveandadd control.
+        /// btnSaveandaddnew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsaveandadd;
+        protected global::System.Web.UI.WebControls.Button btnSaveandaddnew;
         
         /// <summary>
         /// btnupdate control.
