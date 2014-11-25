@@ -3,12 +3,30 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         $(function () {
-            $("[id$=txtDOJ]").datepicker();
+            $("#txtDOJ").datepicker({ format: 'dd/mm/yyyy' });
         });
         $(function () {
-            $("[id$=txtDOB]").datepicker();
+            //$("[id$=txtDOB]").datepicker();
+            $("#txtDOB").datepicker({ format: 'dd/mm/yyyy' });
+        });
+        var specialKeys = new Array();
+        specialKeys.push(music); //Backspace
+        $(function () {
+            $(".numeric").bind("keypress", function (e) {
+                var keyCode = e.which ? e.which : e.keyCode;
+                var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+                $(".error").css("display", ret ? "none" : "inline");
+                return ret;
+            });
+            $(".numeric").bind("paste", function (e) {
+                return false;
+            });
+            $(".numeric").bind("drop", function (e) {
+                return false;
+            });
         });
     </script>
+  
     <style type="text/css">
         .auto-style1 {
             height: 60px;
@@ -109,14 +127,14 @@
                     <div class="col-md-6">
                         <label class="col-md-4 control-label">Date of Joining:</label>
                         <span style="color: red">*</span>
-                        <asp:TextBox ID="txtDOJ" class="col-md-6 form-control" name="Date of Joining" placeholder="Date of Joining" runat="server" />
+                        <asp:TextBox ID="txtDOJ" ClientIDMode="Static" class="col-md-6 form-control" name="Date of Joining" placeholder="Date of Joining" runat="server" />
                          <asp:RequiredFieldValidator ID="RfdDateofjoining" runat="server" ControlToValidate="txtDoj"  ErrorMessage="This felid cant be null" ForeColor="Red" ></asp:RequiredFieldValidator>
                     </div>
 
                     <div class="col-md-6">
                         <label class="col-md-4 control-label">Date of Birth:</label>
                         <span style="color: red">*</span>
-                        <asp:TextBox ID="txtDOB" class="col-md-6 form-control" name="Date of Birth" placeholder="Date of Birth" runat="server" />
+                        <asp:TextBox ID="txtDOB" ClientIDMode="Static" class="col-md-6 form-control" name="Date of Birth" placeholder="Date of Birth" runat="server" />
                          <asp:RequiredFieldValidator ID="Rfddateofdirth" runat="server" ControlToValidate="txtDOB"  ErrorMessage="This felid cant be null" ForeColor="Red" ></asp:RequiredFieldValidator>
                     </div>
 
@@ -128,7 +146,7 @@
                     <div class="col-md-6">
                         <label class="col-md-4 control-label">Contact Number:</label>
                         <span style="color: red">*</span>
-                        <asp:TextBox ID="txtContactNo" class="col-md-6 form-control" name="Contact Number" placeholder="Contact Number" runat="server" />
+                        <asp:TextBox ID="txtContactNo" class="col-md-6 form-control numeric" name="Contact Number" placeholder="Contact Number" runat="server" />
                          <asp:RequiredFieldValidator ID="RfdContactNo" runat="server" ControlToValidate="txtContactNo" ErrorMessage="This felid cant be null" ForeColor="Red" ></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtContactNo" ErrorMessage="Regincorrect phone number" ForeColor="Red" ValidationExpression="^[0-9+\(\)#\.\s\/ext-]+$">incorrect phone number</asp:RegularExpressionValidator>
                     </div>
@@ -136,7 +154,7 @@
                     <div class="col-md-6">
                         <label class="col-md-4 control-label">Emergency Contact Number:</label>
 
-                        <asp:TextBox ID="txtEmergencyNo" class="col-md-6 form-control" name="Emergency Contact Number" placeholder="Emergency Contact Number" runat="server" />
+                        <asp:TextBox ID="txtEmergencyNo" class="col-md-6 form-control numeric" name="Emergency Contact Number" placeholder="Emergency Contact Number" runat="server" />
                         <br />
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtEmergencyNo" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="^[0-9+\(\)#\.\s\/ext-]+$">incorrect phone number</asp:RegularExpressionValidator>
                     </div>
@@ -214,9 +232,9 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label class="col-md-4 control-label">IFSC Code:</label>
+                        <label class="col-md-4 control-label">Account Holder:</label>
 
-                        <asp:TextBox ID="txtIFSC" class="col-md-6 form-control" name="IFSC Code" placeholder="IFSC Code" runat="server" />
+                        <asp:TextBox ID="txtAccountHolder" class="col-md-6 form-control" name="Account Holder" placeholder="Account Holder" runat="server" />
                     </div>
 
                 </div>
@@ -227,11 +245,10 @@
                 <div class="form-group form-inline">
 
                     <div class="col-md-6">
-                        <label class="col-md-4 control-label">Select Role:</label>
+                        <label class="col-md-4 control-label">IFSC Code:</label>
                         <span style="color: red">*</span>
 
-                        <asp:DropDownList ID="drdRole" class="col-md-6 form-control" runat="server" OnSelectedIndexChanged="drdRole_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-                         <asp:RequiredFieldValidator ID="RfdRole" runat="server" ControlToValidate="drdRole"  ErrorMessage="please enter the valid name" ForeColor="Red" ></asp:RequiredFieldValidator>
+                         <asp:TextBox ID="txtIFSC" class="col-md-6 form-control" name="Account Holder" placeholder="IFSC Code" runat="server" />
                     </div>
 
                     <div class="col-md-6">
@@ -245,15 +262,35 @@
                 <br />
                 <br />
 
+                <div class="form-group form-inline">
 
-                <div class="form-group form-inline fa-align-right">
-                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Select Role:</label>
+                        <span style="color: red">*</span>
 
-                     <asp:Button ID="btnSaveandaddnew" runat="server" Text="Save&AddNew" OnClick="btnSaveandAddNew_Click" />
+                        <asp:DropDownList ID="drdRole" class="col-md-6 form-control" runat="server" OnSelectedIndexChanged="drdRole_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                    </div>
                     
-                    <asp:Button ID="btnupdate" runat="server" Text="Update" OnClick="Update_Click" />
+                    <div class="col-md-6">
+                        <label class="col-md-4 control-label">Select Manager:</label>
+                        <span style="color: red">*</span>
 
-                    <asp:Button ID="btncancel" runat="server" OnClick="Cancel_Click" Text="Cancel" />
+                        <asp:DropDownList ID="drdManager" class="col-md-6 form-control" runat="server" OnSelectedIndexChanged="drdManager_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                    </div>
+
+                    </div>
+                 <br />
+                <br />
+
+
+                <div class="form-group form-inline fa-align-right" style="float:right; margin-right:250px">
+                    <asp:Button ID="btnSave" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="btnSave_Click" />
+
+                     <asp:Button ID="btnSaveandaddnew" CssClass="btn btn-primary" runat="server" Text="Save&AddNew" OnClick="btnSaveandAddNew_Click" />
+                    
+                    <asp:Button ID="btnupdate" CssClass="btn btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
+
+                    <asp:HyperLink ID="hlinkCancel" CssClass="btn btn-primary" runat="server" NavigateUrl="~/Web/Employee/EmployeeList.aspx">Cancel</asp:HyperLink>
                 </div>
 
 
