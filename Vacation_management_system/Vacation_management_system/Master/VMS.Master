@@ -135,7 +135,7 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>John Smith <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <asp:Label ID="lblUsername" runat="server"  ></asp:Label><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="#"><i class="fa fa-fw fa-user"></i>Profile</a>
@@ -156,42 +156,10 @@
                     <br />
                     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
-                        <ul class="nav navbar-nav side-nav">
-                            <li class="active">
-                                <a href="~/Web/Dashboard/Dashboard.aspx"><i class="glyphicon glyphicon-home"></i>   Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="glyphicon glyphicon-user"></i>  User Management <i class="fa fa-fw fa-caret-down"></i></a>
-                                <ul id="demo" class="collapse">
-                                    <li>
-                                        <a href="~/Web/Employee/Add.aspx" runat="server"><i class="glyphicon glyphicon-plus-sign"></i>  Add Employee</a>
-                                    </li>
-                                    <li>
-                                        <a href="~/Personal Details/PersonalDetails.aspx" runat="server"><i class="glyphicon glyphicon-edit"></i>  Personal Details</a>
-                                    </li>
-                                    <li>
-                                        <a href="~/Web/Employee/EmployeeList.aspx" runat="server"><i class="glyphicon glyphicon-th-list"></i>  Employee Details</a>
-                                    </li>
-                                    <li>
-                                        <a href="~/Roles/Roles.aspx" runat="server"><i class="glyphicon glyphicon-lock"></i>  Roles</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="~/Holidays/Holidays.aspx" runat="server"><i class="glyphicon glyphicon-calendar"></i>   Holidays</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="glyphicon glyphicon-plane"></i> Leave Management <i class="fa fa-fw fa-caret-down"></i></a>
-                                <ul id="demo1" class="collapse">
-                                    <li>
-                                        <a href="~/Web/MyVacation/ApplyNewVacation.aspx" runat="server">  <i class="glyphicon glyphicon-thumbs-up"></i>       <i class="glyphicon glyphicon-thumbs-down"></i>  My Vacation</a>
-                                    </li>
-                                    <li>
-                                        <a href="~/Employee Leaves/EmployeeLeaves.aspx" runat="server"> <i class="glyphicon glyphicon-ok-sign"></i>       <i class="glyphicon glyphicon-remove"> </i>  Employee Vacation</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                      <div id="menu1" runat="server">
+                       
+
+                      </div>
                     </div>
                     <!-- /.navbar-collapse -->
                 </nav>
