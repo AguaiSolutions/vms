@@ -127,6 +127,7 @@
             $("[id$=txtToDate]").datepicker();
         });
     </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="wrapper">
@@ -233,13 +234,13 @@
                     <tr>
                         <td class="auto-style19"></td>
                         <td class="auto-style5">
-                            <asp:Button ID="btnApply"  CssClass="btn btn-primary" runat="server" Height="38px" Text="Apply" Width="105px" />
+                            <asp:Button ID="btnApply" OnClick="btnApply_Click"  CssClass="btn btn-primary" runat="server" Height="38px" Text="Apply" Width="105px" />
                         </td>
                         <td class="auto-style6">
-                            <asp:Button ID="btnClear" CssClass="btn btn-primary" runat="server" Height="38px" Text="Clear" Width="105px" />
+                            <asp:Button ID="btnClear" OnClick="btnClear_Click" CssClass="btn btn-primary" runat="server" Height="38px" Text="Clear" Width="105px" />
                         </td>
                         <td class="auto-style23">
-                            <asp:HyperLink ID="hyperlinkCancel" CssClass="btn" height="38px" Width="105px"  runat="server" NavigateUrl="~/Web/Dashboard/Dashboard.aspx">Cancel</asp:HyperLink>
+                            <asp:HyperLink ID="hyperlinkCancel" CssClass="btn" height="38px" Width="105px"  runat="server" NavigateUrl="~/Web/MyVacation/MyVacation.aspx">Cancel</asp:HyperLink>
                         </td>
                     </tr>
                     <tr>
