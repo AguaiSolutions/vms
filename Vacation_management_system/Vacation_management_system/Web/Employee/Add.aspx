@@ -3,11 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         $(function () {
-            $("#txtDOJ").datepicker({ format: 'dd/mm/yyyy' });
+            $("#txtDOJ").datepicker({ format: 'dd/mm/yy' });
         });
         $(function () {
             //$("[id$=txtDOB]").datepicker();
-            $("#txtDOB").datepicker({ format: 'dd/mm/yyyy' });
+            $("#txtDOB").datepicker({ format: 'dd/mm/yy' });
         });
         var specialKeys = new Array();
         specialKeys.push(music); //Backspace

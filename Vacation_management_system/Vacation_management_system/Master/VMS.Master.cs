@@ -55,7 +55,7 @@ namespace Vacation_management_system.Master
                         for (j = i; j < (foundRows.Length)+i; j++)
                         {
 
-                            menulist.Append("< li><a href=\"" + VirtualPathUtility.ToAbsolute(dt.Rows[j]["url"].ToString()) + "\"  runat=\"Server\"> " + dt.Rows[j]["menu_name"] + "</a>");
+                            menulist.Append("<li><a href=\"" + VirtualPathUtility.ToAbsolute(dt.Rows[j]["url"].ToString()) + "\"  runat=\"Server\"> " + dt.Rows[j]["menu_name"] + "</a>");
                             menulist.Append("</li> <br/>");
 
                            

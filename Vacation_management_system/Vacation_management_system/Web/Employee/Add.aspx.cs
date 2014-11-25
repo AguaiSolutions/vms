@@ -73,8 +73,8 @@ namespace Vacation_management_system.Web.Employee
                         drdGender.Text = Convert.ToString(_data["gender"]);
                         txtPersonalEmail.Text = Convert.ToString(_data["personal_email"]);
                         txtOfficialEmail.Text = Convert.ToString(_data["official_email"]);
-                        txtDOJ.Text = Convert.ToString(_data["date_of_join"]);
-                        txtDOB.Text = Convert.ToString(_data["date_of_birth"]);
+                        txtDOJ.Text = ((DateTime)_data["date_of_join"]).ToString("d");
+                        txtDOB.Text = ((DateTime)_data["date_of_birth"]).ToString("d"); 
                         txtPAN.Text = Convert.ToString(_data["pan"]);
                         txtPassport.Text = Convert.ToString(_data["passport"]);
                         txtContactNo.Text = Convert.ToString(_data["contact_number"]);
@@ -155,7 +155,7 @@ namespace Vacation_management_system.Web.Employee
 
         public string ConvertDate(string date)
         {
-            DateTime dt = DateTime.ParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            DateTime dt = DateTime.ParseExact(date, "dd/MM/yy", CultureInfo.InvariantCulture);
             return dt.ToString("yyyy-MM-dd");
         }
 
