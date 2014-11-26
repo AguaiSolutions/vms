@@ -1,124 +1,7 @@
 ﻿<%@ Page Title="Apply New Vacation" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="ApplyNewVacation.aspx.cs" Inherits="Vacation_management_system.Web.MyVacation.ApplyNewVacation" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style5 {
-            width: 290px;
-            height: 100px;
-        }
-        .auto-style6 {
-            width: 115px;
-            height: 100px;
-        }
-        .auto-style9 {
-            width: 290px;
-            height: 113px;
-        }
-        .auto-style10 {
-            width: 115px;
-            height: 113px;
-        }
-        .auto-style11 {
-            height: 113px;
-            width: 451px;
-        }
-        .auto-style13 {
-            width: 290px;
-            height: 56px;
-        }
-        .auto-style14 {
-            width: 115px;
-            height: 56px;
-        }
-        .auto-style17 {
-            width: 290px;
-        }
-        .auto-style18 {
-            width: 115px;
-        }
-        .auto-style19 {
-            width: 134px;
-            height: 100px;
-        }
-        .auto-style21 {
-            width: 134px;
-            height: 56px;
-        }
-        .auto-style22 {
-            width: 134px;
-        }
 
-        .btn {
-  background-color: hsl(193, 32%, 49%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b8d3da", endColorstr="#5493a4");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#b8d3da), to(#5493a4));
-  background-image: -moz-linear-gradient(top, #b8d3da, #5493a4);
-  background-image: -ms-linear-gradient(top, #b8d3da, #5493a4);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b8d3da), color-stop(100%, #5493a4));
-  background-image: -webkit-linear-gradient(top, #b8d3da, #5493a4);
-  background-image: -o-linear-gradient(top, #b8d3da, #5493a4);
-  background-image: linear-gradient(#b8d3da, #5493a4);
-  border-color: #5493a4 #5493a4 hsl(193, 32%, 41.5%);
-  color: #333 !important;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.49);
-  -webkit-font-smoothing: antialiased;
-}
-        .auto-style23 {
-            width: 451px;
-            height: 100px;
-        }
-        .auto-style24 {
-            width: 451px;
-            height: 56px;
-        }
-        .auto-style25 {
-            width: 451px;
-        }
-    .auto-style26 {
-        width: 134px;
-        height: 20px;
-    }
-    .auto-style27 {
-        width: 290px;
-        height: 20px;
-    }
-    .auto-style28 {
-        width: 115px;
-        height: 20px;
-    }
-    .auto-style29 {
-        width: 451px;
-        height: 20px;
-    }
-    .auto-style33 {
-        width: 134px;
-        height: 79px;
-    }
-    .auto-style34 {
-        width: 290px;
-        height: 79px;
-    }
-    .auto-style35 {
-        width: 115px;
-        height: 79px;
-    }
-    .auto-style36 {
-        width: 451px;
-        height: 79px;
-    }
-    .auto-style37 {
-        width: 134px;
-        height: 19px;
-    }
-    .auto-style38 {
-        width: 290px;
-        height: 19px;
-    }
-    .auto-style39 {
-        width: 451px;
-        height: 19px;
-    }
-    </style>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
     <script type="text/javascript">
         $(function () {
             $("[id$=txtFromDate]").datepicker();
@@ -144,122 +27,81 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="glyphicon glyphicon-home"></i><a href="~/Web/Dashboard/Dashboard.aspx" runat="server">Dashboard</a>
+                                <i class="glyphicon glyphicon-home"></i> <a href="~/Web/Dashboard/Dashboard.aspx" runat="server">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="glyphicon glyphicon-plus-sign"></i>Apply New Vacation
+                                <i class="glyphicon glyphicon-plus-sign"></i> Apply New Vacation
                             </li>
                         </ol>
                     </div>
-                </div> <!-- Page Heading End -->
-                
-                 <!-- Apply new vacation form body -->
+                </div>
+                <!-- Page Heading End -->
 
-                
-                  <br />
-                <table style="width: 80%; height: 250px; margin-left: 141px; margin-bottom: 0px;">
-                    <tr>
-                        <td class="auto-style33"> <label class=" control-label">Leave Type:</label></td>
-                        <td class="auto-style34">
-                            <asp:DropDownList ID="drpLeaveType" class=" form-control" runat="server" Height="47px" Width="195px">
-                            </asp:DropDownList>
-                        </td>
-                        <td class="auto-style35"></td>
-                        <td class="auto-style36">
-                            </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style26"> &nbsp;</td>
-                        <td class="auto-style27">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="drpLeaveType" ErrorMessage="Please select leave type." ForeColor="Red"></asp:RequiredFieldValidator>
-                        </td>
-                        <td class="auto-style28">&nbsp;</td>
-                        <td class="auto-style29">
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style33"> <label class=" control-label">From Date:</label></td>
-                        <td class="auto-style34">
-                            <asp:TextBox ID="txtFromDate"  runat="server" Height="29px" Width="196px"></asp:TextBox>
-                        </td>
-                        <td class="auto-style33"> <label class="control-label">To Date:</label></td>
-                        <td class="auto-style36">
-                            <asp:TextBox ID="txtToDate" runat="server" Height="29px" Width="196px"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style37"> </td>
-                        <td class="auto-style38">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFromDate" ErrorMessage="Enter from date" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </td>
-                        <td class="auto-style37"> </td>
-                        <td class="auto-style39">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtToDate" ErrorMessage="Enter To date" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style19"> <label class="control-label">Description:</label></td>
-                        <td class="auto-style9">
-                            <asp:TextBox ID="txtDescription" runat="server" Height="83px" TextMode="MultiLine" Width="275px"></asp:TextBox>
-                        </td>
-                        <td class="auto-style10">&nbsp;</td>
-                        <td class="auto-style11">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style26"> </td>
-                        <td class="auto-style27">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtDescription" ErrorMessage="Enter Description" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </td>
-                        <td class="auto-style28"></td>
-                        <td class="auto-style29"></td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style21">
-                            <asp:Label ID="Label1" runat="server" CssClass="control-label text" ><b>Approver</b></asp:Label>
-                        </td>
-                        <td class="auto-style13">
-                            <asp:TextBox ID="txtApprover" runat="server" Height="29px" Width="196px"></asp:TextBox>
-                        </td>
-                        <td class="auto-style14">&nbsp;</td>
-                        <td class="auto-style24"></td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style26">
-                        </td>
-                        <td class="auto-style27">
-                            &nbsp;</td>
-                        <td class="auto-style28"></td>
-                        <td class="auto-style29"></td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style19"></td>
-                        <td class="auto-style5">
-                            <asp:Button ID="btnApply" OnClick="btnApply_Click"  CssClass="btn btn-primary" runat="server" Height="38px" Text="Apply" Width="105px" />
-                        </td>
-                        <td class="auto-style6">
-                            <asp:Button ID="btnClear" OnClick="btnClear_Click" CssClass="btn btn-primary" runat="server" Height="38px" Text="Clear" Width="105px" />
-                        </td>
-                        <td class="auto-style23">
-                            <asp:HyperLink ID="hyperlinkCancel" CssClass="btn" height="38px" Width="105px"  runat="server" NavigateUrl="~/Web/MyVacation/MyVacation.aspx">Cancel</asp:HyperLink>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style22">&nbsp;</td>
-                        <td class="auto-style17">&nbsp;</td>
-                        <td class="auto-style18">&nbsp;</td>
-                        <td class="auto-style25">&nbsp;</td>
-                    </tr>
-                </table>
+                <!-- Apply new vacation form body -->
 
 
-                  </div>
-                <!-- /.container-fluid -->
+                <br />
 
+
+                <div class="panel panel-default" style="float:left;width: 550px;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Apply New Vacation</h3>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <div style="width: 500px;">
+                            <div>
+                                <label class="control-label">Leave Type:</label>
+                                <asp:DropDownList class="form-control" ID="drpLeaveType" runat="server">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="drpLeaveType" ErrorMessage="Please select leave type." ForeColor="Red"></asp:RequiredFieldValidator>
+                            </div>
+                            <br />
+
+                            <div>
+                                <label class="control-label">From:</label>
+                                <asp:TextBox ID="txtFromDate" class="form-control" name="From Date" placeholder="From Date" runat="server" />
+                                <asp:RequiredFieldValidator ID="Rfdfromdate" runat="server" ControlToValidate="txtFromDate" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </div>
+                            <div>
+                                <label class="control-label">To:</label>
+                                <asp:TextBox ID="txtToDate" class="form-control" name="To Date" placeholder="To Date" runat="server" />
+                                <asp:RequiredFieldValidator ID="Rfdtodate" runat="server" ControlToValidate="txtToDate" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </div>
+                            <br />
+
+                            <div>
+                                <label class="control-label">Reason:</label>
+                                <asp:TextBox ID="txtReason" TextMode="MultiLine" class="form-control" name="Reason" placeholder="Reason" runat="server" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtReason" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </div>
+                            <br />
+
+                            <div>
+                                <label class="control-label">Approver:</label>
+                                <asp:TextBox ID="txtApprover" class="form-control" name="Approver" runat="server" />
+                            </div>
+                        </div>
+
+                        <div class="form-group form-inline" style="margin-top: 50px;">
+                            <asp:Button ID="btnApply" CssClass="btn btn-primary" runat="server" Text="Apply" OnClick="btnApply_Click" />
+
+                            <asp:Button ID="btnClear" CssClass="btn btn-primary" runat="server" Text="Clear" OnClick="btnClear_Click" />
+
+                            <asp:HyperLink ID="hyperlinkCancel" CssClass="btn btn-primary" runat="server" NavigateUrl="~/Web/MyVacation/MyVacation.aspx">Cancel</asp:HyperLink>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <!-- /#page-wrapper -->
+            <!-- /.container-fluid -->
 
         </div>
-        <!-- /#wrapper -->
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
 
 
 </asp:Content>
