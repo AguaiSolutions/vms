@@ -69,6 +69,8 @@
                                 <asp:TextBox ID="txtToDate" class="form-control" name="To Date" placeholder="To Date" runat="server" />
                                 <asp:RequiredFieldValidator ID="Rfdtodate" runat="server" ControlToValidate="txtToDate" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
+                            &nbsp;<asp:Label ID="lblManager_Email" runat="server" Visible="False"></asp:Label>
+&nbsp;<asp:Label ID="lblManager_Id" runat="server" Visible="False"></asp:Label>
                             <br />
 
                             <div>
@@ -79,8 +81,8 @@
                             <br />
 
                             <div>
-                                <label class="control-label">Approver:</label>
-                                <asp:TextBox ID="txtApprover" class="form-control" name="Approver" runat="server" />
+                                <asp:label id="lblApprover" runat="server" class="control-label">Approver:</asp:label>
+                                <asp:TextBox ID="txtApprover" ReadOnly="true" class="form-control" name="Approver" runat="server" />
                             </div>
                         </div>
 

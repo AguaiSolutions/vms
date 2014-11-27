@@ -85,8 +85,6 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="Web\Employee\Add.aspx" />
-    <Content Include="Web\Employee\EmployeeList.aspx" />
     <Content Include="Web\Images\Capture.PNG" />
     <Content Include="Web\Images\VMS.ico" />
     <Content Include="Web\Login\Login.aspx" />
@@ -178,20 +176,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\Database\Database.cs" />
-    <Compile Include="Web\Employee\Add.aspx.cs">
-      <DependentUpon>Add.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web\Employee\Add.aspx.designer.cs">
-      <DependentUpon>Add.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web\Employee\EmployeeList.aspx.cs">
-      <DependentUpon>EmployeeList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web\Employee\EmployeeList.aspx.designer.cs">
-      <DependentUpon>EmployeeList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Web\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
