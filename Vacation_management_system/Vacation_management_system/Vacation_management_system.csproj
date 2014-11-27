@@ -66,6 +66,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\sb-admin.css" />
+    <Content Include="Global.asax" />
     <Content Include="Web\Common\Footer.ascx" />
     <Content Include="Web\Dashboard\Dashboard.aspx" />
     <Content Include="packages.config" />
@@ -87,6 +88,8 @@
     <Content Include="Web\Images\Capture.PNG" />
     <Content Include="Web\Images\VMS.ico" />
     <Content Include="Web\Login\Login.aspx" />
+    <Content Include="Web\MyVacation\ApplyNewVacation.aspx" />
+    <Content Include="Web\MyVacation\MyVacation.aspx" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -146,6 +149,9 @@
     <Content Include="Scripts\jquery-2.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Web\Common\Footer.ascx.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -153,6 +159,7 @@
     <Compile Include="Web\Common\Footer.ascx.designer.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Web\Common\Utilities.cs" />
     <Compile Include="Web\Dashboard\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -176,6 +183,20 @@
     <Compile Include="Web\Login\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\MyVacation\ApplyNewVacation.aspx.cs">
+      <DependentUpon>ApplyNewVacation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\MyVacation\ApplyNewVacation.aspx.designer.cs">
+      <DependentUpon>ApplyNewVacation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\MyVacation\MyVacation.aspx.cs">
+      <DependentUpon>MyVacation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\MyVacation\MyVacation.aspx.designer.cs">
+      <DependentUpon>MyVacation.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
@@ -189,7 +210,6 @@
     <Folder Include="Web\EmployeeVacation\" />
     <Folder Include="Web\Empolyee\" />
     <Folder Include="Web\Holidays\" />
-    <Folder Include="Web\MyVacation\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

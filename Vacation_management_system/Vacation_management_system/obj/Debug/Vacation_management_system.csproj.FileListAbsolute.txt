@@ -10,3 +10,9 @@ D:\Aguai\leave\Vacation_management_system\Vacation_management_system\bin\Vacatio
 D:\Aguai\leave\Vacation_management_system\Vacation_management_system\obj\Debug\Vacation_management_system.csprojResolveAssemblyReference.cache
 D:\Aguai\leave\Vacation_management_system\Vacation_management_system\obj\Debug\Vacation_management_system.dll
 D:\Aguai\leave\Vacation_management_system\Vacation_management_system\obj\Debug\Vacation_management_system.pdb
+E:\vms\Vacation_management_system\Vacation_management_system\obj\Debug\Vacation_management_system.csprojResolveAssemblyReference.cache
+E:\vms\Vacation_management_system\Vacation_management_system\obj\Debug\Vacation_management_system.dll
+E:\vms\Vacation_management_system\Vacation_management_system\obj\Debug\Vacation_management_system.pdb
+E:\vms\Vacation_management_system\Vacation_management_system\bin\Vacation_management_system.dll.config
+E:\vms\Vacation_management_system\Vacation_management_system\bin\Vacation_management_system.dll
+E:\vms\Vacation_management_system\Vacation_management_system\bin\Vacation_management_system.pdb

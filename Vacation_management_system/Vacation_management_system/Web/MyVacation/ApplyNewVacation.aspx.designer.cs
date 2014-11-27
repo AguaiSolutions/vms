@@ -67,6 +67,24 @@ namespace Vacation_management_system.Web.MyVacation {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator Rfdtodate;
         
         /// <summary>
+        /// lblManager_Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManager_Email;
+        
+        /// <summary>
+        /// lblManager_Id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManager_Id;
+        
+        /// <summary>
         /// txtReason control.
         /// </summary>
         /// <remarks>
@@ -83,6 +101,15 @@ namespace Vacation_management_system.Web.MyVacation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
+        /// lblApprover control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblApprover;
         
         /// <summary>
         /// txtApprover control.
