@@ -13,7 +13,6 @@ namespace Vacation_management_system.Web.Login
 {
     public partial class Login : System.Web.UI.Page
     {
-        private Utilities utilities;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,7 +20,6 @@ namespace Vacation_management_system.Web.Login
 
         protected void butsignin_Click(object sender, EventArgs e)
         {
-            utilities=new Utilities();
             if (txtUsername.Text != null && txtPassword.Text != null)
             {
                 string constr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
@@ -38,11 +36,8 @@ namespace Vacation_management_system.Web.Login
                             Session["role_ID"] = dr["role_id"];
                             Session["UserName"] = Convert.ToString(dr["first_name"]) + Convert.ToString(dr["last_name"]);
                             Session["userId"] = dr["id"];
-                            string dbPassword = Convert.ToString(dr["password"]);
-
-                            string hashedPassword = utilities.EncodePassword(txtPassword.Text.Trim());
-
-                            if (utilities.ComparePassword(dbPassword, hashedPassword) == true)
+                           
+                            if (Utilities.ComparePassword(Convert.ToString(dr["password"]), Utilities.EncodePassword(txtPassword.Text.Trim())) == true)
                             {
                                 dr.Close();
                                Response.Redirect("~/Web/Dashboard/Dashboard.aspx");
@@ -62,9 +57,6 @@ namespace Vacation_management_system.Web.Login
                     dr.Close();
                     con.Close();
                 }
-
-
-
             }
             else
             {

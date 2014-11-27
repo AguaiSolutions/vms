@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 using System.Data.SqlClient;
 using Aguai_Leave_Management_System;
 using Vacation_management_system.Web.Common;
@@ -16,19 +11,20 @@ namespace Vacation_management_system.Web.Employee
     {
         Database ds = new Database();
         private SqlDataReader _data;
-        private Utilities utilities;
+        private string _query;
+        private int _roleId, _managerId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            var employee_Id = Request.QueryString["id"];
+            var employeeId = Request.QueryString["id"];
 
             if (!IsPostBack)
             {
                 btnupdate.Visible = false;
-                string roles = "SELECT id,role_name FROM user_roles ORDER BY ID DESC";
+                _query = "SELECT id,role_name FROM user_roles ORDER BY ID DESC";
 
                 //  Datatable , Dataset , Datarow ,Datacolumn , Dataadapter
 
-                ds.RunQuery(out _data, roles);
+                ds.RunQuery(out _data, _query);
                 while (_data.Read())
                 {
                     drdRole.Items.Add(new ListItem(_data[1].ToString(), _data[0].ToString()));
@@ -37,9 +33,9 @@ namespace Vacation_management_system.Web.Employee
                 ds.Close();
                 //select Manager
 
-                string Manager = "SELECT id,first_name,last_name FROM employee where role_id < 3";
+                _query = "SELECT id,first_name,last_name FROM employee where role_id < 3";
 
-                ds.RunQuery(out _data, Manager);
+                ds.RunQuery(out _data, _query);
 
                 while (_data.Read())
                 {
@@ -54,7 +50,7 @@ namespace Vacation_management_system.Web.Employee
                 drdManager_SelectedIndexChanged(sender, e);
 
 
-                if (employee_Id != null)
+                if (employeeId != null)
                 {
                     empImage.Visible = false;
                     lblImage.Visible = false;
@@ -62,8 +58,8 @@ namespace Vacation_management_system.Web.Employee
                     btnSaveandaddnew.Visible = false;
                     btnupdate.Visible = true;
 
-                    string employee_details = "select * from employee INNER JOIN employee_additional  on employee.id=employee_additional.emp_id where employee.id =" + employee_Id + "";
-                    ds.RunQuery(out _data, employee_details);
+                    _query = "select * from employee INNER JOIN employee_additional  on employee.id=employee_additional.emp_id where employee.id =" + employeeId + "";
+                    ds.RunQuery(out _data, _query);
                     while (_data.Read())
                     {
 
@@ -96,14 +92,13 @@ namespace Vacation_management_system.Web.Employee
 
         protected void drdRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["roleID"] = Convert.ToInt32(drdRole.SelectedValue);
+            _roleId = Convert.ToInt32(drdRole.SelectedValue);
 
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            int value = DuplicateValidation();
-            if (value == 0)
+            if (DuplicateValidation() == 0)
             {
                 Insertemployee();
                 Response.Redirect("EmployeeList.aspx");
@@ -118,9 +113,7 @@ namespace Vacation_management_system.Web.Employee
         {
             string RandomString = generateString(8);
 
-            utilities = new Utilities();
-
-            string password = utilities.EncodePassword(RandomString);
+            string password = Utilities.EncodePassword(RandomString);
 
             string DOB = ConvertDate(txtDOB.Text);
 
@@ -130,7 +123,7 @@ namespace Vacation_management_system.Web.Employee
                 "insert into [employee] (emp_no,first_name,last_name,gender,personal_email,official_email,password,role_id,date_of_join,date_of_birth,contact_number,emergency_contact_number,permanent_address,temp_address) VALUES('" +
                 txtEmpNo.Text.Trim() + "','" + txtFirstName.Text.Trim() + "','" + txtLastName.Text.Trim() + "','" +
                 drdGender.SelectedValue + "','" + txtPersonalEmail.Text.Trim() + "','" + txtOfficialEmail.Text.Trim() +
-                "','" + password + "'," + Session["roleID"] + ",'" + DOJ + "','" + DOB + "','" +
+                "','" + password + "'," + _roleId + ",'" + DOJ + "','" + DOB + "','" +
                 txtContactNo.Text.Trim() + "','" + txtEmergencyNo.Text.Trim() + "','" + txtLocalAdd.InnerText + "','" +
                 txtPermanentAdd.InnerText + "') SELECT SCOPE_IDENTITY() ";
             Int32 empId = Convert.ToInt32(ds.ExecuteObjectQuery(addEmployee));
@@ -146,7 +139,7 @@ namespace Vacation_management_system.Web.Employee
             ds.Close();
             if (empId > 0)
             {
-                calReminingLeaves(empId, txtDOJ.Text);
+                CalReminingLeaves(empId, txtDOJ.Text);
 
                 InsertManager(empId);
 
@@ -155,18 +148,13 @@ namespace Vacation_management_system.Web.Employee
 
         public string ConvertDate(string date)
         {
-            DateTime dt = DateTime.ParseExact(date, "dd/MM/yy", CultureInfo.InvariantCulture);
+            DateTime dt = DateTime.ParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             return dt.ToString("yyyy-MM-dd");
         }
 
-        private void calReminingLeaves(long empId, string p)
+        private void CalReminingLeaves(long empId, string p)
         {
-
-            var date = DateTime.Parse(p);
-
-
-            var month = date.Month;
-            var currentLeaves = (12 - month) * 1.5;
+            var currentLeaves = (12 - DateTime.Parse(p).Month + 1)*1.5;
 
             string empLeave = "INSERT INTO employee_configuration (emp_id,current_year_leaves) values (" + empId + "," + currentLeaves + ")";
             ds.RunCommand(empLeave);
@@ -227,10 +215,10 @@ namespace Vacation_management_system.Web.Employee
         protected void Update_Click(object sender, EventArgs e)
         {
             var employee_Id = Request.QueryString["id"];
-            string update_query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + txtFirstName.Text + "', last_name='" + txtLastName.Text + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + drdRole.Text + "', date_of_join='" + ConvertDate(txtDOJ.Text) + "', date_of_birth='" + ConvertDate(txtDOB.Text) + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' where id=" + employee_Id + "";
-            var res = ds.RunCommand(update_query);
-            string update_query1 = "update employee_additional set  bank_name='" + txtBankName.Text + "', bank_branch='" + txtBranchLocation.Text + "', holder_name='" + txtAccountHolder.Text + "', account_number='" + txtAccountNo.Text + "', pan='" + txtPAN.Text + "', passport='" + txtPassport.Text + "', ifsc_code='" + txtIFSC.Text + "' where emp_id=" + employee_Id + "";
-            var result = ds.RunCommand(update_query1);
+            _query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + txtFirstName.Text + "', last_name='" + txtLastName.Text + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + drdRole.Text + "', date_of_join='" + ConvertDate(txtDOJ.Text) + "', date_of_birth='" + ConvertDate(txtDOB.Text) + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' where id=" + employee_Id + "";
+            var res = ds.RunCommand(_query);
+            _query = "update employee_additional set  bank_name='" + txtBankName.Text + "', bank_branch='" + txtBranchLocation.Text + "', holder_name='" + txtAccountHolder.Text + "', account_number='" + txtAccountNo.Text + "', pan='" + txtPAN.Text + "', passport='" + txtPassport.Text + "', ifsc_code='" + txtIFSC.Text + "' where emp_id=" + employee_Id + "";
+            var result = ds.RunCommand(_query);
             if (res && result)
             {
                 Response.Redirect("EmployeeList.aspx");
@@ -241,11 +229,10 @@ namespace Vacation_management_system.Web.Employee
 
         public void InsertManager(int empId)
         {
-            string insertManager = "insert into manager (employee_id, manager_id) values (" + empId + "," + Convert.ToInt32(Session["ManagerID"]) + ")";
+            _query = "insert into manager (employee_id, manager_id) values (" + empId + "," + _managerId + ")";
 
-            ds.RunCommand(insertManager);
-            ds.Close();
-
+            ds.RunCommand(_query);
+            
         }
 
         public int DuplicateValidation()
@@ -253,7 +240,7 @@ namespace Vacation_management_system.Web.Employee
             string check =
                 "IF EXISTS (SELECT * FROM employee WHERE emp_no='" + txtEmpNo.Text + "' OR first_name='" + txtFirstName.Text + "' OR last_name='" + txtLastName.Text + "' OR official_email='" + txtOfficialEmail + "')BEGIN SELECT 1 END ELSE BEGIN SELECT 0 END";
             int value = Convert.ToInt32(ds.ExecuteObjectQuery(check));
-            ds.Close();
+
             return value;
 
         }
@@ -264,7 +251,7 @@ namespace Vacation_management_system.Web.Employee
 
         protected void drdManager_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["ManagerID"] = Convert.ToInt32(drdManager.SelectedValue);
+            _managerId = Convert.ToInt32(drdManager.SelectedValue);
         }
 
     }

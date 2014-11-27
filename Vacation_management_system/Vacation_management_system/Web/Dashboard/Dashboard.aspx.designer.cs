@@ -7,10 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vacation_management_system.Dashboard
+namespace Vacation_management_system.Web.Dashboard
 {
-
-
+    
     public partial class Dashboard
     {
     }

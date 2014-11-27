@@ -5,7 +5,7 @@ namespace Vacation_management_system.Web.Common
 {
     public class Utilities
     {
-        public string EncodePassword(string password)
+        public static string EncodePassword(string password)
         {
             MD5CryptoServiceProvider md5Hasher = new MD5CryptoServiceProvider();
 
@@ -18,7 +18,7 @@ namespace Vacation_management_system.Web.Common
             return sBuilder.ToString();
         }
 
-        public bool ComparePassword(string dbPassword, string hashedPassword)
+        public static bool ComparePassword(string dbPassword, string hashedPassword)
         {
             if (dbPassword == hashedPassword)
             {

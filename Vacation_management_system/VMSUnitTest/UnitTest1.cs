@@ -16,7 +16,7 @@ namespace VMSUnitTest
 
             string dbhashpassword = "40be4e59b9a2a2b5dffb918c0e86b3d7";
 
-            Assert.IsTrue(utilities.ComparePassword(dbhashpassword, utilities.EncodePassword(password)));
+            Assert.IsTrue(Utilities.ComparePassword(dbhashpassword, Utilities.EncodePassword(password)));
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace VMSUnitTest
 
             string dbhashpassword = "40be4e59b9a2a2b5dffb918c0e86b3d7";
 
-            Assert.IsFalse(utilities.ComparePassword(dbhashpassword, utilities.EncodePassword(password)));
+            Assert.IsFalse(Utilities.ComparePassword(dbhashpassword, Utilities.EncodePassword(password)));
         }
 
         [TestMethod]
@@ -36,7 +36,7 @@ namespace VMSUnitTest
             string password2= "welcome2";
 
 
-            Assert.IsFalse(utilities.ComparePassword(utilities.EncodePassword(password1), utilities.EncodePassword(password2)));
+            Assert.IsFalse(Utilities.ComparePassword(Utilities.EncodePassword(password1), Utilities.EncodePassword(password2)));
         }
     }
 }

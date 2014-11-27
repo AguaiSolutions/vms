@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-namespace Vacation_management_system.Dashboard
+namespace Vacation_management_system.Web.Dashboard
 {
     public partial class Dashboard : System.Web.UI.Page
     {

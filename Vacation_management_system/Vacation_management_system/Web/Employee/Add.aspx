@@ -10,7 +10,7 @@
             $("#txtDOB").datepicker({ format: 'dd/mm/yyyy' });
         });
         var specialKeys = new Array();
-        specialKeys.push(music); //Backspace
+        //specialKeys.push(music); //Backspace
         $(function () {
             $(".numeric").bind("keypress", function (e) {
                 var keyCode = e.which ? e.which : e.keyCode;

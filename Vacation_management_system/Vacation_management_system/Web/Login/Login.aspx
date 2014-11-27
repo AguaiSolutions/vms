@@ -21,6 +21,13 @@
             width: 402px;
             height: 130px;
         }
+        .auto-style3 {
+            width: 210px;
+        }
+        .auto-style4 {
+            height: 53px;
+            width: 210px;
+        }
     </style>
    
     </head>
@@ -47,8 +54,8 @@
 
                             <table style="width:72%; margin-left:auto;margin-right:auto;background-color:lightblue; height: 180px;">
                                 <tr>
-                                    <td>
-                                        <asp:Label ID="lblusername" runat="server" Font-Bold="False" Font-Italic="False" Font-Size="Medium" Text="EMAIL_ID/EMPLOYEE_ID" ForeColor="Black"></asp:Label>
+                                    <td class="auto-style3">
+                                        <asp:Label ID="lblusername" runat="server" Font-Bold="False" Font-Italic="False" Font-Size="Medium" Text="EMAIL ID / EMPLOYEE ID" ForeColor="Black"></asp:Label>
                                         :</td>
                                     <td>
                                         <asp:TextBox ID="txtUsername" runat="server" Height="28px" Width="219px"></asp:TextBox>
@@ -59,7 +66,7 @@
                                    
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td class="auto-style3">
                                         <asp:Label ID="lblpassword" runat="server" Font-Bold="False" Font-Italic="False" Font-Size="Medium" ForeColor="Black" Text="PASSWORD:"></asp:Label>
                                     </td>
                                     <td>
@@ -73,7 +80,7 @@
                                 </tr>
                                 
                                 <tr>
-                                    <td class="auto-style1">
+                                    <td class="auto-style4">
                                         <asp:Button ID="butsignin" runat="server" Text="SIGN IN" CssClass=" btn-lg" Font-Bold="False" Font-Italic="False" Font-Size="Large" ForeColor="Black" background-color="black" OnClick="butsignin_Click" />
                                     </td>
                                     <td class="auto-style1">
