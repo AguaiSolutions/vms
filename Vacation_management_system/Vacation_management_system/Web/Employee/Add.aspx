@@ -67,15 +67,15 @@
                         <div class="form-group form-inline">
 
                             <div class="col-md-6">
-                                <label class="col-md-4 control-label">Employee Number:</label>
-                                <span style="color: red">*</span>
+                                <label class="col-md-4 control-label">Employee Number:<span style="color: red">*</span></label>
+                                
                                 <asp:TextBox ID="txtEmpNo" class="col-md-4 form-control" name="Employee Number" placeholder="Enter Number" runat="server" Style="width: 300px;" />
                                 <asp:RequiredFieldValidator ID="RfdEmp_no" runat="server" ControlToValidate="txtEmpNo" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="col-md-4 control-label">First Name:</label>
-                                <span style="color: red">*</span>
+                                <label class="col-md-4 control-label">First Name:<span style="color: red">*</span></label>
+                                
                                 <asp:TextBox ID="txtFirstName" class="col-md-4 form-control" name="firstname" placeholder="First Name" runat="server" Style="width: 300px;" />
                                 <asp:RequiredFieldValidator ID="RfdFirstName" runat="server" ControlToValidate="txtFirstName" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
@@ -87,15 +87,15 @@
                             <%-- txtLastname--%>
 
                             <div class="col-md-6">
-                                <label class="col-md-4 control-label">Last Name:</label>
-                                <span style="color: red">*</span>
+                                <label class="col-md-4 control-label">Last Name:<span style="color: red">*</span></label>
+                                
                                 <asp:TextBox ID="txtLastName" class="col-md-4 form-control" name="lastname" placeholder="Last Name" runat="server" Style="width: 300px;" />
                                 <asp:RequiredFieldValidator ID="RfdLastName" runat="server" ControlToValidate="txtLastName" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="col-md-4 control-label">Select Gender:</label>
-                                <span style="color: red">*</span>
+                                <label class="col-md-4 control-label">Select Gender:<span style="color: red">*</span></label>
+                                
                                 <asp:DropDownList class="col-md-4 form-control" ID="drdGender" runat="server" Style="width: 300px;">
                                     <asp:ListItem Value="M">Male</asp:ListItem>
                                     <asp:ListItem Value="F">Female</asp:ListItem>
@@ -117,8 +117,8 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label class="col-md-4 control-label">Official Email:</label>
-                                <span style="color: red">*</span>
+                                <label class="col-md-4 control-label">Official Email:<span style="color: red">*</span></label>
+                                
                                 <asp:TextBox ID="txtOfficialEmail" class="col-md-4 form-control" name="Official Email" placeholder="Official Email" runat="server" Style="width: 300px;" />
                                 <asp:RequiredFieldValidator ID="RfdOfficalEmail" runat="server" ControlToValidate="txtOfficialEmail" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtOfficialEmail" ErrorMessage="Invalid Email" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
@@ -130,15 +130,15 @@
                         <div class="form-group form-inline">
 
                             <div class="col-md-6">
-                                <label class="col-md-4 control-label">Date of Joining:</label>
-                                <span style="color: red">*</span>
+                                <label class="col-md-4 control-label">Date of Joining:<span style="color: red">*</span></label>
+                                
                                 <asp:TextBox ID="txtDOJ" ClientIDMode="Static" class="col-md-6 form-control" name="Date of Joining" placeholder="Date of Joining" runat="server" Style="width: 300px;" />
                                 <asp:RequiredFieldValidator ID="RfdDateofjoining" runat="server" ControlToValidate="txtDoj" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="col-md-4 control-label">Date of Birth:</label>
-                                <span style="color: red">*</span>
+                                <label class="col-md-4 control-label">Date of Birth:<span style="color: red">*</span></label>
+                                
                                 <asp:TextBox ID="txtDOB" ClientIDMode="Static" class="col-md-6 form-control" name="Date of Birth" placeholder="Date of Birth" runat="server" Style="width: 300px;" />
                                 <asp:RequiredFieldValidator ID="Rfddateofdirth" runat="server" ControlToValidate="txtDOB" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
@@ -149,8 +149,8 @@
                         <div class="form-group form-inline">
 
                             <div class="col-md-6">
-                                <label class="col-md-4 control-label">Contact Number:</label>
-                                <span style="color: red">*</span>
+                                <label class="col-md-4 control-label">Contact Number:<span style="color: red">*</span></label>
+                                
                                 <asp:TextBox ID="txtContactNo" class="col-md-6 form-control numeric" name="Contact Number" placeholder="Contact Number" runat="server" Style="width: 300px;" />
                                 <asp:RequiredFieldValidator ID="RfdContactNo" runat="server" ControlToValidate="txtContactNo" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtContactNo" ErrorMessage="Regincorrect phone number" ForeColor="Red" ValidationExpression="^[0-9+\(\)#\.\s\/ext-]+$">incorrect phone number</asp:RegularExpressionValidator>
@@ -191,8 +191,8 @@
                         <div class="form-group form-inline">
 
                             <div class="col-md-6">
-                                <label class="col-md-4 control-label">PAN Number:</label>
-                                <span style="color: red">*</span>
+                                <label class="col-md-4 control-label">PAN Number:<span style="color: red">*</span></label>
+                                
                                 <asp:TextBox ID="txtPAN" class="col-md-6 form-control" name="PAN Number" placeholder="PAN Number" runat="server" Style="width: 300px;" />
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPAN" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
                             </div>
@@ -251,7 +251,7 @@
 
                             <div class="col-md-6">
                                 <label class="col-md-4 control-label">IFSC Code:</label>
-                                <span style="color: red">*</span>
+                                
 
                                 <asp:TextBox ID="txtIFSC" class="col-md-6 form-control" name="Account Holder" placeholder="IFSC Code" runat="server" Style="width: 300px;" />
                             </div>
@@ -270,28 +270,28 @@
                         <div class="form-group form-inline">
 
                             <div class="col-md-6">
-                                <label class="col-md-4 control-label">Select Role:</label>
-                                <span style="color: red">*</span>
+                                <label class="col-md-4 control-label">Select Role:<span style="color: red">*</span></label>
+                                
 
                                 <asp:DropDownList ID="drdRole" class="col-md-6 form-control" runat="server" OnSelectedIndexChanged="drdRole_SelectedIndexChanged" AutoPostBack="True" Style="width: 300px;"></asp:DropDownList>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="col-md-4 control-label">Select Manager:</label>
-                                <span style="color: red">*</span>
+                                <label class="col-md-4 control-label">Select Reporting Manager:</label>
+                                
 
                                 <asp:DropDownList ID="drdManager" class="col-md-6 form-control" runat="server" OnSelectedIndexChanged="drdManager_SelectedIndexChanged" AutoPostBack="True" Style="width: 300px;"></asp:DropDownList>
                             </div>
 
                         </div>
                         <br />
-                        <br />
+                       <br />
 
 
                         <div class="form-group form-inline fa-align-left" style="float: left; margin-left: 20px;">
                             <asp:Button ID="btnSave" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="btnSave_Click" />
 
-                            <asp:Button ID="btnSaveandaddnew" CssClass="btn btn-primary" runat="server" Text="Save & AddNew" OnClick="btnSaveandAddNew_Click" />
+                            <asp:Button ID="btnSaveandaddnew" CssClass="btn btn-primary" runat="server" Text="Save & Add New" OnClick="btnSaveandAddNew_Click" />
 
                             <asp:Button ID="btnupdate" CssClass="btn btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
 
