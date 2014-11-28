@@ -136,7 +136,7 @@ namespace Vacation_management_system.Web.Employee
 
 
             ds.RunCommand(addEmpAdditional);
-            ds.Close();
+            
             if (empId > 0)
             {
                 CalReminingLeaves(empId, txtDOJ.Text);
@@ -156,9 +156,9 @@ namespace Vacation_management_system.Web.Employee
         {
             var currentLeaves = (12 - DateTime.Parse(p).Month + 1)*1.5;
 
-            string empLeave = "INSERT INTO employee_configuration (emp_id,current_year_leaves) values (" + empId + "," + currentLeaves + ")";
-            ds.RunCommand(empLeave);
-            ds.Close();
+            _query = "INSERT INTO employee_configuration (emp_id,current_year_leaves) values (" + empId + "," + currentLeaves + ")";
+            ds.RunCommand(_query);
+            
 
         }
 
@@ -237,9 +237,9 @@ namespace Vacation_management_system.Web.Employee
 
         public int DuplicateValidation()
         {
-            string check =
+            _query =
                 "IF EXISTS (SELECT * FROM employee WHERE emp_no='" + txtEmpNo.Text + "' OR first_name='" + txtFirstName.Text + "' OR last_name='" + txtLastName.Text + "' OR official_email='" + txtOfficialEmail + "')BEGIN SELECT 1 END ELSE BEGIN SELECT 0 END";
-            int value = Convert.ToInt32(ds.ExecuteObjectQuery(check));
+            int value = Convert.ToInt32(ds.ExecuteObjectQuery(_query));
 
             return value;
 
