@@ -16,7 +16,7 @@ namespace Vacation_management_system.Web.Employee
         protected void Page_Load(object sender, EventArgs e)
         {
             var employeeId = Request.QueryString["id"];
-
+            
             if (!IsPostBack)
             {
                 lblEmployee.Text = "Add Employee";
@@ -35,7 +35,8 @@ namespace Vacation_management_system.Web.Employee
                 _data.Close();
                 ds.Close();
                 //select Manager
-
+                
+                
                 _query = "SELECT id,first_name,last_name FROM employee where role_id < 3";
 
                 ds.RunQuery(out _data, _query);
@@ -45,12 +46,11 @@ namespace Vacation_management_system.Web.Employee
                     drdManager.Items.Add(new ListItem(_data[1].ToString() + " " + _data[2].ToString(), _data[0].ToString()));
                 }
                 _data.Close();
+               
                 ds.Close();
                 //!end 
 
-                drdRole_SelectedIndexChanged(sender, e);
-
-                drdManager_SelectedIndexChanged(sender, e);
+               
 
 
                 if (employeeId != null)
@@ -104,6 +104,8 @@ namespace Vacation_management_system.Web.Employee
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            drdManager_SelectedIndexChanged(sender, e);
+            drdRole_SelectedIndexChanged(sender, e);
             if (DuplicateValidation() == 0)
             {
                 Insertemployee();
@@ -231,7 +233,7 @@ namespace Vacation_management_system.Web.Employee
         public int DuplicateValidation()
         {
             _query =
-                "IF EXISTS (SELECT * FROM employee WHERE emp_no='" + Utilities.convertQuotes(txtEmpNo.Text.Trim()) + "' OR first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "' OR last_name='" + txtLastName.Text + "' OR official_email='" + txtOfficialEmail + "')BEGIN SELECT 1 END ELSE BEGIN SELECT 0 END";
+                "IF EXISTS (SELECT * FROM employee WHERE emp_no='" + txtEmpNo.Text.Trim() + "' OR first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "' OR last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "' OR official_email='" + txtOfficialEmail + "')BEGIN SELECT 1 END ELSE BEGIN SELECT 0 END";
             int value = Convert.ToInt32(ds.ExecuteObjectQuery(_query));
 
             return value;

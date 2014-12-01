@@ -274,12 +274,12 @@
                                     <label class="col-sm-2 control-label">Select Role:<span style="color: red">*</span></label>
 
 
-                                    <asp:DropDownList ID="drdRole" class="col-sm-6 form-control" runat="server" OnSelectedIndexChanged="drdRole_SelectedIndexChanged" AutoPostBack="True" Style="width: 300px;"></asp:DropDownList>
+                                    <asp:DropDownList ID="drdRole" class="col-sm-6 form-control" runat="server" OnSelectedIndexChanged="drdRole_SelectedIndexChanged" Style="width: 300px;"></asp:DropDownList>
                                 </div>
 
                                 <div>
                                     <label class="col-sm-2 control-label">Select Reporting Manager:</label>
-                                    <asp:DropDownList ID="drdManager" class="col-sm-6 form-control" runat="server" OnSelectedIndexChanged="drdManager_SelectedIndexChanged" AutoPostBack="True" Style="width: 300px;">
+                                    <asp:DropDownList ID="drdManager" class="col-sm-6 form-control" runat="server" OnSelectedIndexChanged="drdManager_SelectedIndexChanged" Style="width: 300px;">
                                         <asp:ListItem Value="0">None</asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
