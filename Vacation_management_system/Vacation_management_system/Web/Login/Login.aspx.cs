@@ -34,7 +34,7 @@ namespace Vacation_management_system.Web.Login
                         if (dr["id"] != null)
                         {
                             Session["role_ID"] = dr["role_id"];
-                            Session["UserName"] = Convert.ToString(dr["first_name"]) + Convert.ToString(dr["last_name"]);
+                            Session["UserName"] = Convert.ToString(dr["first_name"]) +" "+Convert.ToString(dr["last_name"]);
                             Session["userId"] = dr["id"];
                            
                             if (Utilities.ComparePassword(Convert.ToString(dr["password"]), Utilities.EncodePassword(txtPassword.Text.Trim())) == true)

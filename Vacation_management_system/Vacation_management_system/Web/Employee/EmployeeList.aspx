@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="EmployeeList.aspx.cs" Inherits="Vacation_management_system.Web.Employee.EmployeeList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+  
+    <style>
+        a{
+            color:white;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="wrapper"  >
@@ -30,7 +35,8 @@
 
           <%--GridView For vaction Management Of All Employees--%>
                   
-                         <asp:GridView ID="GvEmployeeList" runat="server" AutoGenerateColumns="False"  cssclass="table table-bordered bg-danger" DataKeyNames="ID" BackColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" BorderColor="#DEBA84" CellSpacing="2">
+                         <asp:GridView ID="GvEmployeeList" runat="server" AutoGenerateColumns="False"  cssclass="table table-bordered bg-danger" DataKeyNames="ID" CellPadding="4" class="table table-bordered bg-danger" ForeColor="#333333" GridLines="None">
+                             <AlternatingRowStyle BackColor="White" />
                         <Columns>
                            
                             
@@ -39,26 +45,27 @@
                                                 <asp:BoundField DataField="first_name" HeaderText="First Name" SortExpression="UserName" />
                                                 <asp:BoundField DataField="last_name" HeaderText="Last Name" SortExpression="From_date" />
                                                 <asp:BoundField DataField="gender" HeaderText="Gender" SortExpression="To_date" />
-                                                <asp:BoundField DataField="official_email" HeaderText="Ofical EmailID" SortExpression="Description" />
+                                                <asp:BoundField DataField="official_email" HeaderText="Official Email ID" SortExpression="Description" />
                                                 <asp:BoundField DataField="date_of_join" HeaderText="Date of joining" SortExpression="Type" />
                                                 <asp:BoundField DataField="contact_number" HeaderText="Phone number" SortExpression="Approver" />
                                                 <asp:BoundField DataField="permanent_address" HeaderText="Address" SortExpression="Approval_Status" />
                              <asp:BoundField DataField="isactive" HeaderText=" Status" SortExpression="Approval_Status" />
-                             <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="Add.aspx?id={0}" Text="Edit"></asp:HyperLinkField>
+                             <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="Add.aspx?id={0}" Text="Edit" ItemStyle-CssClass="btn  btn-lg btn-primary
+                                " >
+<ItemStyle CssClass="btn  btn-lg btn-primary
+                                " ForeColor="White"></ItemStyle>
+                                                </asp:HyperLinkField>
                         </Columns>
-                             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-                             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-                             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                             <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                             <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                             <sortedascendingcellstyle backcolor="#FFF1D4">
-                             </sortedascendingcellstyle>
-                             <sortedascendingheaderstyle backcolor="#B95C30">
-                             </sortedascendingheaderstyle>
-                             <sorteddescendingcellstyle backcolor="#F1E5CE">
-                             </sorteddescendingcellstyle>
-                             <sorteddescendingheaderstyle backcolor="#93451F">
-                             </sorteddescendingheaderstyle>
+                             <EditRowStyle BackColor="#7C6F57" />
+                                            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                                            <RowStyle BackColor="#E3EAEB" />
+                                            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                                            <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                                            <SortedAscendingHeaderStyle BackColor="#246B61" />
+                                            <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                                            <SortedDescendingHeaderStyle BackColor="#15524A" />
                     </asp:GridView>
 
 

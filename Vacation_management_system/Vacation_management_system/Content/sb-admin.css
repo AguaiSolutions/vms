@@ -110,6 +110,17 @@ li.message-footer {
 ul.alert-dropdown {
     width: 200px;
 }
+ul#demo4>li>a
+{
+ color: #999;
+}
+ul#demo4>li>i
+{
+ color: #999;
+}
+ul#demo4>li>a:hover {
+    color: #fff;
+}
 
 /* Side Navigation */
 
@@ -159,6 +170,8 @@ background-color: #080808;
 .side-nav>li>ul>li>a:hover {
     color: #fff;
 }
+
+
 
 /* Flot Chart Containers */
 

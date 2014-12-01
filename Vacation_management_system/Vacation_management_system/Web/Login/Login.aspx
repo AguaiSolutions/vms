@@ -4,7 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server"  >
-    
+    <script type="text/javascript" language="javascript">
+        function DisableBackButton() {
+            window.history.forward()
+        }
+        DisableBackButton();
+        window.onload = DisableBackButton;
+        window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+        window.onunload = function () { void (0) }
+</script>
     <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
     <title> Login </title>
   
