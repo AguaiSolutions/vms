@@ -18,9 +18,15 @@ namespace Vacation_management_system.Master
         {
             if (!IsPostBack)
             {
-                lblUsername.Text = Session["UserName"].ToString(); 
+                if (Session["UserName"] != null)
+                {
+                    lblUsername.Text = Session["UserName"].ToString();
+                }
+                else
+                    Response.Redirect("~/Web/Login/Login.aspx");
                 getMenu();
             }
+
         }
 
         private void getMenu()
@@ -81,6 +87,14 @@ namespace Vacation_management_system.Master
             menu1.InnerHtml = menulist.ToString();
         }
 
+
+        protected void Logout(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
+            Response.Redirect("~/Web/Login/Login.aspx");
+        }
 
     }
 }

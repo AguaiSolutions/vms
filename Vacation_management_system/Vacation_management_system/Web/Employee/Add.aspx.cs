@@ -19,6 +19,9 @@ namespace Vacation_management_system.Web.Employee
 
             if (!IsPostBack)
             {
+                lblEmployee.Text = "Add Employee";
+                lblPanelTitle.Text = "Add Employee";
+                lblTitle.Text = "Add Employee";
                 btnupdate.Visible = false;
                 _query = "SELECT id,role_name FROM user_roles ORDER BY ID DESC";
 
@@ -52,6 +55,9 @@ namespace Vacation_management_system.Web.Employee
 
                 if (employeeId != null)
                 {
+                    lblEmployee.Text = "Edit Employee";
+                    lblPanelTitle.Text = "Edit Employee";
+                    lblTitle.Text = "Edit Employee";
                     empImage.Visible = false;
                     lblImage.Visible = false;
                     btnSave.Visible = false;
@@ -64,13 +70,13 @@ namespace Vacation_management_system.Web.Employee
                     {
 
                         txtEmpNo.Text = Convert.ToString(_data["emp_no"]);
-                        txtFirstName.Text = Convert.ToString(_data["first_name"]);
-                        txtLastName.Text = Convert.ToString(_data["last_name"]);
+                        txtFirstName.Text = Utilities.convertToSingleQuote(Convert.ToString(_data["first_name"]));
+                        txtLastName.Text = Utilities.convertToSingleQuote(Convert.ToString(_data["last_name"]));
                         drdGender.Text = Convert.ToString(_data["gender"]);
                         txtPersonalEmail.Text = Convert.ToString(_data["personal_email"]);
                         txtOfficialEmail.Text = Convert.ToString(_data["official_email"]);
-                        txtDOJ.Text = ((DateTime)_data["date_of_join"]).ToString("d");
-                        txtDOB.Text = ((DateTime)_data["date_of_birth"]).ToString("d"); 
+                        txtDOJ.Text = _data["date_of_join"].ToString();
+                        txtDOB.Text = _data["date_of_birth"].ToString(); 
                         txtPAN.Text = Convert.ToString(_data["pan"]);
                         txtPassport.Text = Convert.ToString(_data["passport"]);
                         txtContactNo.Text = Convert.ToString(_data["contact_number"]);
@@ -115,15 +121,11 @@ namespace Vacation_management_system.Web.Employee
 
             string password = Utilities.EncodePassword(RandomString);
 
-            string DOB = ConvertDate(txtDOB.Text);
-
-            string DOJ = ConvertDate(txtDOJ.Text);
-
             string addEmployee =
                 "insert into [employee] (emp_no,first_name,last_name,gender,personal_email,official_email,password,role_id,date_of_join,date_of_birth,contact_number,emergency_contact_number,permanent_address,temp_address) VALUES('" +
-                txtEmpNo.Text.Trim() + "','" + txtFirstName.Text.Trim() + "','" + txtLastName.Text.Trim() + "','" +
-                drdGender.SelectedValue + "','" + txtPersonalEmail.Text.Trim() + "','" + txtOfficialEmail.Text.Trim() +
-                "','" + password + "'," + _roleId + ",'" + DOJ + "','" + DOB + "','" +
+                txtEmpNo.Text.Trim() + "','" + Server.HtmlEncode(txtFirstName.Text.Trim()) + "','" + Server.HtmlEncode(txtLastName.Text.Trim()) + "','" +
+                drdGender.SelectedValue + "','" + Utilities.convertQuotes(txtPersonalEmail.Text.Trim()) + "','" + Utilities.convertQuotes(txtOfficialEmail.Text.Trim()) +
+                "','" + password + "'," + _roleId + ",'" + txtDOJ.Text.Trim() + "','" + txtDOB.Text.Trim() + "','" +
                 txtContactNo.Text.Trim() + "','" + txtEmergencyNo.Text.Trim() + "','" + txtLocalAdd.InnerText + "','" +
                 txtPermanentAdd.InnerText + "') SELECT SCOPE_IDENTITY() ";
             Int32 empId = Convert.ToInt32(ds.ExecuteObjectQuery(addEmployee));
@@ -132,8 +134,6 @@ namespace Vacation_management_system.Web.Employee
                 txtBankName.Text + "','" + txtBranchLocation.Text + "','" +
                 txtAccountHolder.Text + "','" + txtAccountNo.Text.Trim() + "','" +
                 txtPAN.Text.Trim() + "','" + txtPassport.Text.Trim() + "','" + empImage.FileName + "','" + txtIFSC.Text + "')";
-
-
 
             ds.RunCommand(addEmpAdditional);
             
@@ -146,12 +146,6 @@ namespace Vacation_management_system.Web.Employee
             }
         }
 
-        public string ConvertDate(string date)
-        {
-            DateTime dt = DateTime.ParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            return dt.ToString("yyyy-MM-dd");
-        }
-
         private void CalReminingLeaves(long empId, string p)
         {
             var currentLeaves = (12 - DateTime.Parse(p).Month + 1)*1.5;
@@ -159,7 +153,6 @@ namespace Vacation_management_system.Web.Employee
             _query = "INSERT INTO employee_configuration (emp_id,current_year_leaves) values (" + empId + "," + currentLeaves + ")";
             ds.RunCommand(_query);
             
-
         }
 
         private string generateString(int length)
@@ -215,7 +208,7 @@ namespace Vacation_management_system.Web.Employee
         protected void Update_Click(object sender, EventArgs e)
         {
             var employee_Id = Request.QueryString["id"];
-            _query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + txtFirstName.Text + "', last_name='" + txtLastName.Text + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + drdRole.Text + "', date_of_join='" + ConvertDate(txtDOJ.Text) + "', date_of_birth='" + ConvertDate(txtDOB.Text) + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' where id=" + employee_Id + "";
+            _query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "', last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + drdRole.Text + "', date_of_join='" + txtDOJ.Text.Trim() + "', date_of_birth='" + txtDOB.Text.Trim() + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' where id=" + employee_Id + "";
             var res = ds.RunCommand(_query);
             _query = "update employee_additional set  bank_name='" + txtBankName.Text + "', bank_branch='" + txtBranchLocation.Text + "', holder_name='" + txtAccountHolder.Text + "', account_number='" + txtAccountNo.Text + "', pan='" + txtPAN.Text + "', passport='" + txtPassport.Text + "', ifsc_code='" + txtIFSC.Text + "' where emp_id=" + employee_Id + "";
             var result = ds.RunCommand(_query);

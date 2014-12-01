@@ -31,5 +31,19 @@ namespace Vacation_management_system.Web.Common
             }
 
         }
+
+        public static string convertQuotes(string str)
+        {
+            return str.Replace("'", "''");
+
+        }
+
+        public static string convertToSingleQuote(string str)
+        {
+            return str.Replace("''", "'");
+
+        }
+
+
     }
 }

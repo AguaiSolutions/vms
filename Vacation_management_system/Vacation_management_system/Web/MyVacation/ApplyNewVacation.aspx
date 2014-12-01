@@ -27,7 +27,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="glyphicon glyphicon-home"></i> <a href="~/Web/Dashboard/Dashboard.aspx" runat="server">Dashboard</a>
+                                <i class="fa fa-plane"></i> Leave Management
                             </li>
                             <li class="active">
                                 <i class="glyphicon glyphicon-plus-sign"></i> Apply New Vacation

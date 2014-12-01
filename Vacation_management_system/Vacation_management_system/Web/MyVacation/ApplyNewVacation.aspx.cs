@@ -107,7 +107,7 @@ namespace Vacation_management_system.Web.MyVacation
                         // excludes holidays and weekends
                         double leave = Countleave(Fromdate, Todate);
 
-                        query = "select remaining_leaves FROM employee_configuration where emp_id=" + Convert.ToInt32(Session["userId"]) + "";
+                        query = "select remaining_leaves FROM employee_configuration where emp_id= " + Convert.ToInt32(Session["userId"]) + "";
                         ds.RunQuery(out _data, query);
                         while (_data.Read())
                         {
@@ -123,9 +123,9 @@ namespace Vacation_management_system.Web.MyVacation
                             ds.Close();
                             if (result)
                             {
-                                // string fromEmail = "veerudon456@gmail.com";
-                                // sending mail to manager
-                                //Mail(fromEmail, lblManager_Email.Text);
+                                string fromEmail = "veerudon456@gmail.com";
+                                //sending mail to manager
+                                Mail(fromEmail, lblManager_Email.Text);
                                 Response.Redirect("~/Web/MyVacation/MyVacation.aspx");
                             }
                             else
@@ -226,12 +226,18 @@ namespace Vacation_management_system.Web.MyVacation
             ds.RunQuery(out _data2, query);
             if (_data2.HasRows == true)
             {
-
+                _data2.Close();
+                ds.Close();
                 ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('you already apply leave for this date')</script>");
                 return false;
+               
             }
             else
+            { 
+                _data2.Close();
+                ds.Close();
                 return true;
+            }
         }
 
     }

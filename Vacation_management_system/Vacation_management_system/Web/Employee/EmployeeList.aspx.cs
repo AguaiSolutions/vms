@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Aguai_Leave_Management_System;
+using Vacation_management_system.Web.Common;
 
 namespace Vacation_management_system.Web.Employee
 {
@@ -26,6 +27,24 @@ namespace Vacation_management_system.Web.Employee
             GvEmployeeList.DataBind();
             _data.Close();
             ds.Close();
+        }
+
+        protected void GvEmployeeList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Edit")
+            {
+                int id = Convert.ToInt32(e.CommandArgument);
+                Response.Redirect("~/web/Employee/Add.aspx?id=" + id + "");
+            }
+        }
+        protected void GvEmployeeList_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+          
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Cells[2].Text = Utilities.convertToSingleQuote(e.Row.Cells[2].Text);
+                e.Row.Cells[3].Text = Utilities.convertToSingleQuote(e.Row.Cells[3].Text);
+            }
         }
     }
 }
