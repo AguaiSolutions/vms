@@ -231,7 +231,7 @@ namespace Vacation_management_system.Web.Employee
         public int DuplicateValidation()
         {
             _query =
-                "IF EXISTS (SELECT * FROM employee WHERE emp_no='" + txtEmpNo.Text + "' OR first_name='" + txtFirstName.Text + "' OR last_name='" + txtLastName.Text + "' OR official_email='" + txtOfficialEmail + "')BEGIN SELECT 1 END ELSE BEGIN SELECT 0 END";
+                "IF EXISTS (SELECT * FROM employee WHERE emp_no='" + Utilities.convertQuotes(txtEmpNo.Text.Trim()) + "' OR first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "' OR last_name='" + txtLastName.Text + "' OR official_email='" + txtOfficialEmail + "')BEGIN SELECT 1 END ELSE BEGIN SELECT 0 END";
             int value = Convert.ToInt32(ds.ExecuteObjectQuery(_query));
 
             return value;
