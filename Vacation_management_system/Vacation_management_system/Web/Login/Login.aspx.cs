@@ -20,7 +20,7 @@ namespace Vacation_management_system.Web.Login
 
         protected void butsignin_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text != null && txtPassword.Text != null)
+            if (txtUsername.Text != "" && txtPassword.Text != "")
             {
                 string constr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
                 SqlConnection con = new SqlConnection(constr);
@@ -52,15 +52,16 @@ namespace Vacation_management_system.Web.Login
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Enter the Correct EmpNo/Email or Password')</script>");
+                        ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Enter the Correct Email / Employee No')</script>");
                     }
                     dr.Close();
                     con.Close();
                 }
             }
+
             else
             {
-                ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('EmpNo/Email or Password should not be empty')</script>");
+                ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Email / Employee No or Password should not be empty')</script>");
             }
 
         }
