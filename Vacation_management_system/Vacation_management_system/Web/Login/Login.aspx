@@ -26,7 +26,7 @@
         <div id="loginbox" style="margin-top: 90px;" class="mainbox col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-2">
             <div class="panel">
                 <div style="text-align: center">
-                    <img class="auto-style2" src="../Images/Capture.PNG" />
+                    <img  src="../Images/Capture.PNG" style="width:383px;"/>
                 </div>
                 <div class="panel-heading" style="text-align: center">
                     <div class="panel-title">VACATION MANAGMENT SYSTEM</div>

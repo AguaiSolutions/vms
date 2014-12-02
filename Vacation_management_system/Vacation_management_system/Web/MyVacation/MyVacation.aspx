@@ -55,6 +55,7 @@
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
                                             <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" Visible="false" />
+                                            <asp:BoundField DataField="first_name" HeaderText="Employee Name" SortExpression="first_name" />
                                             <asp:BoundField DataField="from_date" HeaderText="From Date" SortExpression="from_date" />
                                             <asp:BoundField DataField="to_date" HeaderText="To Date" SortExpression="to_date" />
                                             <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />

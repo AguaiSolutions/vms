@@ -88,7 +88,7 @@ namespace Vacation_management_system.Web.Employee
                         txtAccountNo.Text = Convert.ToString(_data["account_number"]);
                         txtIFSC.Text = Convert.ToString(_data["ifsc_code"]);
                         txtAccountHolder.Text = Convert.ToString(_data["holder_name"]);
-                        drdRole.SelectedIndex = Convert.ToInt32(_data["role_id"]);
+                        drdRole.SelectedValue =_data["role_id"].ToString();
 
                     }
                     _data.Close();
@@ -141,16 +141,19 @@ namespace Vacation_management_system.Web.Employee
             
             if (empId > 0)
             {
-                CalReminingLeaves(empId, txtDOJ.Text);
+                DateTime dtx;
+                var xxsd = DateTime.TryParseExact(txtDOJ.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,
+                                        out dtx);
+                CalReminingLeaves(empId, dtx);
 
                 InsertManager(empId);
 
             }
         }
 
-        private void CalReminingLeaves(long empId, string p)
+        private void CalReminingLeaves(long empId, DateTime p)
         {
-            var currentLeaves = (12 - DateTime.Parse(p).Month + 1)*1.5;
+            var currentLeaves = (12 - (p).Month + 1)*1.5;
 
             _query = "INSERT INTO employee_configuration (emp_id,current_year_leaves) values (" + empId + "," + currentLeaves + ")";
             ds.RunCommand(_query);
@@ -209,8 +212,10 @@ namespace Vacation_management_system.Web.Employee
 
         protected void Update_Click(object sender, EventArgs e)
         {
+            drdRole_SelectedIndexChanged(sender, e);
+
             var employee_Id = Request.QueryString["id"];
-            _query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "', last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + drdRole.Text + "', date_of_join='" + txtDOJ.Text.Trim() + "', date_of_birth='" + txtDOB.Text.Trim() + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' where id=" + employee_Id + "";
+            _query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "', last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + _roleId + "', date_of_join='" + txtDOJ.Text.Trim() + "', date_of_birth='" + txtDOB.Text.Trim() + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' where id=" + employee_Id + "";
             var res = ds.RunCommand(_query);
             _query = "update employee_additional set  bank_name='" + txtBankName.Text + "', bank_branch='" + txtBranchLocation.Text + "', holder_name='" + txtAccountHolder.Text + "', account_number='" + txtAccountNo.Text + "', pan='" + txtPAN.Text + "', passport='" + txtPassport.Text + "', ifsc_code='" + txtIFSC.Text + "' where emp_id=" + employee_Id + "";
             var result = ds.RunCommand(_query);

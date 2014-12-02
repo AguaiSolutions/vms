@@ -18,7 +18,7 @@ namespace Vacation_management_system.Web.MyVacation
         Database ds = new Database();
         private SqlDataReader _data;
         List<DateTime> holidays = new List<DateTime>();
-        string remaining_leaves = null;
+        double remaining_leaves;
         private string  query;
       
         protected void Page_Load(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace Vacation_management_system.Web.MyVacation
             if (!IsPostBack)
             {
                 
-                if (!(Session["role_ID"].Equals(1)))
+                if (!(Session["role_ID"].ToString().Equals("1")))
                 {
                     query = "SELECT id,first_name,last_name,official_email from employee where id = (select manager_id from manager where employee_id = " + Convert.ToInt32(Session["userId"]) + ")";
                     ds.RunQuery(out _data, query);
@@ -43,17 +43,18 @@ namespace Vacation_management_system.Web.MyVacation
                     }
                     else
                     {
+                        _data.Close();
+                        ds.Close();
                         query = "SELECT id,first_name,last_name,official_email from employee where role_id=1";
-                        SqlDataReader _data1;
-                        ds.RunQuery(out _data1, query);
-                        while (_data1.Read())
+                        ds.RunQuery(out _data, query);
+                        while (_data.Read())
                         {
-                            lblManager_Id.Text =(string) _data["id"];
+                            lblManager_Id.Text = _data["id"].ToString();
                             txtApprover.Text = _data["first_name"].ToString() + " " + _data["last_name"].ToString();
                             lblManager_Email.Text = _data["official_email"].ToString();
                         }
                        
-                        _data1.Close();
+                        
                     }
                     
                     _data.Close();
@@ -111,12 +112,12 @@ namespace Vacation_management_system.Web.MyVacation
                         ds.RunQuery(out _data, query);
                         while (_data.Read())
                         {
-                            remaining_leaves = _data["remaining_leaves"].ToString();
+                            remaining_leaves = Convert.ToDouble(_data["remaining_leaves"]);
                         }
                         _data.Close();
                         ds.Close();
 
-                        if (Convert.ToInt32(remaining_leaves) - leave > -6)
+                        if (remaining_leaves - leave > -6)
                         {
                             query = "insert into leave_management(emp_id,type_id,from_date,to_date,description,approver_id,leaves) values (" + Convert.ToInt32(Session["userId"]) + "," + Convert.ToInt32(drpLeaveType.SelectedValue) + ",'" + txtFromDate.Text + "','" + txtToDate.Text + "','" + txtReason.Text + "'," + lblManager_Id.Text + "," + leave + ")";
                             var result = ds.RunCommand(query);
@@ -222,7 +223,7 @@ namespace Vacation_management_system.Web.MyVacation
         protected bool duplicate_check(string from, string to)
         {
             SqlDataReader _data2;
-            query = (" select from_date,to_date from leave_management where ( (from_date BETWEEN '" + from + "'and '" + to + "') or (to_date BETWEEN '" + from + "'and '" + to + "') or (from_date >='" + from + "'and to_date <='" + to + "' or from_date<='" + from + "' and to_date >='" + to + "' ))");
+            query = (" select from_date,to_date from leave_management where ( (from_date BETWEEN '" + from + "'and '" + to + "') or (to_date BETWEEN '" + from + "'and '" + to + "') or (from_date >='" + from + "'and to_date <='" + to + "' or from_date<='" + from + "' and to_date >='" + to + "' ))and emp_id="+Session["userId"]+"");
             ds.RunQuery(out _data2, query);
             if (_data2.HasRows == true)
             {
