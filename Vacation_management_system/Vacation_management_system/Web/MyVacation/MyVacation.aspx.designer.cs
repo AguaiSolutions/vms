@@ -49,51 +49,6 @@ namespace Vacation_management_system.Web.MyVacation {
         protected global::System.Web.UI.WebControls.Button btnapplyleave;
         
         /// <summary>
-        /// txtCfromdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCfromdate;
-        
-        /// <summary>
-        /// txtCtodate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCtodate;
-        
-        /// <summary>
-        /// txtCleavetype control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCleavetype;
-        
-        /// <summary>
-        /// txtCapprover control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCapprover;
-        
-        /// <summary>
-        /// txtCdesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCdesc;
-        
-        /// <summary>
         /// txtCreason control.
         /// </summary>
         /// <remarks>

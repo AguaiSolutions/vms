@@ -29,7 +29,7 @@
                     <img  src="../Images/Capture.PNG" style="width:383px;"/>
                 </div>
                 <div class="panel-heading" style="text-align: center">
-                    <div class="panel-title">VACATION MANAGMENT SYSTEM</div>
+                    <div class="panel-title">VACATION MANAGEMENT SYSTEM</div>
                 </div>
                 <br />
 

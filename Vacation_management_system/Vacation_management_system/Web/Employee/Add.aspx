@@ -278,10 +278,8 @@
                                 </div>
 
                                 <div>
-                                    <label class="col-sm-2 control-label">Select Reporting Manager:</label>
-                                    <asp:DropDownList ID="drdManager" class="col-sm-6 form-control" runat="server" OnSelectedIndexChanged="drdManager_SelectedIndexChanged" Style="width: 300px;">
-                                        <asp:ListItem Value="0">None</asp:ListItem>
-                                    </asp:DropDownList>
+                                    <label class="col-sm-2 control-label">Select Reporting Manager:<span style="color: red">*</span></label>
+                                    <asp:DropDownList ID="drdManager" class="col-sm-6 form-control" runat="server" OnSelectedIndexChanged="drdManager_SelectedIndexChanged" Style="width: 300px;"></asp:DropDownList>
                                 </div>
                             </div>
                         </div>

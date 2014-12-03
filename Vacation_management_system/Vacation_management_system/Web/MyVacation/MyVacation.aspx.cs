@@ -85,16 +85,16 @@ namespace Vacation_management_system.Web.MyVacation
 
         protected void btncancel(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
+            //Button btn = (Button)sender;
 
-            //Get the row that contains this button
-            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
-            lblEmpty.Text = gvr.Cells[0].Text;
-            txtCfromdate.Text = gvr.Cells[2].Text;
-            txtCtodate.Text = gvr.Cells[3].Text;
-            txtCleavetype.Text = gvr.Cells[5].Text;
-            txtCapprover.Text = gvr.Cells[6].Text;
-            txtCdesc.Text = gvr.Cells[4].Text;
+            ////Get the row that contains this button
+            //GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+            //lblEmpty.Text = gvr.Cells[0].Text;
+            //txtCfromdate.Text = gvr.Cells[2].Text;
+            //txtCtodate.Text = gvr.Cells[3].Text;
+            //txtCleavetype.Text = gvr.Cells[5].Text;
+            //txtCapprover.Text = gvr.Cells[6].Text;
+            //txtCdesc.Text = gvr.Cells[4].Text;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true); 
         }
 

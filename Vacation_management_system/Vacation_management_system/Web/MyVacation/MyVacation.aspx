@@ -64,7 +64,7 @@
                                             <asp:BoundField DataField="reason" HeaderText="Reason" SortExpression="Reason" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
-                                                    <asp:Button ID="btncancel" runat="server" CommandArgument='<%# Eval("ID")%>' Text="Cancel" CssClass="btn btn-primary" OnClick="btncancel" />
+                                                    <asp:Button ID="btncancel" runat="server" CommandArgument='<%# Eval("ID")%>' Text="Cancel Vacation" CssClass="btn btn-primary" OnClick="btncancel" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                         </Columns>
@@ -97,48 +97,21 @@
                             <div class="col-lg-8">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title modal-title">Vacation Cancel details</h3>
+                                        <h3 class="panel-title modal-title">please enter the reason</h3>
                                     </div>
                                     <div class="panel-body">
 
                                         <div class="center-block">
+                                           
+                                     
                                             <div class="form-group">
-                                                <label>From date</label>
-                                                <asp:TextBox ID="txtCfromdate" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label>To date</label>
-                                                <asp:TextBox ID="txtCtodate" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label>Leave type</label>
-                                                <asp:TextBox ID="txtCleavetype" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label>Approval status</label>
-                                                <asp:TextBox ID="txtCapprover" runat="server" ReadOnly="true" CssClass="form-control"></asp:TextBox>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label>Desription</label>
-                                                <asp:TextBox ID="txtCdesc" runat="server" ReadOnly="true" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label>Reason</label>
+                                                
                                                 <asp:TextBox ID="txtCreason" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
-                                              
+                                               <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCreason" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
+                           --%>
                                             </div>
-                                            <asp:Button ID="Button2" runat="server" OnClick=" btnCancelReason_Click" CssClass="btn btn-primary" Width="80px" Font-Size="Large" Text="Cancel" />&nbsp;&nbsp;
-                            <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Width="80px" Font-Size="Large" Text="Back" />
+                                            <asp:Button ID="Button2" runat="server" OnClick=" btnCancelReason_Click" CssClass="btn btn-primary"  Font-Size="Large" Text="Cancel Vacation" />&nbsp;&nbsp;
+                            <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Font-Size="Large" Text="Back" />
 
                                         </div>
                                     </div>

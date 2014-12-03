@@ -23,7 +23,7 @@ namespace Vacation_management_system.Web.Employee
                 lblPanelTitle.Text = "Add Employee";
                 lblTitle.Text = "Add Employee";
                 btnupdate.Visible = false;
-                _query = "SELECT id,role_name FROM user_roles ORDER BY ID DESC";
+                _query = "SELECT id,role_name FROM user_roles where id > 1 ORDER BY ID DESC";
 
                 //  Datatable , Dataset , Datarow ,Datacolumn , Dataadapter
 
@@ -92,6 +92,17 @@ namespace Vacation_management_system.Web.Employee
 
                     }
                     _data.Close();
+                    ds.Close();
+
+                    _query = "select manager_id from manager where employee_id = " + employeeId + "";
+                    try
+                    {
+                        drdManager.SelectedValue = (ds.ExecuteObjectQuery(_query)).ToString();
+                    }
+                    catch (Exception)
+                    {
+                        drdManager.SelectedValue = "0";
+                    }
                 }
             }
         }
@@ -214,12 +225,16 @@ namespace Vacation_management_system.Web.Employee
         {
             drdRole_SelectedIndexChanged(sender, e);
 
+            drdManager_SelectedIndexChanged(sender, e);
+
             var employee_Id = Request.QueryString["id"];
             _query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "', last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + _roleId + "', date_of_join='" + txtDOJ.Text.Trim() + "', date_of_birth='" + txtDOB.Text.Trim() + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' where id=" + employee_Id + "";
             var res = ds.RunCommand(_query);
             _query = "update employee_additional set  bank_name='" + txtBankName.Text + "', bank_branch='" + txtBranchLocation.Text + "', holder_name='" + txtAccountHolder.Text + "', account_number='" + txtAccountNo.Text + "', pan='" + txtPAN.Text + "', passport='" + txtPassport.Text + "', ifsc_code='" + txtIFSC.Text + "' where emp_id=" + employee_Id + "";
             var result = ds.RunCommand(_query);
-            if (res && result)
+            _query = "update manager set manager_id=" + _managerId + " where employee_id=" + employee_Id + " ";
+            var manager= ds.RunCommand(_query);
+            if (res && result && manager)
             {
                 Response.Redirect("EmployeeList.aspx");
             }

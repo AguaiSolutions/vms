@@ -117,7 +117,7 @@ namespace Vacation_management_system.Web.MyVacation
                         _data.Close();
                         ds.Close();
 
-                        if (remaining_leaves - leave > -6)
+                        if (remaining_leaves - leave > 0)
                         {
                             query = "insert into leave_management(emp_id,type_id,from_date,to_date,description,approver_id,leaves) values (" + Convert.ToInt32(Session["userId"]) + "," + Convert.ToInt32(drpLeaveType.SelectedValue) + ",'" + txtFromDate.Text + "','" + txtToDate.Text + "','" + txtReason.Text + "'," + lblManager_Id.Text + "," + leave + ")";
                             var result = ds.RunCommand(query);
@@ -223,7 +223,7 @@ namespace Vacation_management_system.Web.MyVacation
         protected bool duplicate_check(string from, string to)
         {
             SqlDataReader _data2;
-            query = (" select from_date,to_date from leave_management where ( (from_date BETWEEN '" + from + "'and '" + to + "') or (to_date BETWEEN '" + from + "'and '" + to + "') or (from_date >='" + from + "'and to_date <='" + to + "' or from_date<='" + from + "' and to_date >='" + to + "' ))and emp_id="+Session["userId"]+"");
+            query = (" select from_date,to_date from leave_management where ( (from_date BETWEEN '" + from + "'and '" + to + "') or (to_date BETWEEN '" + from + "'and '" + to + "') or (from_date >='" + from + "'and to_date <='" + to + "' or from_date<='" + from + "' and to_date >='" + to + "' ))and emp_id=" + Session["userId"] + "and approval_status !='c' ");
             ds.RunQuery(out _data2, query);
             if (_data2.HasRows == true)
             {
