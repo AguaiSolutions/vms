@@ -8,13 +8,17 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using Aguai_Leave_Management_System;
+using Vacation_management_system.Web.Common;
+using Vacation_management_system.Web.Common.Class;
 
 namespace Vacation_management_system.Web.MyVacation
 {
-    public partial class MyVacation : System.Web.UI.Page
+    public partial class Vacation : System.Web.UI.Page
     {
         Database ds = new Database();
         private SqlDataReader _data;
+        private string query;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -23,7 +27,7 @@ namespace Vacation_management_system.Web.MyVacation
               if( Session["role_ID"].Equals(1))
               {
                   btnapplyleave.Visible = false;
-                  string query = "SELECT  L.id, E.first_name,CONVERT(varchar,L.from_date,103)as from_date,CONVERT(varchar,L.to_date,103)as to_date,L.description,leave_type.leave_type as type_id, 'approval_status'= CASE L.Approval_Status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' THEN 'Cancelled' END,L.reason FROM leave_management as L left JOIN leave_type ON leave_type.id=L.type_id Left join employee as E on E.id = L.emp_id  order by 1 DESC";
+                  query = "SELECT  L.id, E.first_name,CONVERT(varchar,L.from_date,103)as from_date,CONVERT(varchar,L.to_date,103)as to_date,L.description,leave_type.leave_type as type_id, 'approval_status'= CASE L.Approval_Status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' THEN 'Cancelled' END,L.reason,L.leaves FROM leave_management as L left JOIN leave_type ON leave_type.id=L.type_id Left join employee as E on E.id = L.emp_id  order by 1 DESC";
                   ds.RunQuery(out _data, query);
                   DataTable table = new DataTable();
                   if (_data.HasRows == true)
@@ -41,7 +45,7 @@ namespace Vacation_management_system.Web.MyVacation
               else
               { 
                 //Employee Leave Management
-                string query = "SELECT   L.id,E.first_name,CONVERT(varchar,L.from_date,103)as from_date,CONVERT(varchar,L.to_date,103)as to_date,L.description,leave_type.leave_type as type_id, 'approval_status'= CASE L.Approval_Status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' THEN 'Cancelled' END,L.reason FROM leave_management as L left JOIN leave_type ON leave_type.id=L.type_id Left join employee as E on E.id = L.emp_id where emp_id=" + Session["userId"] + " order by 1 DESC";
+                  query = "SELECT   L.id,E.first_name,CONVERT(varchar,L.from_date,103)as from_date,CONVERT(varchar,L.to_date,103)as to_date,L.description,leave_type.leave_type as type_id, 'approval_status'= CASE L.Approval_Status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' THEN 'Cancelled' END,L.reason,L.leaves FROM leave_management as L left JOIN leave_type ON leave_type.id=L.type_id Left join employee as E on E.id = L.emp_id where emp_id=" + Session["userId"] + " order by 1 DESC";
                 ds.RunQuery(out _data, query);
                 DataTable table = new DataTable();
                 if (_data.HasRows == true)
@@ -85,25 +89,28 @@ namespace Vacation_management_system.Web.MyVacation
 
         protected void btncancel(object sender, EventArgs e)
         {
-            //Button btn = (Button)sender;
+            Button btn = (Button)sender;
 
-            ////Get the row that contains this button
-            //GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+            //Get the row that contains this button
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
             //lblEmpty.Text = gvr.Cells[0].Text;
             //txtCfromdate.Text = gvr.Cells[2].Text;
             //txtCtodate.Text = gvr.Cells[3].Text;
             //txtCleavetype.Text = gvr.Cells[5].Text;
             //txtCapprover.Text = gvr.Cells[6].Text;
             //txtCdesc.Text = gvr.Cells[4].Text;
+            lblLeaves.Text = gvr.Cells[8].Text;
+
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true); 
         }
 
        
        protected void  btnCancelReason_Click(object sender, EventArgs e)
         {
-
-            string query = "update [dbo].[leave_management] set approval_status='c', reason='"+txtCreason.Text+"' where id=" +lblRow_Id.Text+ "";
+            Queries update_query = new Queries();
+            query = "update [dbo].[leave_management] set approval_status='c', reason='"+txtCreason.Text+"' where id=" +lblRow_Id.Text+ "";
            var res= ds.RunCommand(query);
+           var update_result = update_query.updateEmployeeLeaves(Convert.ToInt32(Session["userId"]), current_year_vacation: Convert.ToDouble(lblLeaves.Text));
            ds.Close();
            if(!res)
            {
@@ -113,8 +120,8 @@ namespace Vacation_management_system.Web.MyVacation
            else
              Response.Redirect("~/Web/MyVacation/MyVacation.aspx");
       
-
-
         }
+
+       
     }
 }

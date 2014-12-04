@@ -10,7 +10,7 @@
 namespace Vacation_management_system.Web.MyVacation {
     
     
-    public partial class MyVacation {
+    public partial class Vacation {
         
         /// <summary>
         /// lblEmpty control.
@@ -29,6 +29,15 @@ namespace Vacation_management_system.Web.MyVacation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRow_Id;
+        
+        /// <summary>
+        /// lblLeaves control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLeaves;
         
         /// <summary>
         /// GridView1 control.

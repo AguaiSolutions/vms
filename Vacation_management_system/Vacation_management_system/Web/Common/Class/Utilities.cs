@@ -1,10 +1,18 @@
 ﻿using System.Security.Cryptography;
+using System.Web.UI;
 using System.Text;
 
-namespace Vacation_management_system.Web.Common
+using System.Configuration;
+using Aguai_Leave_Management_System;
+
+namespace Vacation_management_system.Web.Common.Class
 {
     public class Utilities
     {
+
+        //Database ds = new Database();
+        //private string query;
+        ClientScriptManager ClientScript;
         public static string EncodePassword(string password)
         {
             MD5CryptoServiceProvider md5Hasher = new MD5CryptoServiceProvider();
@@ -20,15 +28,8 @@ namespace Vacation_management_system.Web.Common
 
         public static bool ComparePassword(string dbPassword, string hashedPassword)
         {
-            if (dbPassword == hashedPassword)
-            {
+            return dbPassword == hashedPassword;
 
-                return true;
-            }
-            else
-            {
-                return false;
-            }
 
         }
 
@@ -44,6 +45,11 @@ namespace Vacation_management_system.Web.Common
 
         }
 
+        public void alert(System.Type type)
+        {
+
+            ClientScript.RegisterStartupScript(type, "validation", "<script language='javascript'>alert('Invalid Dates.')</script>");
+        }
 
     }
 }

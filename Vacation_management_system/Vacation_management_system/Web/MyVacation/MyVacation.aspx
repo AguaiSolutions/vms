@@ -1,4 +1,4 @@
-﻿<%@ Page Title="My Vacation" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="MyVacation.aspx.cs" Inherits="Vacation_management_system.Web.MyVacation.MyVacation" %>
+﻿<%@ Page Title="My Vacation" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="MyVacation.aspx.cs" Inherits="Vacation_management_system.Web.MyVacation.Vacation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
@@ -16,8 +16,7 @@
         <div id="page-wrapper">
 
             <div class="container-fluid">
-                <!-- /.row -->
-                <!-- Page Heading -->
+                <!-- /.row -->                <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">My Vacation
@@ -51,6 +50,8 @@
 
                                     <asp:Label ID="lblRow_Id" runat="server" Visible="False"></asp:Label>
 
+                                    <asp:Label ID="lblLeaves" runat="server" Visible="False"></asp:Label>
+
                                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" OnRowDataBound="GridView1_RowDataBound" class="table table-bordered bg-danger" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None">
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
@@ -62,6 +63,7 @@
                                             <asp:BoundField DataField="type_id" HeaderText="Type" SortExpression="Type" />
                                             <asp:BoundField DataField="approval_status" HeaderText="Approval Status" SortExpression="Approval_Status" />
                                             <asp:BoundField DataField="reason" HeaderText="Reason" SortExpression="Reason" />
+                                            <asp:BoundField DataField="leaves" HeaderText="leaves" SortExpression="leave" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:Button ID="btncancel" runat="server" CommandArgument='<%# Eval("ID")%>' Text="Cancel Vacation" CssClass="btn btn-primary" OnClick="btncancel" />

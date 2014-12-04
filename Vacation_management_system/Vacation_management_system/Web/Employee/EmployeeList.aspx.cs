@@ -9,7 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Aguai_Leave_Management_System;
 using Vacation_management_system.Web.Common;
-
+using Vacation_management_system.Web.Common.Class;
 namespace Vacation_management_system.Web.Employee
 {
     public partial class EmployeeList : System.Web.UI.Page
