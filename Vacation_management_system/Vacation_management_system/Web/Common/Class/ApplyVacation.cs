@@ -55,10 +55,10 @@ namespace Vacation_management_system.Web.Common.Class
 
 
 
-        public bool checkholidaylist(string todate, DataTable holidaylist, out int year)
+        public bool checkholidaylist(DateTime todate, DataTable holidaylist, out int year)
         {
 
-            year = DateTime.Parse(todate).Year;
+            year =todate.Year;
             int i = holidaylist.Rows.Count;
             var lastholidaydate = (DateTime)holidaylist.Rows[i - 1]["holiday_date"];
             if (year > lastholidaydate.Year)
@@ -70,7 +70,7 @@ namespace Vacation_management_system.Web.Common.Class
         }
 
 
-        public bool duplicate_check(string from, string to, Int32 userId)
+        public bool duplicate_check(DateTime from, DateTime to, Int32 userId)
         {
             SqlDataReader _data2;
             query = (" select from_date,to_date from leave_management where ( (from_date BETWEEN '" + from + "'and '" + to + "') or (to_date BETWEEN '" + from + "'and '" + to + "') or (from_date >='" + from + "'and to_date <='" + to + "' or from_date<='" + from + "' and to_date >='" + to + "' ))and emp_id=" + userId + "and approval_status !='c' ");

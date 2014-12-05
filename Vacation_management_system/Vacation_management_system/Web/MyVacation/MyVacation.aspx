@@ -113,7 +113,7 @@
                            --%>
                                             </div>
                                             <asp:Button ID="Button2" runat="server" OnClick=" btnCancelReason_Click" CssClass="btn btn-primary"  Font-Size="Large" Text="Cancel Vacation" />&nbsp;&nbsp;
-                            <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Font-Size="Large" Text="Back" />
+                                            <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Font-Size="Large" Text="Back" />
 
                                         </div>
                                     </div>

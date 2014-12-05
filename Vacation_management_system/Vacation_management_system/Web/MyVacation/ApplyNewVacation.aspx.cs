@@ -10,6 +10,7 @@ using System.Configuration;
 using Aguai_Leave_Management_System;
 using System.Net;
 using System.Net.Mail;
+using System.Globalization;
 using Vacation_management_system.Web.Common;
 using Vacation_management_system.Web.Common.Class;
 
@@ -94,8 +95,11 @@ namespace Vacation_management_system.Web.MyVacation
         protected void btnApply_Click(object sender, EventArgs e)
         {
             DateTime Fromdate = DateTime.Today, Todate = DateTime.Today;
-            Fromdate = DateTime.Parse(txtFromDate.Text);
-            Todate = DateTime.Parse(txtToDate.Text);
+            var xxsd = DateTime.TryParseExact(txtFromDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out Fromdate);
+                xxsd = DateTime.TryParseExact(txtToDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out Todate);
+           
+            //Fromdate = DateTime.Parse(txtFromDate.Text);
+            //Todate = DateTime.Parse(txtToDate.Text);
             DataTable weeklyoffdays = (DataTable)Session["weekly_off"];
             DataTable holidaylist = (DataTable)Session["holiday"];
             if (Fromdate > Todate)
@@ -107,10 +111,10 @@ namespace Vacation_management_system.Web.MyVacation
             else
             {
                 // check holiday list available for this dates.
-                bool res = vacation.checkholidaylist(txtToDate.Text, holidaylist, out year);
+                bool res = vacation.checkholidaylist(Todate, holidaylist, out year);
                 if (res)
                 {
-                    var duplicate = vacation.duplicate_check(txtFromDate.Text, txtToDate.Text, user_id);
+                    var duplicate = vacation.duplicate_check(Fromdate, Todate, user_id);
                     if (!duplicate)
                     {
                         msg = "<script language='javascript'>alert('you are already applied vacation for this dates.')</script>";
@@ -143,7 +147,7 @@ namespace Vacation_management_system.Web.MyVacation
                                 update_result = query_object.updateEmployeeLeaves(user_id, current_year_vacation: current_year_vacations);
                             }
 
-                            query = "insert into leave_management(emp_id,type_id,from_date,to_date,description,approver_id,leaves) values (" + user_id + "," + Convert.ToInt32(drpLeaveType.SelectedValue) + ",'" + txtFromDate.Text + "','" + txtToDate.Text + "','" + txtReason.Text + "'," + lblManager_Id.Text + "," + leave + ")";
+                            query = "insert into leave_management(emp_id,type_id,from_date,to_date,description,approver_id,leaves) values (" + user_id + "," + Convert.ToInt32(drpLeaveType.SelectedValue) + ",'" + Fromdate + "','" + Todate + "','" + txtReason.Text + "'," + lblManager_Id.Text + "," + leave + ")";
                             var result = ds.RunCommand(query);
 
                             ds.Close();

@@ -4,10 +4,18 @@
 
     <script type="text/javascript">
         $(function () {
-            $("[id$=txtFromDate]").datepicker();
+            $("[id$=txtFromDate]").datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
         });
         $(function () {
-            $("[id$=txtToDate]").datepicker();
+            $("[id$=txtToDate]").datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
         });
     </script>
 
