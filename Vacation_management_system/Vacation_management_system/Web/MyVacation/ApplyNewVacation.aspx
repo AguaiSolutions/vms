@@ -4,12 +4,26 @@
 
     <script type="text/javascript">
         $(function () {
-            $("[id$=txtFromDate]").datepicker();
+            $("[id$=txtFromDate]").datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
         });
         $(function () {
-            $("[id$=txtToDate]").datepicker();
+            $("[id$=txtToDate]").datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
         });
     </script>
+
+    <style type="text/css">
+        .auto-style1 {
+            width: 79px;
+        }
+    </style>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -41,8 +55,8 @@
 
 
                 <br />
-
-
+                <div class="row">
+                <div class="col-lg-6">
                 <div class="panel panel-default" style="float:left;width: 550px;">
                     <div class="panel-heading">
                         <h3 class="panel-title">Apply New Vacation</h3>
@@ -94,8 +108,49 @@
                             <asp:HyperLink ID="hyperlinkCancel" CssClass="btn btn-primary" runat="server" NavigateUrl="~/Web/MyVacation/MyVacation.aspx">Cancel</asp:HyperLink>
                         </div>
 
+                </div>
+                </div>
+                </div>
+            <div class="col-lg-6">
+
+                 <div class="panel panel-default" style="float:right;width: 450px;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Vacation Summary</h3>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <div style="width: 325px; height: 69px;">
+                            
+                       
+                            <table style="width: 109%; height: 82px;">
+                                <tr>
+                                    <td class="auto-style1"> <label class="control-label">Current year vacations:</label></td>
+                                    <td>
+                                        <asp:Label ID="lblCurrent" runat="server"></asp:Label>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style1"><label class="control-label">Previous year vacations:</label></td>
+                                    <td>
+                                        <asp:Label ID="lblPrevious" runat="server"></asp:Label>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style1"> <label class="control-label">Remaining leaves:</label></td>
+                                    <td>
+                                        <asp:Label ID="lblRemain" runat="server"></asp:Label>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
                     </div>
                 </div>
+                </div>
+            </div>
+        </div>
             </div>
             <!-- /.container-fluid -->
 

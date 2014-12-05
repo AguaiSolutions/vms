@@ -1,9 +1,29 @@
-﻿<%@ Page Title="My Vacation" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="MyVacation.aspx.cs" Inherits="Vacation_management_system.Web.MyVacation.Vacation" %>
+﻿<%@ Page Title="Employee Vacation" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="EmployeeVacation.aspx.cs" Inherits="Vacation_management_system.Web.EmployeeVacation.EmployeeVacation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script>
-        function openModal() {
-            $('#myModal').modal('show');
+
+       <script type="text/javascript">
+           function openModal() {
+               $('#mModal').modal('show');
+           }
+    </script>
+
+    <script type="text/javascript">
+        function checkAll(objRef) {
+            var GridView = objRef.parentNode.parentNode.parentNode;
+            var inputList = GridView.getElementsByTagName("input");
+            for (var i = 0; i < inputList.length; i++) {
+                //Get the Cell To find out ColumnIndex
+                var row = inputList[i].parentNode.parentNode;
+                if (inputList[i].type == "checkbox" && objRef != inputList[i]) {
+                    if (objRef.checked) {
+                        inputList[i].checked = true;
+                    }
+                    else {
+                        inputList[i].checked = false;
+                    }
+                }
+            }
         }
     </script>
 
@@ -16,17 +36,18 @@
         <div id="page-wrapper">
 
             <div class="container-fluid">
-                <!-- /.row -->                <!-- Page Heading -->
+                <!-- /.row -->
+                <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">My Vacation
+                        <h1 class="page-header">Employee Vacation
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-plane"></i> Leave Management
                             </li>
                             <li class="active">
-                                <i class="fa fa-calendar"></i> My Vacation
+                                <i class="fa fa-taxi"></i> Employee Vacation
                             </li>
                         </ol>
                     </div>
@@ -38,37 +59,38 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">My Vacation
+                                <h3 class="panel-title">Employee Vacation
                                 </h3>
                             </div>
                             <div class="panel-body">
 
+                                <div class="form-group form-inline" style="margin-top: 50px;">
+                                    <asp:Button ID="btnApprovevacation" CssClass="btn btn-primary" runat="server" Text="Approve Vacation" OnClick="btnApprove_Click" />
+
+                                    <asp:Button ID="btnRejectvacation" runat="server" onclick="btnReject" OnClientClick="openModal();" Text="Reject Vacation" class="btn btn-primary" />
+                                </div>
                                 <div>
-
-
                                     <asp:Label ID="lblEmpty" runat="server" Font-Size="Medium" ForeColor="Red"></asp:Label>
-
-                                    <asp:Label ID="lblRow_Id" runat="server" Visible="False"></asp:Label>
-
                                     <asp:Label ID="lblLeaves" runat="server" Visible="False"></asp:Label>
 
-                                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" OnRowDataBound="GridView1_RowDataBound" class="table table-bordered bg-danger" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" class="table table-bordered bg-danger" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None">
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
+                                            <asp:TemplateField>
+                                                <HeaderTemplate>
+                                                    <asp:CheckBox ID="checkAll" runat="server" onclick="checkAll(this);" />
+                                                </HeaderTemplate>
+                                                <ItemTemplate>
+                                                    <asp:CheckBox ID="chkRow" runat="server" onclick="Check_Click(this)" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                             <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" Visible="false" />
+                                            <asp:BoundField DataField="emp_no" HeaderText="Employee ID" SortExpression="emp_no" />
                                             <asp:BoundField DataField="first_name" HeaderText="Employee Name" SortExpression="first_name" />
+                                            <asp:BoundField DataField="type_id" HeaderText="Type" SortExpression="Type" />
                                             <asp:BoundField DataField="from_date" HeaderText="From Date" SortExpression="from_date" />
                                             <asp:BoundField DataField="to_date" HeaderText="To Date" SortExpression="to_date" />
                                             <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
-                                            <asp:BoundField DataField="type_id" HeaderText="Type" SortExpression="Type" />
-                                            <asp:BoundField DataField="approval_status" HeaderText="Approval Status" SortExpression="Approval_Status" />
-                                            <asp:BoundField DataField="reason" HeaderText="Reason" SortExpression="Reason" />
-                                            <asp:BoundField DataField="leaves" HeaderText="leaves" SortExpression="leave" />
-                                            <asp:TemplateField>
-                                                <ItemTemplate>
-                                                    <asp:Button ID="btncancel" runat="server" CommandArgument='<%# Eval("ID")%>' Text="Cancel Vacation" CssClass="btn btn-primary" OnClick="btncancel" />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
                                         </Columns>
                                         <EditRowStyle BackColor="#7C6F57" />
                                         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -81,19 +103,20 @@
                                         <SortedDescendingCellStyle BackColor="#D4DFE1" />
                                         <SortedDescendingHeaderStyle BackColor="#15524A" />
                                     </asp:GridView>
-
                                 </div>
-                            </div>
-                        </div>
+                                <div class="form-group form-inline" style="margin-top: 50px;">
+                                    <asp:Button ID="btnApprovevacation1" CssClass="btn btn-primary" runat="server" Text="Approve Vacation" OnClick="btnApprove_Click" />
 
-                        <div class="btn-group form-inline">
-                            <asp:Button ID="btnapplyleave" Text="Apply Leave" OnClick="btnApplyLeave_Click" CssClass="btn btn-primary" runat="server" />
+                                    <asp:Button ID="Button" runat="server" onclick="btnReject" OnClientClick="openModal();" Text="Reject Vacation" class="btn btn-primary" />
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <%--  modal for cancel vacation--%>
-                <div class="modal modal-wide fade" id="myModal">
+                <div class="modal modal-wide fade" id="mModal">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="col-lg-8">
@@ -104,18 +127,18 @@
                                     <div class="panel-body">
 
                                         <div class="center-block">
-                                           
-                                     
+
                                             <div class="form-group">
-                                                
-                                                <asp:TextBox ID="txtCreason" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
-                                               <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCreason" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
-                           --%>
+
+                                                <asp:TextBox ID="txtRejectreason" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCreason" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                --%>
                                             </div>
-                                            <asp:Button ID="Button2" runat="server" OnClick=" btnCancelReason_Click" CssClass="btn btn-primary"  Font-Size="Large" Text="Cancel Vacation" />&nbsp;&nbsp;
-                                            <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Font-Size="Large" Text="Back" />
+                                            <asp:Button ID="Button5" runat="server" OnClick=" btnRejectReason_Click" CssClass="btn btn-primary" Font-Size="Large" Text="Reject Vacation" />&nbsp;&nbsp;
+                                            <asp:Button ID="Button4" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Font-Size="Large" Text="Back" />
 
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -132,8 +155,8 @@
         <!-- /.container-fluid -->
     </div>
     <!-- /#wrapper -->
-
-
+    
 </asp:Content>
+
 
 

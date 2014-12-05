@@ -7,10 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vacation_management_system.Web.MyVacation {
+namespace Vacation_management_system.Web.EmployeeVacation {
     
     
-    public partial class Vacation {
+    public partial class EmployeeVacation {
+        
+        /// <summary>
+        /// btnApprovevacation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnApprovevacation;
         
         /// <summary>
         /// lblEmpty control.
@@ -20,15 +29,6 @@ namespace Vacation_management_system.Web.MyVacation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEmpty;
-        
-        /// <summary>
-        /// lblRow_Id control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRow_Id;
         
         /// <summary>
         /// lblLeaves control.
@@ -49,39 +49,48 @@ namespace Vacation_management_system.Web.MyVacation {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// btnapplyleave control.
+        /// btnApprovevacation1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnapplyleave;
+        protected global::System.Web.UI.WebControls.Button btnApprovevacation1;
         
         /// <summary>
-        /// txtCreason control.
+        /// Button control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCreason;
+        protected global::System.Web.UI.WebControls.Button Button;
         
         /// <summary>
-        /// Button2 control.
+        /// txtRejectreason control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.TextBox txtRejectreason;
         
         /// <summary>
-        /// Button3 control.
+        /// Button5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button Button5;
+        
+        /// <summary>
+        /// Button4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button4;
     }
 }
