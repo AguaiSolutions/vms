@@ -108,9 +108,11 @@ namespace Vacation_management_system.Web.MyVacation
        protected void  btnCancelReason_Click(object sender, EventArgs e)
         {
             Queries update_query = new Queries();
+            double current_leaves, previous_leave, balance;
+            update_query.employees_leave_balance(out balance, out current_leaves, out previous_leave, Convert.ToInt32(Session["userId"]));
             query = "update [dbo].[leave_management] set approval_status='c', reason='"+txtCreason.Text+"' where id=" +lblRow_Id.Text+ "";
            var res= ds.RunCommand(query);
-           var update_result = update_query.updateEmployeeLeaves(Convert.ToInt32(Session["userId"]), current_year_vacation: Convert.ToDouble(lblLeaves.Text));
+           var update_result = update_query.updateEmployeeLeaves(Convert.ToInt32(Session["userId"]), current_year_vacation:current_leaves +Convert.ToDouble(lblLeaves.Text));
            ds.Close();
            if(!res)
            {

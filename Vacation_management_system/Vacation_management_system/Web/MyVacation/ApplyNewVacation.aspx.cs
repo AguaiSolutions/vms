@@ -24,7 +24,7 @@ namespace Vacation_management_system.Web.MyVacation
         ApplyVacation vacation = new ApplyVacation();
         Queries query_object = new Queries();
         Int32 user_id;
-        Utilities ob;
+    
         string msg;
         int year;
         protected void Page_Load(object sender, EventArgs e)
@@ -32,9 +32,17 @@ namespace Vacation_management_system.Web.MyVacation
             user_id = Convert.ToInt32(Session["userId"]);
             if (!IsPostBack)
             {
+                //vacation summary
+                query_object.employees_leave_balance(out remaining_leaves, out  current_year_vacations, out previous_year_vacations, user_id);
+                lblCurrent.Text = current_year_vacations.ToString();
+                lblPrevious.Text = previous_year_vacations.ToString();
+                lblRemain.Text = remaining_leaves.ToString();
 
                 if (!(Session["role_ID"].ToString().Equals("1")))
                 {
+                    
+
+
                     query = "SELECT id,first_name,last_name,official_email from employee where id = (select manager_id from manager where employee_id = " + user_id + ")";
                     ds.RunQuery(out _data, query);
                     if (_data.HasRows == true)
