@@ -8,8 +8,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Aguai_Leave_Management_System;
-using Vacation_management_system.Web.Common;
 using Vacation_management_system.Web.Common.Class;
+
 namespace Vacation_management_system.Web.Employee
 {
     public partial class EmployeeList : System.Web.UI.Page
@@ -19,7 +19,9 @@ namespace Vacation_management_system.Web.Employee
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string CheckString = "(SELECT id ,emp_no,first_name, last_name,replace(replace(gender,'m','male'),'f','female')as gender,official_email,CONVERT(varchar,date_of_join,103)as date_of_join,contact_number,permanent_address,replace(replace(isactive,'0','inactive'),'1','active')as isactive from employee)";
+            if(! IsPostBack)
+            { 
+            string CheckString = "(SELECT id ,emp_no,first_name, last_name,replace(replace(gender,'m','male'),'f','female')as gender,official_email,CONVERT(varchar,date_of_join,103)as date_of_join,contact_number,permanent_address,replace(replace(isactive,'0','inactive'),'1','active')as isactive from employee where isactive='1')";
             ds.RunQuery(out _data,CheckString);
             DataTable dt = new DataTable();
             dt.Load(_data);
@@ -27,6 +29,7 @@ namespace Vacation_management_system.Web.Employee
             GvEmployeeList.DataBind();
             _data.Close();
             ds.Close();
+        }
         }
 
         protected void GvEmployeeList_RowCommand(object sender, GridViewCommandEventArgs e)

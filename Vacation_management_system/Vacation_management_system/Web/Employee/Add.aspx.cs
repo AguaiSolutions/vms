@@ -3,7 +3,8 @@ using System.Globalization;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using Aguai_Leave_Management_System;
-using Vacation_management_system.Web.Common;
+using System.Web.UI;
+using Vacation_management_system.Web.Common.Class;
 
 namespace Vacation_management_system.Web.Employee
 {
@@ -23,6 +24,8 @@ namespace Vacation_management_system.Web.Employee
                 lblPanelTitle.Text = "Add Employee";
                 lblTitle.Text = "Add Employee";
                 btnupdate.Visible = false;
+               // btnInactive.Visible = false;
+               cbInactive.Visible = false;
                 _query = "SELECT id,role_name FROM user_roles where id > 1 ORDER BY ID DESC";
 
                 //  Datatable , Dataset , Datarow ,Datacolumn , Dataadapter
@@ -63,6 +66,8 @@ namespace Vacation_management_system.Web.Employee
                     btnSave.Visible = false;
                     btnSaveandaddnew.Visible = false;
                     btnupdate.Visible = true;
+                  //  btnInactive.Visible = true;
+                 cbInactive.Visible = true;
 
                     _query = "select * from employee INNER JOIN employee_additional  on employee.id=employee_additional.emp_id where employee.id =" + employeeId + "";
                     ds.RunQuery(out _data, _query);
@@ -234,7 +239,7 @@ namespace Vacation_management_system.Web.Employee
             var result = ds.RunCommand(_query);
             _query = "update manager set manager_id=" + _managerId + " where employee_id=" + employee_Id + " ";
             var manager= ds.RunCommand(_query);
-            if (res && result && manager)
+            if (res && result )
             {
                 Response.Redirect("EmployeeList.aspx");
             }
@@ -268,6 +273,52 @@ namespace Vacation_management_system.Web.Employee
         {
             _managerId = Convert.ToInt32(drdManager.SelectedValue);
         }
+
+        protected void cbInactive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbInactive.Checked == true)
+            {
+
+            //    ClientScript.RegisterStartupScript(Page.GetType(), "confirm", "<script language='javascript'>confirm('Are you sure you want Deactivate the employee " + txtFirstName.Text + " ') </script>;");
+
+
+               
+
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                txtDOR.Text = DateTime.Today.ToString();
+
+
+            }
+
+        }
+
+        protected void btnResignationok_Click(object sender, EventArgs e)
+        {
+            Queries ob = new Queries();
+            var employee_Id =Convert.ToInt32( Request.QueryString["id"]);
+            string query = "update employee set isactive='0' , DOR='" + txtDOR.Text + "' where id=" + employee_Id + "";
+           
+            string query1 = "update [dbo].[leave_management] set approval_status='i' where emp_id="+employee_Id+"";
+         var  re= ob.updateEmployeeLeaves(employee_Id);
+            
+            var res1 = ds.RunCommand(query1);
+            var res = ds.RunCommand(query);
+            if(res && re)
+            {
+                Response.Redirect("~/Web/Employee/EmployeeList.aspx");
+            }
+            ds.Close();
+        }
+
+       
+
+        protected void btnResignationno_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Web/Employee/EmployeeList.aspx");
+        }
+
+       
 
     }
 }

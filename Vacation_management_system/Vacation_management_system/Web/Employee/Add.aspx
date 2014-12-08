@@ -1,7 +1,17 @@
 ﻿<%@ Page Title="Add Employee" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="Vacation_management_system.Web.Employee.Add" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
+   
+    
+    
+     <script type="text/javascript">
+      
+      
+        
+           
+
+        
+       
         $(function () {
             $("#txtDOJ").datepicker({ format: 'dd/mm/yyyy' });
         });
@@ -9,6 +19,7 @@
             //$("[id$=txtDOB]").datepicker();
             $("#txtDOB").datepicker({ format: 'dd/mm/yyyy' });
         });
+       
         var specialKeys = new Array();
         //specialKeys.push(music); //Backspace
         $(function () {
@@ -25,6 +36,8 @@
                 return false;
             });
         });
+    
+   
     </script>
 
     <style type="text/css">
@@ -35,7 +48,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <p id="demo" ></p>
     <div id="wrapper">
 
         <div id="page-wrapper">
@@ -47,7 +60,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header"><asp:Label ID="lblTitle" runat="server"/>
+                           
                         </h1>
+                      
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-users"></i> User Management 
@@ -62,14 +77,22 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading" runat="server">
-                        <h3 class="panel-title" runat="server"><asp:Label ID="lblPanelTitle" runat="server" /></h3>
+                        <h3 class="panel-title" runat="server"><asp:Label ID="lblPanelTitle" runat="server" />
+                             <asp:CheckBox ID="cbInactive" runat="server" OnCheckedChanged="cbInactive_CheckedChanged" AutoPostBack="true" Text="Deactivate" CssClass="checkbox auto-style1 pull-right col-lg-4" Font-Size="Large" ForeColor="Red" />
+                                <asp:ValidationSummary CssClass="alert alert-danger" DisplayMode="List" ID="vldSummary" ForeColor="Black" runat="server" Width="1140px" />
+                           
+                        </h3>
+
+
                     </div>
                     <div class="panel-body">
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-sm-12">
-                                <asp:ValidationSummary CssClass="alert alert-danger" DisplayMode="List" ID="vldSummary" ForeColor="Black" runat="server" />
-                            </div>
-
+                             
+                             <%-- <asp:CheckBox ID=" cbInactivet" runat="server" OnCheckedChanged="cbInactive_CheckedChanged" AutoPostBack="true"  Text=" Deactivate"  CssClass="checkbox style-2 pull-right col-lg-3" BorderStyle="None" Font-Bold="True" Font-Size="Large" ForeColor="#6600FF"  />
+                             <asp:Button ID="btnInactive" runat="server" Text="Deactivate" OnClientClick="confirmation()" CssClass="btn btn-danger btn-group-lg pull-right"/>--%>
+                             
+                 </div>
 
                             <div class="form-group">
                                 <div>
@@ -292,6 +315,7 @@
                             <asp:Button ID="btnupdate" CssClass="btn btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
 
                             <asp:HyperLink ID="hlinkCancel" CssClass="btn btn-primary" runat="server" NavigateUrl="~/Web/Employee/EmployeeList.aspx">Cancel</asp:HyperLink>
+                           
                         </div>
 
                         <div>
@@ -319,16 +343,53 @@
                             <asp:RequiredFieldValidator Display="None" ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPAN" ErrorMessage="Please enter Employee Pan number!" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
 
-                    </div>
-                </div>
+                 
+            <%--  modal for Deactivate--%>
+                <div class="modal modal-wide fade" id="myModal1">
+                   
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                             <script>
 
-            </div>
-            <!-- /.container-fluid -->
+                                 function openModal() {
+                                     $('#myModal1').modal('show');
+                                   //  $("#txtDOR").datepicker({ format: 'dd/mm/yyyy' });
 
-        </div>
-        <!-- /#page-wrapper -->
+                                 }
+                    </script>
+                            <div class="col-lg-8">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title modal-title">Date of Resignation </h3>
+                                    </div>
+                                    <div class="panel-body">
 
-    </div>
+                                        <div class="center-block">
+
+
+                                            <div class="form-group">
+
+                                                <asp:TextBox ID="txtDOR"  ClientIDMode="Static" class="col-sm-6 " name="Date of Resignation" placeholder="Date of Resignation" runat="server" Style="width: 300px;" />
+                                                <asp:RequiredFieldValidator ID="RfvDOR" runat="server" ControlToValidate="txtDOR" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                
+                                                     </div>
+                                            <asp:Button ID="btnResignationok" runat="server"  CssClass="btn btn-primary" Font-Size="Large" Text="OK" OnClick="btnResignationok_Click" />
+                                            <asp:Button ID="btnResignationno" runat="server" CssClass="btn btn-primary" Font-Size="Medium" Text="NO" OnClick="btnResignationno_Click" />
+                          <%--  <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Font-Size="Large" Text="Back" />
+                                            </div>--%>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                </div>
+                                <!-- /.container-fluid -->
+
+                            </div>
+                            <!-- /#page-wrapper -->
+
+                        </div>
+                        </div>
     <!-- /#wrapper -->
 
 </asp:Content>

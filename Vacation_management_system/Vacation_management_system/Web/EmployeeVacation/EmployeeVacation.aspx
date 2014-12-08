@@ -72,8 +72,9 @@
                                 <div>
                                     <asp:Label ID="lblEmpty" runat="server" Font-Size="Medium" ForeColor="Red"></asp:Label>
                                     <asp:Label ID="lblLeaves" runat="server" Visible="False"></asp:Label>
+                                    <asp:Label ID="lblemp_no" runat="server" Visible="False"></asp:Label>
 
-                                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" class="table table-bordered bg-danger" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  class="table table-bordered bg-danger" DataKeyNames="id,emp_id" CellPadding="4" ForeColor="#333333" GridLines="None">
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
                                             <asp:TemplateField>
@@ -85,12 +86,14 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" Visible="false" />
-                                            <asp:BoundField DataField="emp_no" HeaderText="Employee ID" SortExpression="emp_no" />
+                                            <asp:BoundField DataField="emp_id" HeaderText="Employee ID" SortExpression="emp_id" visible="false"/>
                                             <asp:BoundField DataField="first_name" HeaderText="Employee Name" SortExpression="first_name" />
                                             <asp:BoundField DataField="type_id" HeaderText="Type" SortExpression="Type" />
                                             <asp:BoundField DataField="from_date" HeaderText="From Date" SortExpression="from_date" />
                                             <asp:BoundField DataField="to_date" HeaderText="To Date" SortExpression="to_date" />
                                             <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
+                                            <asp:BoundField DataField="approval_status" HeaderText="Approval Status" SortExpression="approval_status" Visible="false" />
+                                            <asp:BoundField DataField="leaves" HeaderText="Leaves" SortExpression="leave" />
                                         </Columns>
                                         <EditRowStyle BackColor="#7C6F57" />
                                         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
