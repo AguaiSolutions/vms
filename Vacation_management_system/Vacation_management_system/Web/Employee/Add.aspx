@@ -13,11 +13,18 @@
         
        
         $(function () {
-            $("#txtDOJ").datepicker({ format: 'dd/mm/yyyy' });
+            $("#txtDOJ").datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
         });
         $(function () {
             //$("[id$=txtDOB]").datepicker();
-            $("#txtDOB").datepicker({ format: 'dd/mm/yyyy' });
+            $("#txtDOB").datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+            todayHighlight: true});
         });
        
         var specialKeys = new Array();
@@ -77,11 +84,7 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading" runat="server">
-                        <h3 class="panel-title" runat="server"><asp:Label ID="lblPanelTitle" runat="server" />
-                             <asp:CheckBox ID="cbInactive" runat="server" OnCheckedChanged="cbInactive_CheckedChanged" AutoPostBack="true" Text="Deactivate" CssClass="checkbox auto-style1 pull-right col-lg-4" Font-Size="Large" ForeColor="Red" />
-                                <asp:ValidationSummary CssClass="alert alert-danger" DisplayMode="List" ID="vldSummary" ForeColor="Black" runat="server" Width="1140px" />
-                           
-                        </h3>
+                        <h3 class="panel-title" runat="server"><asp:Label ID="lblPanelTitle" runat="server" /></h3>
 
 
                     </div>
@@ -89,11 +92,13 @@
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-sm-12">
                              
-                             <%-- <asp:CheckBox ID=" cbInactivet" runat="server" OnCheckedChanged="cbInactive_CheckedChanged" AutoPostBack="true"  Text=" Deactivate"  CssClass="checkbox style-2 pull-right col-lg-3" BorderStyle="None" Font-Bold="True" Font-Size="Large" ForeColor="#6600FF"  />
-                             <asp:Button ID="btnInactive" runat="server" Text="Deactivate" OnClientClick="confirmation()" CssClass="btn btn-danger btn-group-lg pull-right"/>--%>
-                             
-                 </div>
-
+                              <asp:ValidationSummary CssClass="alert alert-danger" DisplayMode="List" ID="vldSummary" ForeColor="Black" runat="server" Width="1140px" />
+                              
+                           </div>
+                             <div class="col-sm-12">
+                            <asp:CheckBox ID="cbInactive" runat="server" OnCheckedChanged="cbInactive_CheckedChanged" AutoPostBack="true" Text="Deactive" CssClass="checkbox auto-style1 pull-right col-lg-4" Font-Size="Large" ForeColor="Red" />
+                               
+                            </div>
                             <div class="form-group">
                                 <div>
                                     <label class="col-sm-2 control-label">Employee Number:<span style="color: red">*</span></label>
@@ -370,7 +375,7 @@
                                             <div class="form-group">
 
                                                 <asp:TextBox ID="txtDOR"  ClientIDMode="Static" class="col-sm-6 " name="Date of Resignation" placeholder="Date of Resignation" runat="server" Style="width: 300px;" />
-                                                <asp:RequiredFieldValidator ID="RfvDOR" runat="server" ControlToValidate="txtDOR" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                
                                                 
                                                      </div>
                                             <asp:Button ID="btnResignationok" runat="server"  CssClass="btn btn-primary" Font-Size="Large" Text="OK" OnClick="btnResignationok_Click" />

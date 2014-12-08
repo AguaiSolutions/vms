@@ -112,7 +112,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default" style="float: right; width: 400px; margin-right: 180px;">
+                    <div class="panel panel-default" style="float: right; width: 300px; margin-right: 100px;">
                         <div class="panel-heading">
                             <h3 class="panel-title">Vacation Summary</h3>
                         </div>

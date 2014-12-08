@@ -26,6 +26,9 @@ namespace Vacation_management_system.Web.Employee
                 btnupdate.Visible = false;
                // btnInactive.Visible = false;
                cbInactive.Visible = false;
+             
+             
+
                 _query = "SELECT id,role_name FROM user_roles where id > 1 ORDER BY ID DESC";
 
                 //  Datatable , Dataset , Datarow ,Datacolumn , Dataadapter
@@ -239,7 +242,7 @@ namespace Vacation_management_system.Web.Employee
             var result = ds.RunCommand(_query);
             _query = "update manager set manager_id=" + _managerId + " where employee_id=" + employee_Id + " ";
             var manager= ds.RunCommand(_query);
-            if (res && result )
+            if (res && result)
             {
                 Response.Redirect("EmployeeList.aspx");
             }
