@@ -19,6 +19,8 @@
                 todayHighlight: true
             });
         });
+
+
         $(function () {
             //$("[id$=txtDOB]").datepicker();
             $("#txtDOB").datepicker({

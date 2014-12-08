@@ -38,7 +38,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.7.1213\lib\45\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage">
+      <HintPath>..\packages\WindowsAzure.Storage.2.1.0.4\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -57,6 +85,66 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\AjaxMin.dll" />
+    <Content Include="bin\ar\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\cs\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\de\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\de\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\de\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\de\System.Spatial.resources.dll" />
+    <Content Include="bin\es\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\es\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\es\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\es\System.Spatial.resources.dll" />
+    <Content Include="bin\fr\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\fr\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\fr\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\fr\System.Spatial.resources.dll" />
+    <Content Include="bin\he\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\hi\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\HtmlAgilityPack.dll" />
+    <Content Include="bin\HtmlAgilityPack.pdb" />
+    <Content Include="bin\HtmlAgilityPack.xml" />
+    <Content Include="bin\it\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\it\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\it\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\it\System.Spatial.resources.dll" />
+    <Content Include="bin\ja\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\ja\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\ja\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\ja\System.Spatial.resources.dll" />
+    <Content Include="bin\ko\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\ko\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\ko\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\ko\System.Spatial.resources.dll" />
+    <Content Include="bin\Microsoft.Data.Edm.dll" />
+    <Content Include="bin\Microsoft.Data.Edm.xml" />
+    <Content Include="bin\Microsoft.Data.OData.dll" />
+    <Content Include="bin\Microsoft.Data.OData.xml" />
+    <Content Include="bin\Microsoft.WindowsAzure.Configuration.dll" />
+    <Content Include="bin\Microsoft.WindowsAzure.Storage.dll" />
+    <Content Include="bin\Microsoft.WindowsAzure.Storage.xml" />
+    <Content Include="bin\nl\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\pl\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\pt\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\ru\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\ru\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\ru\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\ru\System.Spatial.resources.dll" />
+    <Content Include="bin\System.Spatial.dll" />
+    <Content Include="bin\System.Spatial.xml" />
+    <Content Include="bin\tr-TR\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\Vacation_management_system.dll" />
+    <Content Include="bin\Vacation_management_system.pdb" />
+    <Content Include="bin\zh-CHS\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\zh-CHT\AjaxControlToolkit.resources.dll" />
+    <Content Include="bin\zh-Hans\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\zh-Hans\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\zh-Hans\System.Spatial.resources.dll" />
+    <Content Include="bin\zh-Hant\Microsoft.Data.Edm.resources.dll" />
+    <Content Include="bin\zh-Hant\Microsoft.Data.OData.resources.dll" />
+    <Content Include="bin\zh-Hant\System.Spatial.resources.dll" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker3.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -67,7 +155,14 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\sb-admin.css" />
     <Content Include="Global.asax" />
+    <Content Include="obj\Debug\Vacation_management_system.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Vacation_management_system.dll" />
+    <Content Include="obj\Debug\Vacation_management_system.pdb" />
     <Content Include="Web\Common\Footer.ascx" />
+    <Content Include="Web\Common\MailTemplate\ApplyVacationMail.xml" />
+    <Content Include="Web\Common\MailTemplate\RegisterEmployee.xml" />
+    <Content Include="Web\Common\MailTemplate\VacationApproved.xml" />
+    <Content Include="Web\Common\MailTemplate\VacationReject.xml" />
     <Content Include="Web\Dashboard\Dashboard.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -85,11 +180,19 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Web\EmployeeVacation\EmployeeVacation.aspx" />
+    <Content Include="Web\Employee\Add.aspx" />
+    <Content Include="Web\Employee\EmployeeList.aspx" />
+    <Content Include="Web\Holidays\Holidays.aspx" />
     <Content Include="Web\Images\Capture.PNG" />
     <Content Include="Web\Images\VMS.ico" />
     <Content Include="Web\Login\Login.aspx" />
     <Content Include="Web\MyVacation\ApplyNewVacation.aspx" />
     <Content Include="Web\MyVacation\MyVacation.aspx" />
+    <Content Include="Web\WebForm1.aspx" />
+    <Content Include="bin\Vacation_management_system.dll.config" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\Vacation_management_system.csprojResolveAssemblyReference.cache" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -145,13 +248,21 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.js" />
     <Content Include="Scripts\npm.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\jquery-2.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Web\Common\Class\ApplyVacation.cs" />
+    <Compile Include="Web\Common\Class\Queries.cs" />
+    <Compile Include="Web\Common\Class\Utilities.cs" />
     <Compile Include="Web\Common\Footer.ascx.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,7 +270,6 @@
     <Compile Include="Web\Common\Footer.ascx.designer.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Common\Utilities.cs" />
     <Compile Include="Web\Dashboard\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -176,6 +286,34 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\Database\Database.cs" />
+    <Compile Include="Web\EmployeeVacation\EmployeeVacation.aspx.cs">
+      <DependentUpon>EmployeeVacation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\EmployeeVacation\EmployeeVacation.aspx.designer.cs">
+      <DependentUpon>EmployeeVacation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Employee\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Employee\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Employee\EmployeeList.aspx.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Employee\EmployeeList.aspx.designer.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Holidays\Holidays.aspx.cs">
+      <DependentUpon>Holidays.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Holidays\Holidays.aspx.designer.cs">
+      <DependentUpon>Holidays.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -197,6 +335,13 @@
     <Compile Include="Web\MyVacation\MyVacation.aspx.designer.cs">
       <DependentUpon>MyVacation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
@@ -207,9 +352,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Web\EmployeeVacation\" />
-    <Folder Include="Web\Empolyee\" />
-    <Folder Include="Web\Holidays\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

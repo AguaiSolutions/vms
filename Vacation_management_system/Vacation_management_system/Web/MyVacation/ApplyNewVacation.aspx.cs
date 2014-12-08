@@ -32,6 +32,9 @@ namespace Vacation_management_system.Web.MyVacation
         {
             user_id = Convert.ToInt32(Session["userId"]);
             if (!IsPostBack)
+
+
+
             {
                 //vacation summary
                 query_object.employees_leave_balance(out remaining_leaves, out  current_year_vacations, out previous_year_vacations, user_id);

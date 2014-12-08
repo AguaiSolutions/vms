@@ -264,9 +264,11 @@ namespace Vacation_management_system.Web.Employee
                 "IF EXISTS (SELECT * FROM employee WHERE emp_no='" + txtEmpNo.Text.Trim() + "' OR first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "' OR last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "' OR official_email='" + txtOfficialEmail + "')BEGIN SELECT 1 END ELSE BEGIN SELECT 0 END";
             int value = Convert.ToInt32(ds.ExecuteObjectQuery(_query));
 
-            return value;
+            return value;   
 
         }
+
+
         protected void Cancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("EmployeeList.aspx");
