@@ -51,6 +51,8 @@
                                     <asp:Label ID="lblRow_Id" runat="server" Visible="False"></asp:Label>
 
                                     <asp:Label ID="lblLeaves" runat="server" Visible="False"></asp:Label>
+                                    
+                                    <asp:Label ID="lblStatus" runat="server" Visible="False"></asp:Label>
 
                                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" OnRowDataBound="GridView1_RowDataBound" class="table table-bordered bg-danger" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None">
                                         <AlternatingRowStyle BackColor="White" />

@@ -22,15 +22,6 @@ namespace Vacation_management_system.Web.EmployeeVacation {
         protected global::System.Web.UI.WebControls.Button btnApprovevacation;
         
         /// <summary>
-        /// btnRejectvacation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRejectvacation;
-        
-        /// <summary>
         /// lblEmpty control.
         /// </summary>
         /// <remarks>
@@ -74,15 +65,6 @@ namespace Vacation_management_system.Web.EmployeeVacation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnApprovevacation1;
-        
-        /// <summary>
-        /// Button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button;
         
         /// <summary>
         /// txtRejectreason control.

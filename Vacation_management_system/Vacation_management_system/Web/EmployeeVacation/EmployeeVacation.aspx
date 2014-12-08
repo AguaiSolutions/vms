@@ -2,10 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-       <script type="text/javascript">
-           function openModal() {
-               $('#mModal').modal('show');
-           }
+    <script type="text/javascript">
+        function openModal() {
+            $('#mModal').modal('show');
+        }
     </script>
 
     <script type="text/javascript">
@@ -44,10 +44,10 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-plane"></i> Leave Management
+                                <i class="fa fa-plane"></i>Leave Management
                             </li>
                             <li class="active">
-                                <i class="fa fa-taxi"></i> Employee Vacation
+                                <i class="fa fa-taxi"></i>Employee Vacation
                             </li>
                         </ol>
                     </div>
@@ -67,14 +67,14 @@
                                 <div class="form-group form-inline" style="margin-top: 50px;">
                                     <asp:Button ID="btnApprovevacation" CssClass="btn btn-primary" runat="server" Text="Approve Vacation" OnClick="btnApprove_Click" />
 
-                                    <asp:Button ID="btnRejectvacation" runat="server" onclick="btnReject" OnClientClick="openModal();" Text="Reject Vacation" class="btn btn-primary" />
+                                    <input type="button" id="btnRejectvacation" class="btn btn-primary" name="button" value="Reject Vacation" onclick="openModal();" />
                                 </div>
                                 <div>
                                     <asp:Label ID="lblEmpty" runat="server" Font-Size="Medium" ForeColor="Red"></asp:Label>
                                     <asp:Label ID="lblLeaves" runat="server" Visible="False"></asp:Label>
                                     <asp:Label ID="lblemp_no" runat="server" Visible="False"></asp:Label>
 
-                                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  class="table table-bordered bg-danger" DataKeyNames="id,emp_id" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" class="table table-bordered bg-danger" DataKeyNames="id,emp_id" CellPadding="4" ForeColor="#333333" GridLines="None">
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
                                             <asp:TemplateField>
@@ -86,13 +86,13 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" Visible="false" />
-                                            <asp:BoundField DataField="emp_id" HeaderText="Employee ID" SortExpression="emp_id" visible="false"/>
+                                            <asp:BoundField DataField="emp_id" HeaderText="Employee ID" SortExpression="emp_id" Visible="false" />
                                             <asp:BoundField DataField="first_name" HeaderText="Employee Name" SortExpression="first_name" />
                                             <asp:BoundField DataField="type_id" HeaderText="Type" SortExpression="Type" />
                                             <asp:BoundField DataField="from_date" HeaderText="From Date" SortExpression="from_date" />
                                             <asp:BoundField DataField="to_date" HeaderText="To Date" SortExpression="to_date" />
                                             <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
-                                            <asp:BoundField DataField="approval_status" HeaderText="Approval Status" SortExpression="approval_status" Visible="false" />
+                                            <asp:BoundField DataField="approval_status" HeaderText="Approval Status" SortExpression="approval_status" Visible="True" />
                                             <asp:BoundField DataField="leaves" HeaderText="Leaves" SortExpression="leave" />
                                         </Columns>
                                         <EditRowStyle BackColor="#7C6F57" />
@@ -110,7 +110,7 @@
                                 <div class="form-group form-inline" style="margin-top: 50px;">
                                     <asp:Button ID="btnApprovevacation1" CssClass="btn btn-primary" runat="server" Text="Approve Vacation" OnClick="btnApprove_Click" />
 
-                                    <asp:Button ID="Button" runat="server" onclick="btnReject" OnClientClick="openModal();" Text="Reject Vacation" class="btn btn-primary" />
+                                    <input type="button" id="btnRejectvacation1" class="btn btn-primary" name="button" value="Reject Vacation" onclick="openModal();" />
                                 </div>
 
                             </div>
@@ -137,7 +137,7 @@
                                                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCreason" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
                                                 --%>
                                             </div>
-                                            <asp:Button ID="Button5" runat="server" OnClick=" btnRejectReason_Click" CssClass="btn btn-primary" Font-Size="Large" Text="Reject Vacation" />&nbsp;&nbsp;
+                                            <asp:Button ID="Button5" runat="server" OnClick="btnRejectReason_Click" CssClass="btn btn-primary" Font-Size="Large" Text="Reject Vacation" />&nbsp;&nbsp;
                                             <asp:Button ID="Button4" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Font-Size="Large" Text="Back" />
 
                                         </div>
@@ -158,7 +158,7 @@
         <!-- /.container-fluid -->
     </div>
     <!-- /#wrapper -->
-    
+
 </asp:Content>
 
 

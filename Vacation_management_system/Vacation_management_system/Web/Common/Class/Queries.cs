@@ -10,11 +10,12 @@ namespace Vacation_management_system.Web.Common.Class
 {
     public class Queries
     {
-        Database ds = new Database();
-        SqlDataReader _data;
-        private string _query;
+
         public bool updateEmployeeLeaves(Int32 user_id, double current_year_vacation = 0, double previous_year_vacation = 0)
         {
+            Database ds = new Database();
+
+            string _query;
             _query = "update employee_configuration set";
 
             if (previous_year_vacation != 0 && current_year_vacation == 0)
@@ -42,6 +43,12 @@ namespace Vacation_management_system.Web.Common.Class
 
         public void employees_leave_balance(out double remaining_leaves, out double current_year_vacations, out double previous_year_vacations, Int32 user_id)
         {
+            string _query;
+
+            SqlDataReader _data;
+
+            Database ds = new Database();
+
             remaining_leaves = current_year_vacations = previous_year_vacations = 0;
             _query = "select remaining_leaves,current_year_leaves,previous_year_leaves FROM employee_configuration where emp_id= " + user_id + "";
             ds.RunQuery(out _data, _query);
@@ -56,5 +63,38 @@ namespace Vacation_management_system.Web.Common.Class
             _data.Close();
             ds.Close();
         }
+
+        public static bool Statusupdate(char status, int leaveId, string reason = "")
+        {
+            Database ds = new Database();
+
+            string query = "Update [dbo].[leave_management] set approval_status='" + status + "',reason='" + reason + "'where id=" + leaveId;
+
+            var run = ds.RunCommand(query);
+
+            return run;
+        }
+
+        //public bool Cancelleaves(double previousYearLeaves, double leaves,int empId)
+        //{
+        //    string query = "update employee_configuration set";
+
+        //    if (previousYearLeaves > 0)
+        //    {
+        //        query +=" previous_year_leaves = previous_year_leaves+" + leaves;
+        //    }
+        //    else
+        //    {
+        //        query += "current_year_leaves = current_year_leaves+" + leaves;
+        //    }
+
+        //    query+= " where emp_id =" +empId;
+
+        //    Database db = new Database();
+
+        //    var res = db.RunCommand(query);
+
+        //    return res;
+        //}
     }
 }
