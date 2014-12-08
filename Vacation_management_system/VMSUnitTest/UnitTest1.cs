@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Vacation_management_system.Web.Common;
+using Vacation_management_system.Web.Common.Class;
 
 namespace VMSUnitTest
 {
