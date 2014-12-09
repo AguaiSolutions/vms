@@ -28,6 +28,7 @@ namespace Vacation_management_system.Web.MyVacation
                 if (Session["role_ID"].Equals(1))
                 {
                     btnapplyleave.Visible = false;
+                    btnapplyleave1.Visible = false;
                     query = "SELECT  L.id, E.first_name,CONVERT(varchar,L.from_date,103)as from_date,CONVERT(varchar,L.to_date,103)as to_date,L.description,leave_type.leave_type as type_id, 'approval_status'= CASE L.Approval_Status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' THEN 'Cancelled' END,L.reason,L.leaves FROM leave_management as L left JOIN leave_type ON leave_type.id=L.type_id Left join employee as E on E.id = L.emp_id  order by 1 DESC";
                     ds.RunQuery(out _data, query);
                     DataTable table = new DataTable();

@@ -11,61 +11,61 @@
             var answer = confirm('Are you sure you want to Deactivate the employee ')
             if (answer) {
                 if (document.getElementById('<%= txtDor.ClientID %>').value == "") {
-                     alert("please select the date of resignation")
-                 }
-                 // document.getElementById("txtDor").select();
-             }
-             else {
+                    alert("please select the date of resignation")
+                }
+                // document.getElementById("txtDor").select();
+            }
+            else {
                 window.location.href = "EmployeeList.aspx";
                 // alert("Thanks for sticking around!")
 
-             }
-         }
+            }
+        }
 
-         $(function () {
-             $("#<%= txtDor.ClientID %>").datepicker({
-                 format: 'dd/mm/yyyy',
-                 autoclose: true,
-                 todayHighlight: true
-             });
+        $(function () {
+            $("#<%= txtDor.ClientID %>").datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
 
-         });
-
-
-         $(function () {
-             $("#txtDOJ").datepicker({
-                 format: 'dd/mm/yyyy',
-                 autoclose: true,
-                 todayHighlight: true
-             });
-         });
+        });
 
 
-         $(function () {
-             //$("[id$=txtDOB]").datepicker();
-             $("#txtDOB").datepicker({
-                 format: 'dd/mm/yyyy',
-                 autoclose: true,
-                 todayHighlight: true
-             });
-         });
+        $(function () {
+            $("#txtDOJ").datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
 
-         var specialKeys = new Array();
-         //specialKeys.push(music); //Backspace
-         $(function () {
-             $(".numeric").bind("keypress", function (e) {
-                 var keyCode = e.which ? e.which : e.keyCode;
-                 var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
-                 $(".error").css("display", ret ? "none" : "inline");
-                 return ret;
-             });
-             $(".numeric").bind("paste", function (e) {
-                 return false;
-             });
-             $(".numeric").bind("drop", function (e) {
-                 return false;
-             });
-         });
+
+        $(function () {
+            //$("[id$=txtDOB]").datepicker();
+            $("#txtDOB").datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+
+        var specialKeys = new Array();
+        //specialKeys.push(music); //Backspace
+        $(function () {
+            $(".numeric").bind("keypress", function (e) {
+                var keyCode = e.which ? e.which : e.keyCode;
+                var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+                $(".error").css("display", ret ? "none" : "inline");
+                return ret;
+            });
+            $(".numeric").bind("paste", function (e) {
+                return false;
+            });
+            $(".numeric").bind("drop", function (e) {
+                return false;
+            });
+        });
 
 
     </script>
@@ -96,10 +96,10 @@
 
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-users"></i>User Management 
+                                <i class="fa fa-users"></i> User Management 
                             </li>
                             <li class="active">
-                                <i class="fa fa-plus"></i>
+                                <i id="icon" runat="server"></i>
                                 <asp:Label ID="lblEmployee" runat="server" />
                             </li>
                         </ol>
@@ -109,25 +109,36 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading" runat="server">
-                        <h3 class="panel-title" runat="server">
-                            <asp:Label ID="lblPanelTitle" runat="server" /></h3>
+                        <h3 class="panel-title" runat="server"></h3>
 
 
                     </div>
                     <div class="panel-body">
-                        <div class="row" style="margin-bottom: 10px;">
-                        <div id="check" class="form-group pull-right">
 
-                            <input id="cdInactive" type="checkbox" onclick="confirmation();" runat="server" />
-                            Deactiate
+                        <div class="form-group form-inline align-left" style="float: left;">
+                            <asp:Button ID="btnSave1" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="btnSave_Click" />
+
+                            <asp:Button ID="btnSaveandaddnew1" CssClass="btn btn-primary" runat="server" Text="Save & Add New" OnClick="btnSaveandAddNew_Click" />
+
+                            <asp:Button ID="btnupdate1" CssClass="btn btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
+
+                            <asp:HyperLink ID="hlinkCancel1" CssClass="btn btn-primary" runat="server" NavigateUrl="~/Web/Employee/EmployeeList.aspx">Cancel</asp:HyperLink>
+
                         </div>
 
-                         <div class="form-group">
+                        <div class="row" style="margin-bottom: 10px;">
+                            <div id="check" class="form-group pull-right">
+
+                                <input id="cdInactive" type="checkbox" onclick="confirmation();" runat="server" />
+                                <label id="lblDeactivate" runat="server" class="control-label text-danger">Deactivate</label>
+                            </div>
+
+                            <div class="form-group">
 
                                 <asp:ValidationSummary CssClass="alert alert-danger" DisplayMode="List" ID="vldSummary" ForeColor="Black" runat="server" Width="1140px" />
 
                             </div>
-                            </div>
+                        </div>
 
                         <div class="row" style="margin-bottom: 10px;">
 
@@ -166,7 +177,6 @@
                                     <asp:DropDownList class="col-sm-6 form-control" ID="drdGender" runat="server" Style="width: 300px;">
                                         <asp:ListItem Value="M">Male</asp:ListItem>
                                         <asp:ListItem Value="F">Female</asp:ListItem>
-                                        <asp:ListItem Value="O">other</asp:ListItem>
                                     </asp:DropDownList>
 
                                 </div>
@@ -318,8 +328,7 @@
                                     <asp:TextBox ID="txtIFSC" class="col-sm-6 form-control" name="Account Holder" placeholder="IFSC Code" runat="server" Style="width: 300px;" />
                                 </div>
                                 <div>
-                                    <label class="col-sm-2 control-label">Date of Resignation :</label>
-
+                                    <label id="lblDor" runat="server" class="col-sm-2 control-label">Date of Resignation :</label>
 
                                     <asp:TextBox ID="txtDor" class="col-sm-6 form-control" name="Account Holder" placeholder="Date of Resignation" runat="server" Style="width: 300px;" />
                                 </div>
@@ -393,18 +402,10 @@
                     </div>
                 </div>
             </div>
+            <!-- /.container-fluid -->
         </div>
-
+        <!-- /#page-wrapper -->
     </div>
-    <!-- /.container-fluid -->
-
-    </div>
-                            <!-- /#page-wrapper -->
-
-    </div>
-                        </div>
     <!-- /#wrapper -->
 
-    </div>
-    </div>
 </asp:Content>

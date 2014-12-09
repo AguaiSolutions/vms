@@ -14,11 +14,6 @@
         <div id="page-wrapper">
 
             <div class="container-fluid" style="background-color: white;">
-                <!-- /.row -->
-
-
-
-
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -39,8 +34,7 @@
                 <%--GridView For vaction Management Of All Employees--%>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Employee List
-                            </h3>
+                        <h3 class="panel-title"></h3>
                     </div>
                     <div class="panel-body">
                         <asp:GridView ID="GvEmployeeList" runat="server" AutoGenerateColumns="False" onrowcommand="GvEmployeeList_RowCommand" OnRowDataBound="GvEmployeeList_RowDataBound" CssClass="table table-bordered bg-danger" DataKeyNames="ID" CellPadding="4" class="table table-bordered bg-danger" ForeColor="#333333" GridLines="None">

@@ -22,13 +22,15 @@ namespace Vacation_management_system.Web.Employee
             if (!IsPostBack)
             {
                 lblEmployee.Text = "Add Employee";
-                lblPanelTitle.Text = "Add Employee";
                 lblTitle.Text = "Add Employee";
                 btnupdate.Visible = false;
+                btnupdate1.Visible = false;
                 cdInactive.Visible = false;
-              
-             
-             
+                lblDeactivate.Visible = false;
+                lblDor.Visible = false;
+                txtDor.Visible = false;
+                icon.Attributes["class"] = "fa fa-plus";
+
 
                 _query = "SELECT id,role_name FROM user_roles where id > 1 ORDER BY ID DESC";
 
@@ -63,18 +65,20 @@ namespace Vacation_management_system.Web.Employee
                 if (employeeId != null)
                 {
                     lblEmployee.Text = "Edit Employee";
-                    lblPanelTitle.Text = "Edit Employee";
                     lblTitle.Text = "Edit Employee";
                     empImage.Visible = false;
                     lblImage.Visible = false;
                     btnSave.Visible = false;
                     btnSaveandaddnew.Visible = false;
+                    btnSave1.Visible = false;
+                    btnSaveandaddnew1.Visible = false;
                     cdInactive.Visible = true;
-                 
-                    
                     btnupdate.Visible = true;
-                   
-                    
+                    btnupdate1.Visible = true;
+                    lblDeactivate.Visible = true;
+                    lblDor.Visible = true;
+                    txtDor.Visible = true;
+                    icon.Attributes["class"] = "fa fa-cog";
                    
                   
                     _query = "select * from employee INNER JOIN employee_additional  on employee.id=employee_additional.emp_id where employee.id =" + employeeId + "";
@@ -293,52 +297,5 @@ namespace Vacation_management_system.Web.Employee
         {
             _managerId = Convert.ToInt32(drdManager.SelectedValue);
         }
-
-        //protected void cbInactive_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (cbInactive.Checked == true)
-        //    {
-
-        //       ClientScript.RegisterStartupScript(Page.GetType(), "confirm", "<script language='javascript'>confirm('Are you sure you want Deactivate the employee " + txtFirstName.Text + " ') </script>;");
-                
-
-               
-
-
-        //       // ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-        //        txtDOR.Text = DateTime.Today.ToString();
-
-
-       //     }
-
-        
-
-        //protected void btnResignationok_Click(object sender, EventArgs e)
-        //{
-        //    Queries ob = new Queries();
-        //    var employee_Id =Convert.ToInt32( Request.QueryString["id"]);
-        //    string query = "update employee set isactive='0' , DOR='" + txtDOR.Text + "' where id=" + employee_Id + "";
-           
-        //    string query1 = "update [dbo].[leave_management] set approval_status='i' where emp_id="+employee_Id+"";
-        // var  re= ob.updateEmployeeLeaves(employee_Id);
-            
-        //    var res1 = ds.RunCommand(query1);
-        //    var res = ds.RunCommand(query);
-        //    if(res && re)
-        //    {
-        //        Response.Redirect("~/Web/Employee/EmployeeList.aspx");
-        //    }
-        //    ds.Close();
-        //}
-
-       
-
-        //protected void btnResignationno_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect("~/Web/Employee/EmployeeList.aspx");
-        //}
-
-       
-
     }
 }

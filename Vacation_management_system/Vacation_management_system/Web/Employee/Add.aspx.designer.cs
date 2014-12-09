@@ -22,6 +22,15 @@ namespace Vacation_management_system.Web.Employee {
         protected global::System.Web.UI.WebControls.Label lblTitle;
         
         /// <summary>
+        /// icon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl icon;
+        
+        /// <summary>
         /// lblEmployee control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,40 @@ namespace Vacation_management_system.Web.Employee {
         protected global::System.Web.UI.WebControls.Label lblEmployee;
         
         /// <summary>
-        /// lblPanelTitle control.
+        /// btnSave1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPanelTitle;
+        protected global::System.Web.UI.WebControls.Button btnSave1;
+        
+        /// <summary>
+        /// btnSaveandaddnew1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveandaddnew1;
+        
+        /// <summary>
+        /// btnupdate1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnupdate1;
+        
+        /// <summary>
+        /// hlinkCancel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlinkCancel1;
         
         /// <summary>
         /// cdInactive control.
@@ -47,6 +83,15 @@ namespace Vacation_management_system.Web.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cdInactive;
+        
+        /// <summary>
+        /// lblDeactivate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDeactivate;
         
         /// <summary>
         /// vldSummary control.
@@ -227,6 +272,15 @@ namespace Vacation_management_system.Web.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIFSC;
+        
+        /// <summary>
+        /// lblDor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDor;
         
         /// <summary>
         /// txtDor control.

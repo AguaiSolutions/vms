@@ -44,7 +44,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="btn-group form-group">
-                                    <asp:Button ID="Button1" Text="Apply Leave" OnClick="btnApplyLeave_Click" CssClass="btn btn-primary" runat="server" />
+                                    <asp:Button ID="btnapplyleave1" Text="Apply Leave" OnClick="btnApplyLeave_Click" CssClass="btn btn-primary" runat="server" />
                                 </div>
                                 <div class="form-group">
                                     <asp:Label ID="lblEmpty" runat="server" Font-Size="Medium" ForeColor="Red"></asp:Label>
