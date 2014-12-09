@@ -168,6 +168,9 @@ namespace Vacation_management_system.Web.Employee
                 InsertManager(empId);
 
             }
+
+            Email mail = new Email();
+            var res = mail.SendRegistrationEmail(txtFirstName.Text, txtOfficialEmail.Text, txtEmpNo.Text, RandomString);
         }
 
         private void CalReminingLeaves(long empId, DateTime p)

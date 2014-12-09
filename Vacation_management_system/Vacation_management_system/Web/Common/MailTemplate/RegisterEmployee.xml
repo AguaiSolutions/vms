@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <mail>
   <subject>Welcome to Vacation management system!</subject>
   <body>
@@ -7,17 +7,17 @@
       <br/>
       <br/>
 	 
-  Hi Mr. $$username$$,
+  Hi  $$username$$,
   <br>
   <br>
   Welcome to vacation management system.Please click on the link below to start using vacation management system.
   <br/><br/>
-  The Details are as follows:
-  Employee no:$$EmpNo$$
-  Email Id:$$Official_Email$$
-  Password:$$Password$$
+  The Details are as follows:<br/><br/>
+  Employee no:<b>$$EmpNo$$ </b><br/>
+  Email      :<b>$$Official_Email$$</b> <br/>
+  Password   :</b>$$Password$$ </b><br/><br/>
   <span style="font-size: 12px; font-family: sans-serif, calibri;">
-   <a href="$$host$$">Please click here to Login to VMS</a>
+   Please<a href="$$host$$"> click here </a>to Login to VMS
   </span>`
   
     

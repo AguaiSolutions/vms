@@ -75,6 +75,27 @@ namespace Vacation_management_system.Web.Common.Class
             return run;
         }
 
+        public static void GetDetails(int empid,out string emp_name,out string mail)
+        {
+            emp_name = null;
+            mail = null;
+            Database ds = new Database();
+
+            SqlDataReader _data;
+
+            string query = "select first_name,last_name,official_email from employee where id ="+empid;
+
+            ds.RunQuery(out _data, query);
+
+            while(_data.Read())
+            {
+               emp_name= (_data["first_name"] + " " + _data["last_name"]).ToString();
+                mail = _data["official_email"].ToString();
+            }
+
+
+        }
+
         //public bool Cancelleaves(double previousYearLeaves, double leaves,int empId)
         //{
         //    string query = "update employee_configuration set";

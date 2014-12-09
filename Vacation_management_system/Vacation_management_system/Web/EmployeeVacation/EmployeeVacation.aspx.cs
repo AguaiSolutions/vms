@@ -79,6 +79,7 @@ namespace Vacation_management_system.Web.EmployeeVacation
 
         protected void btnApprove_Click(object sender, EventArgs e)
         {
+            string email,username;
             Control chkRow = null;
             string status = "";
             double current_leaves, previous_leave, remaining, leaves;
@@ -92,12 +93,13 @@ namespace Vacation_management_system.Web.EmployeeVacation
                     {
                         int leaveid = (int)GridView1.DataKeys[iRow].Value;
                         status = GridView1.Rows[iRow].Cells[8].Text;
+                        int empid = (int)GridView1.DataKeys[iRow].Values["emp_id"];
 
                         if (status.Equals("Cancel Pending"))
                         {
                             Queries update_query = new Queries();
 
-                            int empid = (int)GridView1.DataKeys[iRow].Values["emp_id"];
+                            
                             leaves = Convert.ToInt32(GridView1.Rows[iRow].Cells[9].Text);
 
                             Queries.Statusupdate('c', leaveid);
@@ -105,10 +107,16 @@ namespace Vacation_management_system.Web.EmployeeVacation
                             update_query.employees_leave_balance(out remaining, out current_leaves, out previous_leave, empid);
 
                             update_query.updateEmployeeLeaves(empid, current_leaves + leaves, previous_leave);
+
+                            //cancel vacation
                         }
                         else
                         {
                             Queries.Statusupdate('a', leaveid);
+                            Queries.GetDetails(empid,out username, out email);
+                            //approve vaction
+                            //Email mail = new Email();
+                         //   mail.VacationRequestApprovedEmail(Session["UserName"].ToString(),  username, email);
                         }
 
                     }
@@ -140,6 +148,8 @@ namespace Vacation_management_system.Web.EmployeeVacation
                         if (status.Equals("Cancel Pending"))
                         {
                             Queries.Statusupdate('a', leaveid);
+
+                            //cancel - approve vacation
                         }
                         else
                         {
@@ -154,6 +164,8 @@ namespace Vacation_management_system.Web.EmployeeVacation
                             Queries.Statusupdate('r', leaveid, txtRejectreason.Text);
 
                             update_query.updateEmployeeLeaves(empid, current_year_vacation: current_leaves + leaves);
+
+                            //reject vaction
 
                         }
                     }

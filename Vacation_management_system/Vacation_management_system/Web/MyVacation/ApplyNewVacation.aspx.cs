@@ -100,8 +100,8 @@ namespace Vacation_management_system.Web.MyVacation
             DateTime Fromdate = DateTime.Today, Todate = DateTime.Today;
             var xxsd = DateTime.TryParseExact(txtFromDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out Fromdate);
                 xxsd = DateTime.TryParseExact(txtToDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out Todate);
-           
-            //Fromdate = DateTime.Parse(txtFromDate.Text);
+
+           //Fromdate = DateTime.Parse(txtFromDate.Text);
             //Todate = DateTime.Parse(txtToDate.Text);
             DataTable weeklyoffdays = (DataTable)Session["weekly_off"];
             DataTable holidaylist = (DataTable)Session["holiday"];
@@ -159,6 +159,9 @@ namespace Vacation_management_system.Web.MyVacation
                                 //string fromEmail = "veerudon456@gmail.com";
                                 //sending mail to manager
                                 // Mail(fromEmail, lblManager_Email.Text); 
+                                Email mail = new Email();
+                                mail.VacationRequestEmail(txtApprover.Text, lblManager_Email.Text, Session["UserName"].ToString(), txtFromDate.Text, txtToDate.Text, leave.ToString(), txtReason.Text);
+    
                                 Response.Redirect("~/Web/MyVacation/MyVacation.aspx");
                             }
                             else
