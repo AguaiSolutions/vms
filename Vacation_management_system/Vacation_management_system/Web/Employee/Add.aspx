@@ -1,52 +1,73 @@
 ﻿<%@ Page Title="Add Employee" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="Vacation_management_system.Web.Employee.Add" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-   
-    
-    
-     <script type="text/javascript">
-      
-      
-        
-           
-
-        
-       
-        $(function () {
-            $("#txtDOJ").datepicker({
-                format: 'dd/mm/yyyy',
-                autoclose: true,
-                todayHighlight: true
-            });
-        });
 
 
-        $(function () {
-            //$("[id$=txtDOB]").datepicker();
-            $("#txtDOB").datepicker({
-                format: 'dd/mm/yyyy',
-                autoclose: true,
-            todayHighlight: true});
-        });
-       
-        var specialKeys = new Array();
-        //specialKeys.push(music); //Backspace
-        $(function () {
-            $(".numeric").bind("keypress", function (e) {
-                var keyCode = e.which ? e.which : e.keyCode;
-                var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
-                $(".error").css("display", ret ? "none" : "inline");
-                return ret;
-            });
-            $(".numeric").bind("paste", function (e) {
-                return false;
-            });
-            $(".numeric").bind("drop", function (e) {
-                return false;
-            });
-        });
-    
-   
+
+    <script type="text/javascript">
+
+
+        function confirmation() {
+            var answer = confirm('Are you sure you want to Deactivate the employee ')
+            if (answer) {
+                if (document.getElementById('<%= txtDor.ClientID %>').value == "") {
+                     alert("please select the date of resignation")
+                 }
+                 // document.getElementById("txtDor").select();
+             }
+             else {
+                window.location.href = "EmployeeList.aspx";
+                // alert("Thanks for sticking around!")
+
+             }
+         }
+
+         $(function () {
+             $("#<%= txtDor.ClientID %>").datepicker({
+                 format: 'dd/mm/yyyy',
+                 autoclose: true,
+                 todayHighlight: true
+             });
+
+         });
+
+
+         $(function () {
+             $("#txtDOJ").datepicker({
+                 format: 'dd/mm/yyyy',
+                 autoclose: true,
+                 todayHighlight: true
+             });
+         });
+
+
+         $(function () {
+             //$("[id$=txtDOB]").datepicker();
+             $("#txtDOB").datepicker({
+                 format: 'dd/mm/yyyy',
+                 autoclose: true,
+                 todayHighlight: true
+             });
+         });
+
+         var specialKeys = new Array();
+         //specialKeys.push(music); //Backspace
+         $(function () {
+             $(".numeric").bind("keypress", function (e) {
+                 var keyCode = e.which ? e.which : e.keyCode;
+                 var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+                 $(".error").css("display", ret ? "none" : "inline");
+                 return ret;
+             });
+             $(".numeric").bind("paste", function (e) {
+                 return false;
+             });
+             $(".numeric").bind("drop", function (e) {
+                 return false;
+             });
+         });
+
+
     </script>
 
     <style type="text/css">
@@ -57,7 +78,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p id="demo" ></p>
+    <p id="demo"></p>
     <div id="wrapper">
 
         <div id="page-wrapper">
@@ -68,16 +89,18 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header"><asp:Label ID="lblTitle" runat="server"/>
-                           
+                        <h1 class="page-header">
+                            <asp:Label ID="lblTitle" runat="server" />
+
                         </h1>
-                      
+
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-users"></i> User Management 
+                                <i class="fa fa-users"></i>User Management 
                             </li>
                             <li class="active">
-                                <i class="fa fa-plus"></i> <asp:Label ID="lblEmployee" runat="server"/>
+                                <i class="fa fa-plus"></i>
+                                <asp:Label ID="lblEmployee" runat="server" />
                             </li>
                         </ol>
                     </div>
@@ -86,21 +109,28 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading" runat="server">
-                        <h3 class="panel-title" runat="server"><asp:Label ID="lblPanelTitle" runat="server" /></h3>
+                        <h3 class="panel-title" runat="server">
+                            <asp:Label ID="lblPanelTitle" runat="server" /></h3>
 
 
                     </div>
                     <div class="panel-body">
                         <div class="row" style="margin-bottom: 10px;">
-                            <div class="col-sm-12">
-                             
-                              <asp:ValidationSummary CssClass="alert alert-danger" DisplayMode="List" ID="vldSummary" ForeColor="Black" runat="server" Width="1140px" />
-                              
-                           </div>
-                             <div class="col-sm-12">
-                            <asp:CheckBox ID="cbInactive" runat="server" OnCheckedChanged="cbInactive_CheckedChanged" AutoPostBack="true" Text="Deactive" CssClass="checkbox auto-style1 pull-right col-lg-4" Font-Size="Large" ForeColor="Red" />
-                               
+                        <div id="check" class="form-group pull-right">
+
+                            <input id="cdInactive" type="checkbox" onclick="confirmation();" runat="server" />
+                            Deactiate
+                        </div>
+
+                         <div class="form-group">
+
+                                <asp:ValidationSummary CssClass="alert alert-danger" DisplayMode="List" ID="vldSummary" ForeColor="Black" runat="server" Width="1140px" />
+
                             </div>
+                            </div>
+
+                        <div class="row" style="margin-bottom: 10px;">
+
                             <div class="form-group">
                                 <div>
                                     <label class="col-sm-2 control-label">Employee Number:<span style="color: red">*</span></label>
@@ -287,6 +317,13 @@
 
                                     <asp:TextBox ID="txtIFSC" class="col-sm-6 form-control" name="Account Holder" placeholder="IFSC Code" runat="server" Style="width: 300px;" />
                                 </div>
+                                <div>
+                                    <label class="col-sm-2 control-label">Date of Resignation :</label>
+
+
+                                    <asp:TextBox ID="txtDor" class="col-sm-6 form-control" name="Account Holder" placeholder="Date of Resignation" runat="server" Style="width: 300px;" />
+                                </div>
+
 
                                 <div>
                                     <label id="lblImage" runat="server" class="col-sm-2 control-label">Image:</label>
@@ -294,6 +331,7 @@
 
                                     <asp:FileUpload ID="empImage" class="col-sm-6 form-control" runat="server" Style="width: 300px;" />
                                 </div>
+
                             </div>
                         </div>
 
@@ -322,7 +360,7 @@
                             <asp:Button ID="btnupdate" CssClass="btn btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
 
                             <asp:HyperLink ID="hlinkCancel" CssClass="btn btn-primary" runat="server" NavigateUrl="~/Web/Employee/EmployeeList.aspx">Cancel</asp:HyperLink>
-                           
+
                         </div>
 
                         <div>
@@ -350,53 +388,23 @@
                             <asp:RequiredFieldValidator Display="None" ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPAN" ErrorMessage="Please enter Employee Pan number!" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
 
-                 
-            <%--  modal for Deactivate--%>
-                <div class="modal modal-wide fade" id="myModal1">
-                   
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                             <script>
-
-                                 function openModal() {
-                                     $('#myModal1').modal('show');
-                                   //  $("#txtDOR").datepicker({ format: 'dd/mm/yyyy' });
-
-                                 }
-                    </script>
-                            <div class="col-lg-8">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title modal-title">Date of Resignation </h3>
-                                    </div>
-                                    <div class="panel-body">
-
-                                        <div class="center-block">
 
 
-                                            <div class="form-group">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                                                <asp:TextBox ID="txtDOR"  ClientIDMode="Static" class="col-sm-6 " name="Date of Resignation" placeholder="Date of Resignation" runat="server" Style="width: 300px;" />
-                                                
-                                                
-                                                     </div>
-                                            <asp:Button ID="btnResignationok" runat="server"  CssClass="btn btn-primary" Font-Size="Large" Text="OK" OnClick="btnResignationok_Click" />
-                                            <asp:Button ID="btnResignationno" runat="server" CssClass="btn btn-primary" Font-Size="Medium" Text="NO" OnClick="btnResignationno_Click" />
-                          <%--  <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Font-Size="Large" Text="Back" />
-                                            </div>--%>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    </div>
+    <!-- /.container-fluid -->
 
-                                </div>
-                                <!-- /.container-fluid -->
-
-                            </div>
+    </div>
                             <!-- /#page-wrapper -->
 
-                        </div>
+    </div>
                         </div>
     <!-- /#wrapper -->
 
+    </div>
+    </div>
 </asp:Content>

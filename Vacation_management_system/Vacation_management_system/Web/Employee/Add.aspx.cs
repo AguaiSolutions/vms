@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using Aguai_Leave_Management_System;
 using System.Web.UI;
 using Vacation_management_system.Web.Common.Class;
+using System.Web.UI.HtmlControls;
 
 namespace Vacation_management_system.Web.Employee
 {
@@ -24,8 +25,8 @@ namespace Vacation_management_system.Web.Employee
                 lblPanelTitle.Text = "Add Employee";
                 lblTitle.Text = "Add Employee";
                 btnupdate.Visible = false;
-               // btnInactive.Visible = false;
-               cbInactive.Visible = false;
+                cdInactive.Visible = false;
+              
              
              
 
@@ -68,10 +69,14 @@ namespace Vacation_management_system.Web.Employee
                     lblImage.Visible = false;
                     btnSave.Visible = false;
                     btnSaveandaddnew.Visible = false;
+                    cdInactive.Visible = true;
+                 
+                    
                     btnupdate.Visible = true;
-                  //  btnInactive.Visible = true;
-                 cbInactive.Visible = true;
-
+                   
+                    
+                   
+                  
                     _query = "select * from employee INNER JOIN employee_additional  on employee.id=employee_additional.emp_id where employee.id =" + employeeId + "";
                     ds.RunQuery(out _data, _query);
                     while (_data.Read())
@@ -234,15 +239,25 @@ namespace Vacation_management_system.Web.Employee
             drdRole_SelectedIndexChanged(sender, e);
 
             drdManager_SelectedIndexChanged(sender, e);
+            Queries ob = new Queries();
+            var employee_Id = Convert.ToInt32(Request.QueryString["id"]);
 
-            var employee_Id = Request.QueryString["id"];
-            _query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "', last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + _roleId + "', date_of_join='" + txtDOJ.Text.Trim() + "', date_of_birth='" + txtDOB.Text.Trim() + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' where id=" + employee_Id + "";
+          //  var employee_Id = Request.QueryString["id"];
+            _query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "', last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + _roleId + "', date_of_join='" + txtDOJ.Text.Trim() + "', date_of_birth='" + txtDOB.Text.Trim() + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' ,isactive='0' , DOR='" + txtDor.Text + "' where id=" + employee_Id + "";
             var res = ds.RunCommand(_query);
+         
+           
             _query = "update employee_additional set  bank_name='" + txtBankName.Text + "', bank_branch='" + txtBranchLocation.Text + "', holder_name='" + txtAccountHolder.Text + "', account_number='" + txtAccountNo.Text + "', pan='" + txtPAN.Text + "', passport='" + txtPassport.Text + "', ifsc_code='" + txtIFSC.Text + "' where emp_id=" + employee_Id + "";
             var result = ds.RunCommand(_query);
             _query = "update manager set manager_id=" + _managerId + " where employee_id=" + employee_Id + " ";
             var manager= ds.RunCommand(_query);
-            if (res && result)
+            string query1 = "update [dbo].[leave_management] set approval_status='i' where emp_id=" + employee_Id + "";
+            var leave = ds.RunCommand(query1);
+      
+             var  re= ob.updateEmployeeLeaves(employee_Id);
+
+               
+            if (res && result && leave)
             {
                 Response.Redirect("EmployeeList.aspx");
             }
@@ -279,49 +294,49 @@ namespace Vacation_management_system.Web.Employee
             _managerId = Convert.ToInt32(drdManager.SelectedValue);
         }
 
-        protected void cbInactive_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbInactive.Checked == true)
-            {
+        //protected void cbInactive_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (cbInactive.Checked == true)
+        //    {
 
-            //    ClientScript.RegisterStartupScript(Page.GetType(), "confirm", "<script language='javascript'>confirm('Are you sure you want Deactivate the employee " + txtFirstName.Text + " ') </script>;");
-
+        //       ClientScript.RegisterStartupScript(Page.GetType(), "confirm", "<script language='javascript'>confirm('Are you sure you want Deactivate the employee " + txtFirstName.Text + " ') </script>;");
+                
 
                
 
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-                txtDOR.Text = DateTime.Today.ToString();
+        //       // ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+        //        txtDOR.Text = DateTime.Today.ToString();
 
 
-            }
+       //     }
 
-        }
+        
 
-        protected void btnResignationok_Click(object sender, EventArgs e)
-        {
-            Queries ob = new Queries();
-            var employee_Id =Convert.ToInt32( Request.QueryString["id"]);
-            string query = "update employee set isactive='0' , DOR='" + txtDOR.Text + "' where id=" + employee_Id + "";
+        //protected void btnResignationok_Click(object sender, EventArgs e)
+        //{
+        //    Queries ob = new Queries();
+        //    var employee_Id =Convert.ToInt32( Request.QueryString["id"]);
+        //    string query = "update employee set isactive='0' , DOR='" + txtDOR.Text + "' where id=" + employee_Id + "";
            
-            string query1 = "update [dbo].[leave_management] set approval_status='i' where emp_id="+employee_Id+"";
-         var  re= ob.updateEmployeeLeaves(employee_Id);
+        //    string query1 = "update [dbo].[leave_management] set approval_status='i' where emp_id="+employee_Id+"";
+        // var  re= ob.updateEmployeeLeaves(employee_Id);
             
-            var res1 = ds.RunCommand(query1);
-            var res = ds.RunCommand(query);
-            if(res && re)
-            {
-                Response.Redirect("~/Web/Employee/EmployeeList.aspx");
-            }
-            ds.Close();
-        }
+        //    var res1 = ds.RunCommand(query1);
+        //    var res = ds.RunCommand(query);
+        //    if(res && re)
+        //    {
+        //        Response.Redirect("~/Web/Employee/EmployeeList.aspx");
+        //    }
+        //    ds.Close();
+        //}
 
        
 
-        protected void btnResignationno_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Web/Employee/EmployeeList.aspx");
-        }
+        //protected void btnResignationno_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/Web/Employee/EmployeeList.aspx");
+        //}
 
        
 

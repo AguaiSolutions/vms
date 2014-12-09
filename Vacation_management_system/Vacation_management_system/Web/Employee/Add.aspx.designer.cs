@@ -40,6 +40,15 @@ namespace Vacation_management_system.Web.Employee {
         protected global::System.Web.UI.WebControls.Label lblPanelTitle;
         
         /// <summary>
+        /// cdInactive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cdInactive;
+        
+        /// <summary>
         /// vldSummary control.
         /// </summary>
         /// <remarks>
@@ -47,15 +56,6 @@ namespace Vacation_management_system.Web.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary vldSummary;
-        
-        /// <summary>
-        /// cbInactive control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbInactive;
         
         /// <summary>
         /// txtEmpNo control.
@@ -229,6 +229,15 @@ namespace Vacation_management_system.Web.Employee {
         protected global::System.Web.UI.WebControls.TextBox txtIFSC;
         
         /// <summary>
+        /// txtDor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDor;
+        
+        /// <summary>
         /// lblImage control.
         /// </summary>
         /// <remarks>
@@ -389,32 +398,5 @@ namespace Vacation_management_system.Web.Employee {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// txtDOR control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDOR;
-        
-        /// <summary>
-        /// btnResignationok control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnResignationok;
-        
-        /// <summary>
-        /// btnResignationno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnResignationno;
     }
 }

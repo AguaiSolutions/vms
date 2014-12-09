@@ -38,5 +38,14 @@ namespace VMSUnitTest
 
             Assert.IsFalse(Utilities.ComparePassword(Utilities.EncodePassword(password1), Utilities.EncodePassword(password2)));
         }
+
+        Email mailtest = new Email();
+
+        [TestMethod]
+        public void EmailTester()
+        {
+            Assert.IsTrue(mailtest.SendRegistrationEmail("Kumar", "ksk90044@gmail.com", "100", "jfdkfj"));
+        }
+
     }
 }
