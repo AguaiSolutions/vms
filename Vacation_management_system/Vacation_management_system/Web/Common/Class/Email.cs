@@ -17,7 +17,7 @@ namespace Vacation_management_system.Web.Common.Class
 {
     public class Email
     {
-        public bool SendRegistrationEmail(string employee_name, string email, string employee_No, string password )
+        public bool SendRegistrationEmail(string employee_name, string email, string employee_No, string password, string url)
         {
          try
             {
@@ -34,6 +34,7 @@ namespace Vacation_management_system.Web.Common.Class
                 body = body.Replace("$$EmpNo$$", employee_No);
                 body = body.Replace("$$Official_Email$$", email);
                 body = body.Replace("$$Password$$", password);
+                body = body.Replace("$$host$$", url);
                 message.Subject = subject;
                 message.Body = body;
                 SmtpClient smtpClient = new SmtpClient();
@@ -84,7 +85,8 @@ namespace Vacation_management_system.Web.Common.Class
 
 
 
-        public bool VacationRequestApprovedEmail(string manager_name, string username, string fromdate, string todate, string leaves, string user_email)
+
+        public bool VacationRequestApprovedEmail(string manager_name, string username, string fromdate, string todate, string leaves, string user_email, string url)
         {
             try
             {
@@ -101,9 +103,9 @@ namespace Vacation_management_system.Web.Common.Class
                 body = body.Replace("$$Manager Name$$", manager_name);
                 body = body.Replace("$$fromdate$$", fromdate);
                 body = body.Replace("$$todate$$", todate);
-                body = body.Replace("$$leaves$$", leaves);
+                body = body.Replace("$$leavedays$$", leaves);
                 //body = body.Replace("$$reason$$", reason);
-                
+                body = body.Replace("$$host$$", url);
                 message.Subject = subject;
                 message.Body = body;
                 SmtpClient smtpClient = new SmtpClient();
@@ -117,7 +119,38 @@ namespace Vacation_management_system.Web.Common.Class
             }
 
         }
+        public bool vactionRejectEmail(string manager_name, string username, string fromdate, string todate, string reason, string user_email, string url)
+        {
+            try
+            {
+                var message = new MailMessage();
+                //message.From = new MailAddress("vmsadmin@aguaisolutions.com");
+                message.To.Add(user_email);
+                message.IsBodyHtml = true;
+                string subject, body;
 
+                //GetMailBodyForNewUser(out subject, out body);
+
+                GetMailBodyForNewUser("~/Web/Common/MailTemplate/VacationReject.xml", out subject, out body);
+                body = body.Replace("$$Employee Name$$", username);
+                body = body.Replace("$$Manager Name$$", manager_name);
+                body = body.Replace("$$fromdate$$", fromdate);
+                body = body.Replace("$$todate$$", todate);
+                body = body.Replace("$$reason$$", reason);
+                body = body.Replace("$$host$$", url);
+                message.Subject = subject;
+                message.Body = body;
+                SmtpClient smtpClient = new SmtpClient();
+                smtpClient.Send(message);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                //Response.Write(e
+            }
+
+        }
 
         /// <summary>
         /// Gets subject and body of the New User Registration email.

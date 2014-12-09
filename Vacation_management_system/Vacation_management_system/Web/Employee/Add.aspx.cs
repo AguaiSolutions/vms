@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Globalization;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
@@ -177,6 +178,10 @@ namespace Vacation_management_system.Web.Employee
                 InsertManager(empId);
 
             }
+            var url = Request.Url.GetLeftPart(UriPartial.Authority) + VirtualPathUtility.ToAbsolute("~/") + "Web/Login/Login.aspx";
+            Email mail = new Email();
+            mail.SendRegistrationEmail(txtFirstName.Text, txtOfficialEmail.Text, txtEmpNo.Text, RandomString, url);
+           
         }
 
         private void CalReminingLeaves(long empId, DateTime p)
@@ -280,7 +285,7 @@ namespace Vacation_management_system.Web.Employee
         public int DuplicateValidation()
         {
             _query =
-                "IF EXISTS (SELECT * FROM employee WHERE emp_no='" + txtEmpNo.Text.Trim() + "' OR first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "' OR last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "' OR official_email='" + txtOfficialEmail + "')BEGIN SELECT 1 END ELSE BEGIN SELECT 0 END";
+                "IF EXISTS (SELECT * FROM employee WHERE emp_no='" + txtEmpNo.Text.Trim() + "'OR official_email='" + txtOfficialEmail.Text + "')BEGIN SELECT 1 END ELSE BEGIN SELECT 0 END";
             int value = Convert.ToInt32(ds.ExecuteObjectQuery(_query));
 
             return value;   

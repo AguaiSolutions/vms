@@ -76,7 +76,7 @@ namespace Vacation_management_system.Web.MyVacation
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
 
-                if (e.Row.Cells[6].Text.Equals("Cancelled") || e.Row.Cells[6].Text.Equals("Cancel Pending"))
+                if (e.Row.Cells[6].Text.Equals("Cancelled") || e.Row.Cells[6].Text.Equals("Cancel Pending") || e.Row.Cells[6].Text.Equals("Rejected"))
                 {
                     lbtCancel.Visible = false;
                 }

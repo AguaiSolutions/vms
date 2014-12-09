@@ -3,22 +3,23 @@
   <subject>Vacation request from $$Employee Name$$.</subject>
   <body>
     <![CDATA[  
-      <div style="padding:10px;border:10px solid;border-color:#c7e7f7">
+      <div style="padding:10px;border:10px solid;border-color:#FFFF33">
       <br/>
       <br/>
 	 
   Dear  $$Manager Name$$,
   <br>
   <br>
-  Kindly grant <b>$$Employee Name$$</b> vacation between <b>$$fromdate$$</b> and  <b>$$todate$$</b> for <b>$$leaves$$ days</b> .<br/>
+  <b>$$Employee Name$$</b> applied vacation between <b>$$fromdate$$</b> and  <b>$$todate$$</b> for a period of <b>$$leaves$$ days</b> .
+  <br/><br/>
   
-  Reason:
+  Reason:<br/><br/>
   <div style="width:100px">
   $$reason$$
 </div>
 <br />
   <span style="font-size: 12px; font-family: sans-serif, calibri;">
-   <a href="$$host$$">Click here </a>to approve/reject vacation
+   <a href="$$host$$">Click here </a>to approve/reject vacation.
   </span>
     
 <br/>

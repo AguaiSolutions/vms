@@ -115,8 +115,10 @@ namespace Vacation_management_system.Web.EmployeeVacation
                             Queries.Statusupdate('a', leaveid);
                             Queries.GetDetails(empid,out username, out email);
                             //approve vaction
-                            //Email mail = new Email();
-                            // mail.VacationRequestApprovedEmail(Session["UserName"].ToString(),  username, email);
+                            var url = Request.Url.GetLeftPart(UriPartial.Authority) + VirtualPathUtility.ToAbsolute("~/") + "Web/Login/Login.aspx?ReturnUrl=~/web/MyVacation/MyVacation.aspx";
+           
+                            Email mail = new Email();
+                            mail.VacationRequestApprovedEmail(Session["UserName"].ToString(), username, GridView1.Rows[iRow].Cells[5].Text, GridView1.Rows[iRow].Cells[6].Text, GridView1.Rows[iRow].Cells[9].Text, email, url);
                         }
 
                     }
@@ -128,6 +130,7 @@ namespace Vacation_management_system.Web.EmployeeVacation
 
         protected void btnRejectReason_Click(object sender, EventArgs e)
         {
+            string email, username;
             string status = "";
             Control chkRow = null;
             double leaves;
@@ -166,6 +169,10 @@ namespace Vacation_management_system.Web.EmployeeVacation
                             update_query.updateEmployeeLeaves(empid, current_year_vacation: current_leaves + leaves);
 
                             //reject vaction
+                            var url = Request.Url.GetLeftPart(UriPartial.Authority) + VirtualPathUtility.ToAbsolute("~/") + "Web/Login/Login.aspx?ReturnUrl=~/web/MyVacation/MyVacation.aspx";
+                            Queries.GetDetails(empid, out username, out email);
+                            Email mail = new Email();
+                            mail.vactionRejectEmail(Session["UserName"].ToString(), username, GridView1.Rows[jRow].Cells[5].Text, GridView1.Rows[jRow].Cells[6].Text, txtRejectreason.Text, email, url);
 
                         }
                     }
@@ -178,6 +185,7 @@ namespace Vacation_management_system.Web.EmployeeVacation
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            Control chkRow = null;
             var mail_id = Request.QueryString["id"]; 
            for(int i=0;i<GridView1.Rows.Count;i++)
            {
@@ -185,7 +193,8 @@ namespace Vacation_management_system.Web.EmployeeVacation
               
               if (table_id.Equals(mail_id))
                {
-                   GridView1.Rows[i].BackColor = System.Drawing.Color.MistyRose;
+                   chkRow = GridView1.Rows[i].Cells[0].FindControl("chkRow");
+                   ((CheckBox)chkRow).Checked = true;
                }
            }
            

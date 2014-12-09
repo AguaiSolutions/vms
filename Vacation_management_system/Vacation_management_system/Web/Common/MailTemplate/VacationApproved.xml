@@ -3,18 +3,18 @@
   <subject>Vacation request got approved</subject>
   <body>
     <![CDATA[  
-      <div style="padding:10px;border:10px solid;border-color:#c7e7f7">
+      <div style="padding:10px;border:10px solid;border-color:#00FF33">
       <br/>
       <br/>
 	 
-  Dear  $$Employee Name$$,
+  Dear $$Employee Name$$,
   <br>
   <br> 
-  Your vacation for $$leavedays$$ days with effect from $$fromdate$$ to $$todate$$, has been approved by the  $$Manager Name$$.
+  Your vacation for $$leavedays$$ days with effect from $$fromdate$$ to $$todate$$, has been approved by $$Manager Name$$.
   
-   <br />
+   <br /><br />
   <span style="font-size: 12px; font-family: sans-serif, calibri;">
-   <a href="$$host$$">Click here to see more details</a>
+   <a href="$$host$$">Click here</a> to see more details
   </span>
     
 <br/>

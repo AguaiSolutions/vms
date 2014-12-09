@@ -3,22 +3,22 @@
   <subject>Sorry, Vacation request got rejected</subject>
   <body>
     <![CDATA[  
-      <div style="padding:10px;border:10px solid;border-color:#c7e7f7">
+      <div style="padding:10px;border:10px solid;border-color:#FF0033">
       <br/>
       <br/>
 	 
-   Dear Mr. $$Employee Name$$,
+   Dear $$Employee Name$$,
   <br>
   <br> 
-  Your request for vacation between <b>$$fromdate$$</b> and $$todate$$, has been rejected by the Mr.$$Manager Name$$.
+  Your request for vacation between <b>$$fromdate$$</b> and $$todate$$, has been rejected by $$Manager Name$$.<br/><br/>
  
-  Reason:<br/>
+  Reason:<br/><br/>
    <div style="width:100px">
-  $$reason$$
-</div>
-<br/>
+    $$reason$$
+    </div>
+  <br/>
   <span style="font-size: 12px; font-family: sans-serif, calibri;">
-   <a href="$$host$$">Click here to see more details</a>
+   <a href="$$host$$">Click here</a>to see more details
   </span>
     
 <br/>

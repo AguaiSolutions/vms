@@ -107,7 +107,7 @@ namespace Vacation_management_system.Web.MyVacation
             DataTable holidaylist = (DataTable)Session["holiday"];
             if (Fromdate > Todate)
             {
-                msg = "<script language='javascript'>alert('Invalid Dates.')</script>";
+                msg = "<script language='javascript'>alert('Please enter correct dates.')</script>";
                 alert(msg);
 
             }
