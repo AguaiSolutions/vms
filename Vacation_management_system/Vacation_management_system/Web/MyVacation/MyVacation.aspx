@@ -16,7 +16,8 @@
         <div id="page-wrapper">
 
             <div class="container-fluid">
-                <!-- /.row -->                <!-- Page Heading -->
+                <!-- /.row -->
+                <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">My Vacation
@@ -38,20 +39,20 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">My Vacation
+                                <h3 class="panel-title">
                                 </h3>
                             </div>
                             <div class="panel-body">
-
-                                <div>
-
-
+                                <div class="btn-group form-group">
+                                    <asp:Button ID="Button1" Text="Apply Leave" OnClick="btnApplyLeave_Click" CssClass="btn btn-primary" runat="server" />
+                                </div>
+                                <div class="form-group">
                                     <asp:Label ID="lblEmpty" runat="server" Font-Size="Medium" ForeColor="Red"></asp:Label>
 
                                     <asp:Label ID="lblRow_Id" runat="server" Visible="False"></asp:Label>
 
                                     <asp:Label ID="lblLeaves" runat="server" Visible="False"></asp:Label>
-                                    
+
                                     <asp:Label ID="lblStatus" runat="server" Visible="False"></asp:Label>
 
                                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" OnRowDataBound="GridView1_RowDataBound" class="table table-bordered bg-danger" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -83,13 +84,11 @@
                                         <SortedDescendingCellStyle BackColor="#D4DFE1" />
                                         <SortedDescendingHeaderStyle BackColor="#15524A" />
                                     </asp:GridView>
-
-                                </div>
+                                    <div class="btn-group form-group"">
+                                        <asp:Button ID="btnapplyleave" Text="Apply Leave" OnClick="btnApplyLeave_Click" CssClass="btn btn-primary" runat="server" />
+                                    </div>
+                             </div>
                             </div>
-                        </div>
-
-                        <div class="btn-group form-inline">
-                            <asp:Button ID="btnapplyleave" Text="Apply Leave" OnClick="btnApplyLeave_Click" CssClass="btn btn-primary" runat="server" />
                         </div>
                     </div>
                 </div>
@@ -106,15 +105,15 @@
                                     <div class="panel-body">
 
                                         <div class="center-block">
-                                           
-                                     
+
+
                                             <div class="form-group">
-                                                
+
                                                 <asp:TextBox ID="txtCreason" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
-                                               <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCreason" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
-                           --%>
+                                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCreason" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                --%>
                                             </div>
-                                            <asp:Button ID="Button2" runat="server" OnClick=" btnCancelReason_Click" CssClass="btn btn-primary"  Font-Size="Large" Text="Cancel Vacation" />&nbsp;&nbsp;
+                                            <asp:Button ID="Button2" runat="server" OnClick=" btnCancelReason_Click" CssClass="btn btn-primary" Font-Size="Large" Text="Cancel Vacation" />&nbsp;&nbsp;
                                             <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Font-Size="Large" Text="Back" />
 
                                         </div>
