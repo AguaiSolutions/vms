@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.UI;
 //using System.Web.HttpContext;
 using System.Xml;
 using Aguai_Leave_Management_System;
@@ -47,7 +48,7 @@ namespace Vacation_management_system.Web.Common.Class
        
      }
 
-        public bool VacationRequestEmail(string manager_name, string manager_email, string username, string fromdate, string todate, string leaves, string reason)
+        public bool VacationRequestEmail(string manager_name, string manager_email, string username, string fromdate, string todate, string leaves, string reason, string url)
         {
             try
             {
@@ -58,14 +59,14 @@ namespace Vacation_management_system.Web.Common.Class
                 string subject, body;
                 
                 //GetMailBodyForNewUser(out subject, out body);
-
-                GetMailBodyForNewUser("~/Web/Common/MailTemplate/ApplyVacationMail.xml", out subject, out body);
+               GetMailBodyForNewUser("~/Web/Common/MailTemplate/ApplyVacationMail.xml", out subject, out body);
                 body = body.Replace("$$Employee Name$$",username);
                 body = body.Replace("$$Manager Name$$", manager_name);
                 body = body.Replace("$$fromdate$$", fromdate);
                 body = body.Replace("$$todate$$", todate);
                 body = body.Replace("$$leaves$$", leaves);
                 body = body.Replace("$$reason$$", reason);
+                body = body.Replace("$$host$$", url);
                 subject = subject.Replace("$$Employee Name$$", username);
                 message.Subject = subject;
                 message.Body = body;

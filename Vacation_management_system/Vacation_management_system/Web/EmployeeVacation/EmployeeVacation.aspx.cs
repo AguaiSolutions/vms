@@ -175,6 +175,22 @@ namespace Vacation_management_system.Web.EmployeeVacation
             Response.Redirect("~/Web/EmployeeVacation/EmployeeVacation.aspx");
 
         }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            var mail_id = Request.QueryString["id"]; 
+           for(int i=0;i<GridView1.Rows.Count;i++)
+           {
+             var table_id= GridView1.DataKeys[i].Values["id"].ToString();
+              
+              if (table_id.Equals(mail_id))
+               {
+                   GridView1.Rows[i].BackColor = System.Drawing.Color.MistyRose;
+               }
+           }
+           
+        }
+
     }
 }
 

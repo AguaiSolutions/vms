@@ -150,17 +150,20 @@ namespace Vacation_management_system.Web.MyVacation
                                 update_result = query_object.updateEmployeeLeaves(user_id, current_year_vacation: current_year_vacations);
                             }
 
-                            query = "insert into leave_management(emp_id,type_id,from_date,to_date,description,approver_id,leaves) values (" + user_id + "," + Convert.ToInt32(drpLeaveType.SelectedValue) + ",'" + Fromdate + "','" + Todate + "','" + txtReason.Text + "'," + lblManager_Id.Text + "," + leave + ")";
-                            var result = ds.RunCommand(query);
+                            query = "insert into leave_management(emp_id,type_id,from_date,to_date,description,approver_id,leaves) values (" + user_id + "," + Convert.ToInt32(drpLeaveType.SelectedValue) + ",'" + Fromdate + "','" + Todate + "','" + txtReason.Text + "'," + lblManager_Id.Text + "," + leave + ") SELECT SCOPE_IDENTITY()";
+                            Int32 leave_Id = Convert.ToInt32(ds.ExecuteObjectQuery(query));
+                           // var result = ds.RunCommand(query);
 
                             ds.Close();
-                            if (result && update_result)
+                            if (leave_Id!=0 && update_result)
                             {
                                 //string fromEmail = "veerudon456@gmail.com";
                                 //sending mail to manager
                                 // Mail(fromEmail, lblManager_Email.Text); 
                                 Email mail = new Email();
-                                mail.VacationRequestEmail(txtApprover.Text, lblManager_Email.Text, Session["UserName"].ToString(), txtFromDate.Text, txtToDate.Text, leave.ToString(), txtReason.Text);
+                                var url = Request.Url.GetLeftPart(UriPartial.Authority) + VirtualPathUtility.ToAbsolute("~/") + "Web/Login/Login.aspx?ReturnUrl=~/web/EmployeeVacation/EmployeeVacation.aspx?id="+leave_Id+"";
+           
+                                mail.VacationRequestEmail(txtApprover.Text, lblManager_Email.Text, Session["UserName"].ToString(), txtFromDate.Text, txtToDate.Text, leave.ToString(), txtReason.Text,url);
     
                                 Response.Redirect("~/Web/MyVacation/MyVacation.aspx");
                             }

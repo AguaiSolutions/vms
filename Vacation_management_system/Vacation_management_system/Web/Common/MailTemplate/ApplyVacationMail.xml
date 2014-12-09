@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <mail>
-  <subject>Vacation request from $$Employee Name$$!</subject>
+  <subject>Vacation request from $$Employee Name$$.</subject>
   <body>
     <![CDATA[  
       <div style="padding:10px;border:10px solid;border-color:#c7e7f7">
@@ -18,7 +18,7 @@
 </div>
 <br />
   <span style="font-size: 12px; font-family: sans-serif, calibri;">
-   <a href="$$host$$">Click here to approve/reject vacation </a>
+   <a href="$$host$$">Click here </a>to approve/reject vacation
   </span>
     
 <br/>

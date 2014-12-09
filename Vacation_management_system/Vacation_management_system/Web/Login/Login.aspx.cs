@@ -46,7 +46,16 @@ namespace Vacation_management_system.Web.Login
 
                             dr.Close();
                             con.Close();
-                            Response.Redirect("~/Web/Dashboard/Dashboard.aspx");
+                            if (Request.QueryString["ReturnUrl"] != null)
+                            {
+                                Response.Redirect(Request.QueryString["ReturnUrl"]);
+                            }
+                            else
+                            {
+                                Response.Redirect("~/Web/Dashboard/Dashboard.aspx");
+                            }
+
+                           
                         }
                     }                  
                     else
