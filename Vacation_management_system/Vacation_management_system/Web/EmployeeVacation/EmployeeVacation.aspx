@@ -44,10 +44,10 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-plane"></i>Leave Management
+                                <i class="fa fa-plane"></i> Leave Management
                             </li>
                             <li class="active">
-                                <i class="fa fa-taxi"></i>Employee Vacation
+                                <i class="fa fa-taxi"></i> Employee Vacation
                             </li>
                         </ol>
                     </div>
@@ -59,12 +59,12 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Employee Vacation
+                                <h3 class="panel-title">
                                 </h3>
                             </div>
                             <div class="panel-body">
 
-                                <div class="form-group form-inline" style="margin-top: 50px;">
+                                <div class="form-group form-inline">
                                     <asp:Button ID="btnApprovevacation" CssClass="btn btn-primary" runat="server" Text="Approve Vacation" OnClick="btnApprove_Click" />
 
                                     <input type="button" id="btnRejectvacation" class="btn btn-primary" name="button" value="Reject Vacation" onclick="openModal();" />
@@ -107,7 +107,7 @@
                                         <SortedDescendingHeaderStyle BackColor="#15524A" />
                                     </asp:GridView>
                                 </div>
-                                <div class="form-group form-inline" style="margin-top: 50px;">
+                                <div class="form-group form-inline" style="margin-top: 30px;">
                                     <asp:Button ID="btnApprovevacation1" CssClass="btn btn-primary" runat="server" Text="Approve Vacation" OnClick="btnApprove_Click" />
 
                                     <input type="button" id="btnRejectvacation1" class="btn btn-primary" name="button" value="Reject Vacation" onclick="openModal();" />

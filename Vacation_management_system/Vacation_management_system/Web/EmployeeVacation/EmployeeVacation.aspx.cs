@@ -116,7 +116,7 @@ namespace Vacation_management_system.Web.EmployeeVacation
                             Queries.GetDetails(empid,out username, out email);
                             //approve vaction
                             //Email mail = new Email();
-                         //   mail.VacationRequestApprovedEmail(Session["UserName"].ToString(),  username, email);
+                            // mail.VacationRequestApprovedEmail(Session["UserName"].ToString(),  username, email);
                         }
 
                     }

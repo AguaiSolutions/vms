@@ -41,10 +41,10 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-plane"></i>Leave Management
+                                <i class="fa fa-plane"></i> Leave Management
                             </li>
                             <li class="active">
-                                <i class="glyphicon glyphicon-plus-sign"></i>Apply New Vacation
+                                <i class="glyphicon glyphicon-plus-sign"></i> Apply New Vacation
                             </li>
                         </ol>
                     </div>
@@ -59,10 +59,17 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default" style="float: left; width: 550px;">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Apply New Vacation</h3>
+                                <h3 class="panel-title"></h3>
                             </div>
                             <div class="panel-body">
 
+                                 <div class="form-group form-inline">
+                                    <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Apply" OnClick="btnApply_Click" />
+
+                                    <asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" Text="Clear" OnClick="btnClear_Click" />
+
+                                    <asp:HyperLink ID="hyperlink1" CssClass="btn btn-primary" runat="server" NavigateUrl="~/Web/MyVacation/MyVacation.aspx">Cancel</asp:HyperLink>
+                                </div>
 
                                 <div style="width: 500px;">
                                     <div>
@@ -101,7 +108,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group form-inline" style="margin-top: 50px;">
+                                <div class="form-group form-inline" style="margin-top: 30px;">
                                     <asp:Button ID="btnApply" CssClass="btn btn-primary" runat="server" Text="Apply" OnClick="btnApply_Click" />
 
                                     <asp:Button ID="btnClear" CssClass="btn btn-primary" runat="server" Text="Clear" OnClick="btnClear_Click" />
