@@ -73,7 +73,7 @@ namespace Vacation_management_system.Web.Common.Class
         public bool duplicate_check(DateTime from, DateTime to, Int32 userId)
         {
             SqlDataReader _data2;
-            query = (" select from_date,to_date from leave_management where ( (from_date BETWEEN '" + from + "'and '" + to + "') or (to_date BETWEEN '" + from + "'and '" + to + "') or (from_date >='" + from + "'and to_date <='" + to + "' or from_date<='" + from + "' and to_date >='" + to + "' ))and emp_id=" + userId + "and approval_status !='c' ");
+            query = (" select from_date,to_date from leave_management where ( (from_date BETWEEN '" + from + "'and '" + to + "') or (to_date BETWEEN '" + from + "'and '" + to + "') or (from_date >='" + from + "'and to_date <='" + to + "' or from_date<='" + from + "' and to_date >='" + to + "' ))and emp_id=" + userId + "and approval_status !='c' and approval_status !='r'");
             ds.RunQuery(out _data2, query);
             if (_data2.HasRows == true)
             {

@@ -40,6 +40,15 @@ namespace Vacation_management_system.Web.MyVacation {
         protected global::System.Web.UI.WebControls.HyperLink hyperlink1;
         
         /// <summary>
+        /// vldSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vldSummary;
+        
+        /// <summary>
         /// drpLeaveType control.
         /// </summary>
         /// <remarks>
@@ -200,5 +209,14 @@ namespace Vacation_management_system.Web.MyVacation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRemain;
+        
+        /// <summary>
+        /// grdAvs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdAvs;
     }
 }

@@ -54,7 +54,7 @@
                 <!-- Apply new vacation form body -->
 
 
-                <br />
+                
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="panel panel-default" style="float: left; width: 550px;">
@@ -70,7 +70,11 @@
 
                                     <asp:HyperLink ID="hyperlink1" CssClass="btn btn-primary" runat="server" NavigateUrl="~/Web/MyVacation/MyVacation.aspx">Cancel</asp:HyperLink>
                                 </div>
+                                   <div class="form-group">
 
+                                <asp:ValidationSummary CssClass="alert alert-danger" DisplayMode="List" ID="vldSummary" ForeColor="Black" runat="server" Width="1140px" />
+
+                            </div>
                                 <div style="width: 500px;">
                                     <div>
                                         <label class="control-label">Leave Type:</label>
@@ -78,28 +82,28 @@
                                         </asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="drpLeaveType" ErrorMessage="Please select leave type." ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
-                                    <br />
+                                    
 
                                     <div>
                                         <label class="control-label">From:</label>
                                         <asp:TextBox ID="txtFromDate" class="form-control" name="From Date" placeholder="From Date" runat="server" />
-                                        <asp:RequiredFieldValidator ID="Rfdfromdate" runat="server" ControlToValidate="txtFromDate" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="Rfdfromdate" runat="server" ControlToValidate="txtFromDate" ErrorMessage="please enter the from date " ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
                                     <div>
                                         <label class="control-label">To:</label>
                                         <asp:TextBox ID="txtToDate" class="form-control" name="To Date" placeholder="To Date" runat="server" />
-                                        <asp:RequiredFieldValidator ID="Rfdtodate" runat="server" ControlToValidate="txtToDate" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="Rfdtodate" runat="server" ControlToValidate="txtToDate" ErrorMessage="please enter the to date " ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
                                     &nbsp;<asp:Label ID="lblManager_Email" runat="server" Visible="False"></asp:Label>
                                     &nbsp;<asp:Label ID="lblManager_Id" runat="server" Visible="False"></asp:Label>
-                                    <br />
+                                    
 
                                     <div>
                                         <label class="control-label">Reason:</label>
                                         <asp:TextBox ID="txtReason" TextMode="MultiLine" class="form-control" name="Reason" placeholder="Reason" runat="server" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtReason" ErrorMessage="This felid cant be null" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtReason" ErrorMessage="please enter the reason" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </div>
-                                    <br />
+                                    
 
                                     <div>
                                         <label class="control-label">Approver:</label>
@@ -133,13 +137,41 @@
                                 <asp:Label ID="lblPrevious" runat="server"></asp:Label>
                             </div>
                             <div>
-                                <label class="control-label">Remaining leaves:</label>
+                                <label class="control-label">Total Remaining vacations:</label>
                                 <asp:Label ID="lblRemain" runat="server"></asp:Label>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+               
+              <div class="panel panel-default" style="float: right; width: 300px; margin-right: 100px;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Applied Vacation Summary</h3>
+                        </div>
+                        <div class="panel-body form-group">
+                            <div>
+                                <asp:GridView ID="grdAvs" runat="server"  AutoGenerateColumns="False"  class="table table-bordered bg-danger" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                        <AlternatingRowStyle BackColor="White" />
+                                      <Columns>
+                                            <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" Visible="false" />
+                                            <asp:BoundField DataField="from_date" HeaderText="From Date" SortExpression="from_date" />
+                                            <asp:BoundField DataField="to_date" HeaderText="To Date" SortExpression="to_date" />
+                                            <asp:BoundField DataField="approval_status" HeaderText="Approval Status" SortExpression="Approval_Status" />
+                                          </Columns>
+                                    <EditRowStyle BackColor="#7C6F57" />
+                                        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                                        <RowStyle BackColor="#E3EAEB" />
+                                        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                                        <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                                        <SortedAscendingHeaderStyle BackColor="#246B61" />
+                                        <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                                        <SortedDescendingHeaderStyle BackColor="#15524A" />
+                                    </asp:GridView>
+                                </div>
+                           </div>
+                  </div>
+                    </div>
             <!-- /.container-fluid -->
 
         </div>

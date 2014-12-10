@@ -164,7 +164,8 @@ namespace Vacation_management_system.Web.MyVacation
                                 var url = Request.Url.GetLeftPart(UriPartial.Authority) + VirtualPathUtility.ToAbsolute("~/") + "Web/Login/Login.aspx?ReturnUrl=~/web/EmployeeVacation/EmployeeVacation.aspx?id="+leave_Id+"";
            
                                 mail.VacationRequestEmail(txtApprover.Text, lblManager_Email.Text, Session["UserName"].ToString(), txtFromDate.Text, txtToDate.Text, leave.ToString(), txtReason.Text,url);
-    
+                                msg = "<script language='javascript'>alert('you successfully requested for vacation ')</script>";
+                                alert(msg);
                                 Response.Redirect("~/Web/MyVacation/MyVacation.aspx");
                             }
                             else

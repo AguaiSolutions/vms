@@ -263,10 +263,11 @@ namespace Vacation_management_system.Web.Employee
             string query1 = "update [dbo].[leave_management] set approval_status='i' where emp_id=" + employee_Id + "";
             var leave = ds.RunCommand(query1);
       
+
              var  re= ob.updateEmployeeLeaves(employee_Id);
 
                
-            if (res && result && leave)
+            if (res && result && re)
             {
                 Response.Redirect("EmployeeList.aspx");
             }
