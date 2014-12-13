@@ -93,7 +93,7 @@
                                             <asp:BoundField DataField="to_date" HeaderText="To Date" SortExpression="to_date" />
                                             <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
                                             <asp:BoundField DataField="approval_status" HeaderText="Approval Status" SortExpression="approval_status" Visible="True" />
-                                            <asp:BoundField DataField="leaves" HeaderText="Leaves" SortExpression="leave" />
+                                            <asp:BoundField DataField="leaves" HeaderText="No of Days" SortExpression="leave" />
                                         </Columns>
                                         <EditRowStyle BackColor="#7C6F57" />
                                         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />

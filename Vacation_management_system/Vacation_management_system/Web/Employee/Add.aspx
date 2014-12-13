@@ -96,7 +96,7 @@
 
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-users"></i> User Management 
+                                <i class="fa fa-users"></i>User Management 
                             </li>
                             <li class="active">
                                 <i id="icon" runat="server"></i>
@@ -114,16 +114,17 @@
 
                     </div>
                     <div class="panel-body">
+                        <div class="row" style="margin-bottom: 10px;">
+                            <div class="form-group form-inline align-left" style="float: left;">
+                                <asp:Button ID="btnSave1" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="btnSave_Click" />
 
-                        <div class="form-group form-inline align-left" style="float: left;">
-                            <asp:Button ID="btnSave1" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="btnSave_Click" />
+                                <asp:Button ID="btnSaveandaddnew1" CssClass="btn btn-primary" runat="server" Text="Save & Add New" OnClick="btnSaveandAddNew_Click" />
 
-                            <asp:Button ID="btnSaveandaddnew1" CssClass="btn btn-primary" runat="server" Text="Save & Add New" OnClick="btnSaveandAddNew_Click" />
+                                <asp:Button ID="btnupdate1" CssClass="btn btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
 
-                            <asp:Button ID="btnupdate1" CssClass="btn btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
+                                <asp:HyperLink ID="hlinkCancel1" CssClass="btn btn-primary" runat="server" NavigateUrl="~/Web/Employee/EmployeeList.aspx">Cancel</asp:HyperLink>
 
-                            <asp:HyperLink ID="hlinkCancel1" CssClass="btn btn-primary" runat="server" NavigateUrl="~/Web/Employee/EmployeeList.aspx">Cancel</asp:HyperLink>
-
+                            </div>
                         </div>
 
                         <div class="row" style="margin-bottom: 10px;">
@@ -135,7 +136,7 @@
 
                             <div class="form-group">
 
-                                <asp:ValidationSummary CssClass="alert alert-danger" DisplayMode="List" ID="vldSummary" ForeColor="Black" runat="server" Width="1140px" />
+                                <asp:ValidationSummary CssClass="alert alert-danger" DisplayMode="List" ID="vldSummary" ForeColor="Black" runat="server" />
 
                             </div>
                         </div>
