@@ -161,7 +161,7 @@ namespace Vacation_management_system.Web.Employee
              var xxsd = DateTime.TryParseExact(txtDOJ.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,
                                      out doj);
              DateTime dob;
-             xxsd = DateTime.TryParseExact(txtDOJ.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,
+             xxsd = DateTime.TryParseExact(txtDOB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,
                                      out dob);
             string addEmployee =
                 "insert into [employee] (emp_no,first_name,last_name,gender,personal_email,official_email,password,role_id,date_of_join,date_of_birth,contact_number,emergency_contact_number,permanent_address,temp_address) VALUES('" +

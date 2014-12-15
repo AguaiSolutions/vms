@@ -26,16 +26,19 @@ namespace Vacation_management_system.Web.Common
 
         protected void BindDataList()
         {
-            Database ob = new Database();
-            string query = "select (first_name+' ' +last_name) as name, (DATENAME(month, date_of_birth)+' '+DATENAME(DAY, date_of_birth)) as dob, image from employee join employee_additional on  employee.id=employee_additional.emp_id";
-            SqlDataReader data;
-            ob.RunQuery( out data, query);
-            DataTable dt = new DataTable();
-            dt.Load(data);
-            dtlist.DataSource = dt;
-            dtlist.DataBind();
-            data.Close();
-            ob.Close();
+            if (!IsPostBack)
+            {
+                Database ob = new Database();
+                string query = " select top 5 (first_name+' ' +last_name) as name, (DATENAME(month, date_of_birth)+' '+DATENAME(DAY, date_of_birth)) as dob, image from employee join employee_additional on  employee.id= employee_additional.emp_id  where month(date_of_birth)=month(GETDATE()) and DATEADD(YEAR, DATEPART(YEAR, GETDATE()) - DATEPART(YEAR, date_of_birth), date_of_birth)  > GETDATE()-1 order by month(date_of_birth), day(date_of_birth)";
+                SqlDataReader data;
+                ob.RunQuery(out data, query);
+                DataTable dt = new DataTable();
+                dt.Load(data);
+                dtlist.DataSource = dt;
+                dtlist.DataBind();
+                data.Close();
+                ob.Close();
+            }
 
         }
     }
