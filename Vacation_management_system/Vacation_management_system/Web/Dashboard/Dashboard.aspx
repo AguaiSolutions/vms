@@ -20,7 +20,33 @@
       {
 text-align:center;
       }
+
+    #profile  a {
+  float: left;
+  position: relative;
+}
+
+#profile a img {
+  display: block;
+}
+
+#profile a #eg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  color: #ddd;
+  padding: 20px;
+}
+
+#profile a:hover #eg{
+  display: block;
+}
     </style> 
+      
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -54,8 +80,14 @@ text-align:center;
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-user"></i> Profile</h3>
                             </div>
+                            
                             <div class="panel-body">
-                                    <asp:Image ID="img_profile_pic"  Width="200" Height="200" runat="server"  />
+                                <div id="profile">
+                                  <a href="#myModal"  data-toggle="modal">
+                                   <asp:Image ID="img_profile_pic"  Width="200" Height="200" runat="server"  />
+                                  <span id="eg">Change profile pic</span>
+                                  </a>
+                                  </div> 
                                    
                                  <div id="profile_information">
                                  
@@ -74,7 +106,7 @@ text-align:center;
                       <%--  Vacation summary--%>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-plane"></i>   Vacation summary</h3>
+                                <h3 class="panel-title"><i class="fa fa-plane"></i> Current year vacation summary</h3>
                             </div>
                             <div class="panel-body">
                                <asp:Label ID="lblTotalVaction" runat="server"></asp:Label><br />
@@ -135,6 +167,40 @@ text-align:center;
                     </div>
                </div>
 
+
+                      <%--  modal for image upload--%>
+                <div class="modal modal-wide fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="col-lg-8">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title modal-title">Update Profile Picture</h3>
+                                    </div>
+                                    <div class="panel-body">
+
+                                        <div class="center-block">
+
+
+                                            <div class="form-group">
+                                                 
+                                                 <asp:FileUpload ID="empImage" runat="server" Style="width: 200px; height:20px" /><br />
+                                            </div>
+                                            <asp:Button ID="Button2" runat="server" OnClick=" btnUpload_Click" CssClass="btn btn-primary" Font-Size="Medium"  Height="30px" Text="Upload" />&nbsp;&nbsp;
+                                            <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Font-Size="Medium"  Height="30px" Text="Cancel" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
 
                 </div>
                 <!-- /.container-fluid -->

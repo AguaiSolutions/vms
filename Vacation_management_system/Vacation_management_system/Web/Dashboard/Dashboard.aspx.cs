@@ -3,6 +3,7 @@ using Aguai_Leave_Management_System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.IO;
 using Vacation_management_system.Web.Common.Class;
 namespace Vacation_management_system.Web.Dashboard
 {
@@ -37,7 +38,7 @@ namespace Vacation_management_system.Web.Dashboard
 
                 while (data.Read())
                 {
-                    img_profile_pic.ImageUrl = "~/Web/Images/" + data["image"].ToString();
+                    img_profile_pic.ImageUrl = "~/Web/Images/" + data["image"].ToString() + "?dt=" + DateTime.Now;
                     lblUsername.Text = data["name"].ToString();
                     lblBirthday.Text = "BirthDay   <b>:</b> " + data["dob"].ToString();
                 }
@@ -61,5 +62,46 @@ namespace Vacation_management_system.Web.Dashboard
 
             }
         }
+
+         protected void  btnUpload_Click(object sender, EventArgs e)
+        {
+            if (empImage.HasFile)
+            {
+
+                string filename = Path.GetFileName(empImage.PostedFile.FileName);
+                string ext = Path.GetExtension(filename);
+                filename =Session["userId"] + ext;
+                string profile_pic=null;
+                Database ds = new Database();
+                SqlDataReader data;
+                string query = "select image from employee_additional  WHERE emp_id=" + Session["userId"] + " ";
+                ds.RunQuery(out data, query);
+                while(data.Read())
+                {
+                    profile_pic = data["image"].ToString();
+                }
+                data.Close();
+                ds.Close();
+                string query1 = "UPDATE employee_additional SET image ='" + filename + "'  WHERE emp_id=" + Session["userId"] + "";
+                 var res= ds.RunCommand(query1);
+                if(res)
+                {
+                    if (!profile_pic.Equals("Defalut.jpg"))
+                    {
+                        string path = Server.MapPath("~/Web/Images/" + profile_pic);
+                        FileInfo file = new FileInfo(path);
+                        file.Delete();
+                    }
+                    empImage.SaveAs(Server.MapPath("~/Web/Images/" + filename));
+                    Response.Redirect("Dashboard.aspx");
+                   
+                  // ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'> location.reload(); </script>");
+                }
+                else
+                    ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Error while updating image.')</script>");
+
+            }
+        }
+
     }
 }
