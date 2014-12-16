@@ -17,30 +17,30 @@ namespace Vacation_management_system.Web.Common.Class
 
             string _query;
             _query = "update employee_configuration set";
-
-            if (previous_year_vacation != 0 && current_year_vacation == 0)
             {
-                _query += "  previous_year_leaves= " + previous_year_vacation;
-
-            }
-            else
-                if (previous_year_vacation < 0 && current_year_vacation != 0)
+                if (previous_year_vacation != 0 && current_year_vacation == 0)
                 {
-                    previous_year_vacation = 0;
-                    _query += " previous_year_leaves= " + previous_year_vacation;
-                    _query += ",";
-                    _query = _query + " current_year_leaves= " + current_year_vacation;
+                    _query += "  previous_year_leaves= " + previous_year_vacation;
+
                 }
                 else
-                {
-                    _query = _query + " current_year_leaves= " + current_year_vacation;
-                }
+                    if (previous_year_vacation < 0 && current_year_vacation != 0)
+                    {
+                        previous_year_vacation = 0;
+                        _query += " previous_year_leaves= " + previous_year_vacation;
+                        _query += ",";
+                        _query = _query + " current_year_leaves= " + current_year_vacation;
+                    }
+                    else
+                    {
+                        _query = _query + " current_year_leaves= " + current_year_vacation;
+                    }
 
-            _query += " where emp_id=" + user_id + " ";
-            var res = ds.RunCommand(_query);
-            return res;
+                _query += " where emp_id=" + user_id + " ";
+                var res = ds.RunCommand(_query);
+                return res;
+            }
         }
-
         public void employees_leave_balance(out double remaining_leaves, out double current_year_vacations, out double previous_year_vacations, Int32 user_id)
         {
             string _query;
