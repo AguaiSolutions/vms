@@ -10,6 +10,7 @@ using  System.Data.SqlClient;
 using  Aguai_Leave_Management_System;
 
 
+
 namespace Vacation_management_system.Master
 {
     public partial class VMS : System.Web.UI.MasterPage
@@ -59,6 +60,8 @@ namespace Vacation_management_system.Master
                         if (((dt.Rows[j]["Friendly_name"].Equals(current_url))))
                         {
                             menulist.Append("<li class=\"active\">");
+                            var msg = "<script language='javascript'> $(\"#demo" + k + "\").removeClass(\"collapse\");</script>"; 
+                           Page. ClientScript.RegisterStartupScript(Page.GetType(), "validation", msg);
                         }
                         else
                             menulist.Append("<li>");

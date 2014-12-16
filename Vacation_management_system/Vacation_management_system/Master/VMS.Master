@@ -29,8 +29,28 @@
     <script src="/Scripts/bootstrap.js"></script>
     <%--<script src="/Scripts/bootstrap.min.js"></script>--%>
     <link rel="shortcut icon" type="image/x-icon" href="/Web/Images/VMS.ico" />
+     <style>
+            #count
+            {
+             padding: 3px 7px 3px 7px;
+             background: #cc0000;
+             color: #ffffff;
+font-weight: bold;
+margin-left: -8px;
+border-radius: 9px;
+-moz-border-radius: 9px; 
+-webkit-border-radius: 9px;
+position: absolute;
+margin-top: -7px;
+font-size: 9px;
+            }
+
+
+        </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
+        
+       
     </asp:ContentPlaceHolder>
 
 </head>
@@ -43,7 +63,7 @@
                 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <asp:Label ID="lblWelcome"  ForeColor="LightBlue" runat="server"><h3 class="navbar">Vacation Management System</h3></asp:Label>
+                        <asp:Label ID="lblWelcome"  ForeColor="LightBlue" runat="server"><h3 class="navbar"><img src="/Web/Images/Logo.png" style="margin-left: 20px;"   width="200" height="30"/>Vacation Management System</h3></asp:Label>
                     </div>
                     <!-- Top Menu Items -->
                     <ul class="nav navbar-right top-nav">
@@ -101,8 +121,10 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><b class="caret"></b></a>
-                            <ul class="dropdown-menu alert-dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="badge" id="count">4</span></a>
+                           
+                            <ul class="dropdown-menu alert-dropdown" id="con">
+                                
                                 <li>
                                     <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
                                 </li>
@@ -125,6 +147,7 @@
                                 <li>
                                     <a href="#">View All</a>
                                 </li>
+                                   
                             </ul>
                         </li>
                         <li class="dropdown">
