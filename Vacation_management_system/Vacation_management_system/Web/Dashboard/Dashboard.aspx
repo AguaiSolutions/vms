@@ -96,7 +96,7 @@ text-align:center;
                                     
                                    </div>
                                 <div class="text-right">
-                                    <a href="~/web/Employee/PersonalDtails.aspx" runat="server">View more details <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="~/web/Employee/PersonalDetails.aspx" runat="server">View more details <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                              </div>
                             </div>
@@ -134,6 +134,7 @@ text-align:center;
                                 <uc1:BirthDay runat="server" ID="BirthDay" />
                                 <div class="text-right">
                                     <a href="~/web/Holidays/Holidays.aspx" runat="server">View All <i class="fa fa-arrow-circle-right"></i></a>
+                                    
                                 </div>
                             </div>
                         </div>

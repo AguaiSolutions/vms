@@ -45,8 +45,48 @@ margin-top: -7px;
 font-size: 9px;
             }
 
+   .arrow_box {
+	position: relative;
+	background: #88b7d5;
+	border: 4px solid #c2e1f5;
+}
+.arrow_box:after, .arrow_box:before {
+	bottom: 100%;
+	left: 84%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
 
-        </style>
+.arrow_box:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #FFFFFF;
+	border-width: 15px;
+	margin-left: -5px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-bottom-color: #c2e1f5;
+	border-width: 3px;
+	
+}   
+
+    #alertbdayimage
+      {
+          float:left;
+          padding-left: 10px;
+      }
+      #alertbirthday
+      {
+         padding-left: 60px;
+          padding-bottom: 20px;
+          line-height: 1.5;
+
+      }
+     </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
         
@@ -120,36 +160,14 @@ font-size: 9px;
                                 </li>
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="badge" id="count">4</span></a>
-                           
-                            <ul class="dropdown-menu alert-dropdown" id="con">
-                                
-                                <li>
-                                    <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Alert Name <span class="label label-primary">Alert Badgnmbvbe</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#">View All</a>
-                                </li>
-                                   
-                            </ul>
+                         
+                        <li class="dropdown " id="alerts" runat="server">
+                            
+                         
+                          
+                             
                         </li>
+                             
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
                                 <asp:Label ID="lblUsername" runat="server"></asp:Label><b class="caret"></b></a>
