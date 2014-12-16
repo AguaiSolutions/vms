@@ -32,21 +32,23 @@ namespace Vacation_management_system.Web.MyVacation
         {
             user_id = Convert.ToInt32(Session["userId"]);
             if (!IsPostBack)
-
-
-
             {
-                //vacation summary
-                query_object.employees_leave_balance(out remaining_leaves, out  current_year_vacations, out previous_year_vacations, user_id);
-                lblCurrent.Text = current_year_vacations.ToString();
-                lblPrevious.Text = previous_year_vacations.ToString();
-                lblRemain.Text = remaining_leaves.ToString();
+                query = "SELECT  id,CONVERT(varchar,from_date,103)as from_date,CONVERT(varchar,to_date,103)as to_date,'approval_status'= CASE approval_status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' END from leave_management where (approval_status='p' or approval_status='a') and emp_id=" + user_id + "";
+                ds.RunQuery(out _data, query);
+                DataTable table = new DataTable();
+                if (_data.HasRows == true)
+                {
+                    table.Load(_data);
+                    gvVacation.DataSource = table;
+                    gvVacation.DataBind();
+                }
+                else
+                    lblEmpty.Text = "No records found";
+                _data.Close();
+                ds.Close();
 
                 if (!(Session["role_ID"].ToString().Equals("1")))
                 {
-                    
-
-
                     query = "SELECT id,first_name,last_name,official_email from employee where id = (select manager_id from manager where employee_id = " + user_id + ")";
                     ds.RunQuery(out _data, query);
                     if (_data.HasRows == true)

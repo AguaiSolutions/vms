@@ -41,10 +41,10 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-plane"></i> Leave Management
+                                <i class="fa fa-plane"></i>Leave Management
                             </li>
                             <li class="active">
-                                <i class="glyphicon glyphicon-plus-sign"></i> Apply New Vacation
+                                <i class="glyphicon glyphicon-plus-sign"></i>Apply New Vacation
                             </li>
                         </ol>
                     </div>
@@ -127,33 +127,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default" style="float: right; width: 300px; margin-right: 100px;">
+
+                    <div class="panel panel-default" style="float: right; width: 400px; margin-right: 100px;">
                         <div class="panel-heading">
                             <h3 class="panel-title">Vacation Summary</h3>
                         </div>
                         <div class="panel-body form-group">
                             <div>
-                                <label class="control-label">Current year vacations:</label>
-                                <asp:Label ID="lblCurrent" runat="server"></asp:Label>
-                            </div>
-                            <div>
-                                <label class="control-label">Previous year vacations:</label>
-                                <asp:Label ID="lblPrevious" runat="server"></asp:Label>
-                            </div>
-                            <div>
-                                <label class="control-label">Total Remaining vacations:</label>
-                                <asp:Label ID="lblRemain" runat="server"></asp:Label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default" style="float: right; width: 300px; margin-right: 100px;">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Applied Vacation Summary</h3>
-                        </div>
-                        <div class="panel-body form-group">
-                            <div>
-                                <asp:GridView ID="grdAvs" runat="server" AutoGenerateColumns="False" class="table table-bordered bg-danger" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                <asp:Label ID="lblEmpty" runat="server" Font-Size="Medium" ForeColor="Red"></asp:Label>
+                                <asp:GridView ID="gvVacation" runat="server" AutoGenerateColumns="False" class="table table-bordered bg-danger" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None">
                                     <AlternatingRowStyle BackColor="White" />
                                     <Columns>
                                         <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" Visible="false" />
@@ -176,11 +158,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- /#page-wrapper -->
+            <!-- /.container-fluid -->
 
         </div>
-        <!-- /#wrapper -->
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
 </asp:Content>

@@ -204,7 +204,8 @@ namespace Vacation_management_system.Web.Employee
 
             _query = "INSERT INTO employee_configuration (emp_id,current_year_leaves) values (" + empId + "," + currentLeaves + ")";
             ds.RunCommand(_query);
-            
+            ds.Close();
+
         }
 
         private string generateString(int length)
@@ -266,7 +267,7 @@ namespace Vacation_management_system.Web.Employee
             var employee_Id = Convert.ToInt32(Request.QueryString["id"]);
 
           //  var employee_Id = Request.QueryString["id"];
-            _query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "', last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + _roleId + "', date_of_join='" + txtDOJ.Text.Trim() + "', date_of_birth='" + txtDOB.Text.Trim() + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' ,isactive='0' , DOR='" + txtDor.Text + "' where id=" + employee_Id + "";
+            _query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "', last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + _roleId + "', date_of_join='" + txtDOJ.Text.Trim() + "', date_of_birth='" + txtDOB.Text.Trim() + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' where id=" + employee_Id + "";
             var res = ds.RunCommand(_query);
          
            
@@ -274,14 +275,19 @@ namespace Vacation_management_system.Web.Employee
             var result = ds.RunCommand(_query);
             _query = "update manager set manager_id=" + _managerId + " where employee_id=" + employee_Id + " ";
             var manager= ds.RunCommand(_query);
-            string query1 = "update [dbo].[leave_management] set approval_status='i' where emp_id=" + employee_Id + "";
-            var leave = ds.RunCommand(query1);
-      
+            if (cdInactive.Checked)
+            {
+                string query1 = "update [dbo].[leave_management] set approval_status='i' where emp_id=" + employee_Id + "";
+                var leave = ds.RunCommand(query1);
 
-             var  re= ob.updateEmployeeLeaves(employee_Id);
 
+                var re = ob.updateEmployeeLeaves(employee_Id);
+                _query = "update employee set  emp_no='" + txtEmpNo.Text + "', first_name='" + Utilities.convertQuotes(txtFirstName.Text.Trim()) + "', last_name='" + Utilities.convertQuotes(txtLastName.Text.Trim()) + "', gender='" + drdGender.Text + "', personal_email='" + txtPersonalEmail.Text + "', official_email='" + txtOfficialEmail.Text + "', role_id='" + _roleId + "', date_of_join='" + txtDOJ.Text.Trim() + "', date_of_birth='" + txtDOB.Text.Trim() + "', contact_number='" + txtContactNo.Text + "', emergency_contact_number='" + txtEmergencyNo.Text + "', permanent_address='" + txtPermanentAdd.InnerText + "', temp_address='" + txtLocalAdd.InnerText + "' ,isactive='0' , DOR='" + txtDor.Text + "' where id=" + employee_Id + "";
+
+                var res1 = ds.RunCommand(_query);
+            }
                
-            if (res && result && re)
+            if (res && result )
             {
                 Response.Redirect("EmployeeList.aspx");
             }
