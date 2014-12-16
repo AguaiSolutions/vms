@@ -43,6 +43,18 @@
                                 </h3>
                             </div>
                             <div class="panel-body">
+
+                                <div style="float:right;">
+                            <div class="form-group">
+                                <label class="control-label">Total Approved vacations:</label>
+                                <asp:Label ID="lblApproved" runat="server"></asp:Label>
+                                </div>
+                             <div class="form-group">
+                                <label class="control-label">Total Remaining vacations:</label>
+                                <asp:Label ID="lblRemaining" runat="server"></asp:Label>
+                            </div>
+                                </div>
+
                                 <div class="btn-group form-group">
                                     <asp:Button ID="btnapplyleave1" Text="Apply Leave" OnClick="btnApplyLeave_Click" CssClass="btn btn-primary" runat="server" />
                                 </div>

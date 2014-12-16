@@ -190,7 +190,8 @@ namespace Vacation_management_system.Web.Employee
 
             _query = "INSERT INTO employee_configuration (emp_id,current_year_leaves) values (" + empId + "," + currentLeaves + ")";
             ds.RunCommand(_query);
-            
+            ds.Close();
+
         }
 
         private string generateString(int length)
