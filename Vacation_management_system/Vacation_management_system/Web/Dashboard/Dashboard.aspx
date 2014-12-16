@@ -1,5 +1,27 @@
 ﻿<%@ Page Title="Dashboard" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="Vacation_management_system.Web.Dashboard.Dashboard" %>
+
+<%@ Register Src="~/Web/Common/BirthDay.ascx" TagPrefix="uc1" TagName="BirthDay" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
+    <style>
+      #ContentPlaceHolder1_img_profile_pic
+      {
+          float:left;
+      }
+      #profile_information
+      {
+          margin-left: 250px;
+          padding-bottom: 20px;
+          line-height: 2;
+
+      }
+      th
+      {
+text-align:center;
+      }
+    </style> 
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
@@ -30,26 +52,43 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Profile</h3>
+                                <h3 class="panel-title"><i class="fa fa-user"></i> Profile</h3>
                             </div>
                             <div class="panel-body">
-                                    Lorem ipsum dolor sit amet
-                               Consectetur adipiscing elit
-                                 Integer molestie lorem at massa
-                                Facilisis in pretium nisl aliquet
-                                Nulla volutpat aliquam velit
-                                Phasellus iaculis neque
-                                 Lorem ipsum dolor sit amet
-                               Consectetur adipiscing elit
-                                 Integer molestie lorem at massa
-                                Facilisis in pretium nisl aliquet
-                                Nulla volutpat aliquam velit
-                                Phasellus iaculis neque
+                                    <asp:Image ID="img_profile_pic"  Width="200" Height="200" runat="server"  />
+                                   
+                                 <div id="profile_information">
+                                 
+                                    <b><asp:Label ID="lblUsername" runat="server"></asp:Label></b><br />
+                                    <asp:Label ID="lblBirthday" runat="server"></asp:Label>
+                                    
+                                   </div>
                                 <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="~/web/Employee/PersonalDtails.aspx" runat="server">View more details <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                             </div>
+                            </div>
+                        
+                        
+
+                      <%--  Vacation summary--%>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-plane"></i>   Vacation summary</h3>
+                            </div>
+                            <div class="panel-body">
+                               <asp:Label ID="lblTotalVaction" runat="server"></asp:Label><br />
+                                    <asp:Label ID="lblPendingVaction" runat="server"></asp:Label><br />
+                                <asp:Label ID="lblApprovedVaction" runat="server"></asp:Label><br />
+                                    <asp:Label ID="lblCancelVaction" runat="server"></asp:Label><br />
+                                <asp:Label ID="lblrejectedVaction" runat="server"></asp:Label><br />
+
+                                <div class="text-right">
+                                    <a href="~/web/MyVacation/MyVacation.aspx" runat="server">View Details <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
+
                     </div>
               
                      <!-- /.Birthday List -->
@@ -57,91 +96,44 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Birthday List</h3>
+                                <h3 class="panel-title"><i class="fa fa-birthday-cake"></i>  <asp:Label ID="lblBirth" runat="server"></asp:Label></h3>
                             </div>
                             <div class="panel-body">
-                                    Lorem ipsum dolor sit amet
-                               Consectetur adipiscing elit
-                                 Integer molestie lorem at massa
-                                Facilisis in pretium nisl aliquet
-                                Nulla volutpat aliquam velit
-                                Phasellus iaculis neque
-                                 Lorem ipsum dolor sit amet
-                               Consectetur adipiscing elit
-                                 Integer molestie lorem at massa
-                                Facilisis in pretium nisl aliquet
-                                Nulla volutpat aliquam velit
-                                Phasellus iaculis neque
+                                <uc1:BirthDay runat="server" ID="BirthDay" />
                                 <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="~/web/Holidays/Holidays.aspx" runat="server">View All <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
+
+                     <%--   Holiday List--%>
+                         <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-list"></i>  Holiday List</h3>
+                            </div>
+                            <div class="panel-body">
+                                    <div class="text-right">
+                                        <a href="#">
+                                        <asp:Label ID="lblEmpty" runat="server"></asp:Label>
+                                        <asp:GridView ID="grdHolidayList"  runat="server" BackColor="#DEBA84" class="table table-bordered  text-center "  BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
+                                            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510"  />
+                                            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White"  />
+                                            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+                                            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510"   />
+                                            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                                            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+                                            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+                                            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+                                            <SortedDescendingHeaderStyle BackColor="#93451F" />
+                                        </asp:GridView>
+                                        View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                </div>
-
-
-                    <!-- /.row2 -->
-                     
-                   
-                <div class="row">
-                     <!-- /.Holiday List -->
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>Holiday List</h3>
-                            </div>
-                            <div class="panel-body">
-                                    Lorem ipsum dolor sit amet
-                               Consectetur adipiscing elit
-                                 Integer molestie lorem at massa
-                                Facilisis in pretium nisl aliquet
-                                Nulla volutpat aliquam velit
-                                Phasellus iaculis neque
-                                 Lorem ipsum dolor sit amet
-                               Consectetur adipiscing elit
-                                 Integer molestie lorem at massa
-                                Facilisis in pretium nisl aliquet
-                                Nulla volutpat aliquam velit
-                                Phasellus iaculis neque
-                                <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-              
-                     <!-- /.Leave Information -->
-                  
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>Leave Information</h3>
-                            </div>
-                            <div class="panel-body">
-                                    Lorem ipsum dolor sit amet
-                               Consectetur adipiscing elit
-                                 Integer molestie lorem at massa
-                                Facilisis in pretium nisl aliquet
-                                Nulla volutpat aliquam velit
-                                Phasellus iaculis neque
-                                 Lorem ipsum dolor sit amet
-                               Consectetur adipiscing elit
-                                 Integer molestie lorem at massa
-                                Facilisis in pretium nisl aliquet
-                                Nulla volutpat aliquam velit
-                                Phasellus iaculis neque
-                                <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-               </div>
-
-              
-
-                
 
 
                 </div>

@@ -96,26 +96,21 @@ namespace Vacation_management_system.Web.Common.Class
 
         }
 
-        //public bool Cancelleaves(double previousYearLeaves, double leaves,int empId)
-        //{
-        //    string query = "update employee_configuration set";
+        public  static Int32 VacationDetails(string status, Int32 user_id)
+        {
+            Database ds = new Database();
+            Int32 counts=0;
+             string query = " select count(approval_status) as count from leave_management where approval_status='" + status + "' and  emp_id=" + user_id +" and YEAR(from_date)=YEAR(GETDATE()) " ;
+             SqlDataReader _data;
+             ds.RunQuery(out _data,query);
+            while(_data.Read())
+            {
+                counts = Convert.ToInt32(_data["count"]);
+            }
+            _data.Close();
+            ds.Close();
+            return counts;
+        }
 
-        //    if (previousYearLeaves > 0)
-        //    {
-        //        query +=" previous_year_leaves = previous_year_leaves+" + leaves;
-        //    }
-        //    else
-        //    {
-        //        query += "current_year_leaves = current_year_leaves+" + leaves;
-        //    }
-
-        //    query+= " where emp_id =" +empId;
-
-        //    Database db = new Database();
-
-        //    var res = db.RunCommand(query);
-
-        //    return res;
-        //}
     }
 }

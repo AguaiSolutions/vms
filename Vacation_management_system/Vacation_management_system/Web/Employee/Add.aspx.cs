@@ -7,6 +7,10 @@ using Aguai_Leave_Management_System;
 using System.Web.UI;
 using Vacation_management_system.Web.Common.Class;
 using System.Web.UI.HtmlControls;
+using System.Collections;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
 
 namespace Vacation_management_system.Web.Employee
 {
@@ -151,33 +155,43 @@ namespace Vacation_management_system.Web.Employee
             string RandomString = generateString(8);
 
             string password = Utilities.EncodePassword(RandomString);
-
+            string filename = Path.GetFileName(empImage.PostedFile.FileName);
+             string ext = Path.GetExtension(filename);
+             DateTime doj;
+             var xxsd = DateTime.TryParseExact(txtDOJ.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,
+                                     out doj);
+             DateTime dob;
+             xxsd = DateTime.TryParseExact(txtDOB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,
+                                     out dob);
             string addEmployee =
                 "insert into [employee] (emp_no,first_name,last_name,gender,personal_email,official_email,password,role_id,date_of_join,date_of_birth,contact_number,emergency_contact_number,permanent_address,temp_address) VALUES('" +
                 txtEmpNo.Text.Trim() + "','" + Server.HtmlEncode(txtFirstName.Text.Trim()) + "','" + Server.HtmlEncode(txtLastName.Text.Trim()) + "','" +
                 drdGender.SelectedValue + "','" + Utilities.convertQuotes(txtPersonalEmail.Text.Trim()) + "','" + Utilities.convertQuotes(txtOfficialEmail.Text.Trim()) +
-                "','" + password + "'," + _roleId + ",'" + txtDOJ.Text.Trim() + "','" + txtDOB.Text.Trim() + "','" +
+                "','" + password + "'," + _roleId + ",'" + doj + "','" + dob + "','" +
                 txtContactNo.Text.Trim() + "','" + txtEmergencyNo.Text.Trim() + "','" + txtLocalAdd.InnerText + "','" +
                 txtPermanentAdd.InnerText + "') SELECT SCOPE_IDENTITY() ";
             Int32 empId = Convert.ToInt32(ds.ExecuteObjectQuery(addEmployee));
+            filename = filename + empId + ext;
             string addEmpAdditional =
                 "INSERT into [employee_additional] (emp_id,bank_name,bank_branch,holder_name,account_number,pan,passport,image,ifsc_code) VALUES (" + empId + ",'" +
                 txtBankName.Text + "','" + txtBranchLocation.Text + "','" +
                 txtAccountHolder.Text + "','" + txtAccountNo.Text.Trim() + "','" +
-                txtPAN.Text.Trim() + "','" + txtPassport.Text.Trim() + "','" + empImage.FileName + "','" + txtIFSC.Text + "')";
+                txtPAN.Text.Trim() + "','" + txtPassport.Text.Trim() + "','" +filename + "','" + txtIFSC.Text + "')";
 
             ds.RunCommand(addEmpAdditional);
             
             if (empId > 0)
             {
                 DateTime dtx;
-                var xxsd = DateTime.TryParseExact(txtDOJ.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,
+               xxsd = DateTime.TryParseExact(txtDOJ.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,
                                         out dtx);
                 CalReminingLeaves(empId, dtx);
 
                 InsertManager(empId);
 
             }
+           
+            empImage.SaveAs(Server.MapPath("~/Web/Images/" + filename));
             var url = Request.Url.GetLeftPart(UriPartial.Authority) + VirtualPathUtility.ToAbsolute("~/") + "Web/Login/Login.aspx";
             Email mail = new Email();
             mail.SendRegistrationEmail(txtFirstName.Text, txtOfficialEmail.Text, txtEmpNo.Text, RandomString, url);
@@ -308,5 +322,34 @@ namespace Vacation_management_system.Web.Employee
         {
             _managerId = Convert.ToInt32(drdManager.SelectedValue);
         }
+
+        //protected void btnsave_Click(object sender, EventArgs e)
+        //{
+        //    string filename = Path.GetFileName(empImage.PostedFile.FileName);
+        //    string targetPath = Server.MapPath("Images/" + filename);
+        //    Stream strm = empImage.PostedFile.InputStream;
+        //    var targetFile = targetPath;
+        //    //Based on scalefactor image size will vary
+        //    //GenerateThumbnails(0.07, strm, targetFile);
+           
+            
+        //}
+        //private void GenerateThumbnails(double scaleFactor, Stream sourcePath, string targetPath)
+        //{
+        //    using (var image = Image.FromStream(sourcePath))
+        //    {
+        //        var newWidth = (int)(image.Width * scaleFactor);
+        //        var newHeight = (int)(image.Height * scaleFactor);
+        //        var thumbnailImg = new Bitmap(newWidth, newHeight);
+        //        var thumbGraph = Graphics.FromImage(thumbnailImg);
+        //        thumbGraph.CompositingQuality = CompositingQuality.HighQuality;
+        //        thumbGraph.SmoothingMode = SmoothingMode.HighQuality;
+        //        thumbGraph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+        //        var imageRectangle = new Rectangle(0, 0, newWidth, newHeight);
+        //        thumbGraph.DrawImage(image, imageRectangle);
+        //        thumbnailImg.Save(targetPath, image.RawFormat);
+        //    }
+        //}
+
     }
 }

@@ -66,7 +66,7 @@
                                             <asp:BoundField DataField="type_id" HeaderText="Type" SortExpression="Type" />
                                             <asp:BoundField DataField="approval_status" HeaderText="Approval Status" SortExpression="Approval_Status" />
                                             <asp:BoundField DataField="reason" HeaderText="Reason" SortExpression="Reason" />
-                                            <asp:BoundField DataField="leaves" HeaderText="leaves" SortExpression="leave" />
+                                            <asp:BoundField DataField="leaves" HeaderText="No of Days" SortExpression="leave" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:Button ID="btncancel" runat="server" CommandArgument='<%# Eval("ID")%>' Text="Cancel Vacation" CssClass="btn btn-primary" OnClick="btncancel" />

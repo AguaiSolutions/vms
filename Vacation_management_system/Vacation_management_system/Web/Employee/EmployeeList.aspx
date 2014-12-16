@@ -21,10 +21,10 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-users"></i> User Management 
+                                <i class="fa fa-users"></i>User Management 
                             </li>
                             <li class="active">
-                                <i class="fa fa-suitcase"></i> Employees List
+                                <i class="fa fa-suitcase"></i>Employees List
                             </li>
                         </ol>
                     </div>
@@ -37,22 +37,21 @@
                         <h3 class="panel-title"></h3>
                     </div>
                     <div class="panel-body">
-                        <asp:GridView ID="GvEmployeeList" runat="server" AutoGenerateColumns="False" onrowcommand="GvEmployeeList_RowCommand" OnRowDataBound="GvEmployeeList_RowDataBound" CssClass="table table-bordered bg-danger" DataKeyNames="ID" CellPadding="4" class="table table-bordered bg-danger" ForeColor="#333333" GridLines="None">
+                        <asp:GridView ID="GvEmployeeList" runat="server" AutoGenerateColumns="False" OnRowCommand="GvEmployeeList_RowCommand" OnRowDataBound="GvEmployeeList_RowDataBound" CssClass="table table-bordered bg-danger" DataKeyNames="ID" CellPadding="4" class="table table-bordered bg-danger" ForeColor="#333333" GridLines="None">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
 
-
                                 <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" Visible="false" />
-                                <asp:BoundField DataField="emp_no" HeaderText="Employee Number" SortExpression="Emp_Reg_No" />
+                                <asp:BoundField DataField="emp_no" HeaderText="Employee No" HeaderStyle-HorizontalAlign="Center" SortExpression="Emp_Reg_No" />
                                 <asp:BoundField DataField="first_name" HeaderText="First Name" SortExpression="UserName" />
                                 <asp:BoundField DataField="last_name" HeaderText="Last Name" SortExpression="From_date" />
                                 <asp:BoundField DataField="gender" HeaderText="Gender" SortExpression="To_date" />
-                                <asp:BoundField DataField="official_email" HeaderText="Official Email ID" SortExpression="Description" />
+                                <asp:BoundField DataField="official_email" HeaderText="Official Email" SortExpression="Description" />
                                 <asp:BoundField DataField="date_of_join" HeaderText="Date of joining" SortExpression="Type" />
-                                <asp:BoundField DataField="contact_number" HeaderText="Phone number" SortExpression="Approver" />
+                                <asp:BoundField DataField="contact_number" HeaderText="Contact" SortExpression="Approver" />
                                 <asp:BoundField DataField="permanent_address" HeaderText="Address" SortExpression="Approval_Status" />
                                 <asp:BoundField DataField="isactive" HeaderText=" Status" SortExpression="Approval_Status" />
-                              <asp:TemplateField>
+                                <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:LinkButton ID="lbtnEdit" CssClass="btn btn-primary" runat="server" CommandArgument='<%# Eval("ID")%>' CommandName="Edit" Text="Edit" />
                                     </ItemTemplate>
