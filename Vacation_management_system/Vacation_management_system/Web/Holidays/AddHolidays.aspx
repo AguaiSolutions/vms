@@ -57,13 +57,13 @@
 
                 });
             }
-            for (var i = 0, j = 0; i < x.length, j < name.length; i++, j++) {
+           // for (var i = 0, j = 0; i < x.length, j < name.length; i++, j++) {
 
                 $.ajax({
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
-                    url: '~/Service1.svc',
-                    data: '{"HolidayName":"' + x[i] + '","HolidayDate":"' + name[j] + '"}',
+                    url: 'http://localhost:11485/Holidays.svc/InsertJson',
+                    data: '{"HolidayName":"' + x + '","HolidayDate":"' + name + '"}',
                     dataType: "json",
                     processData: false,
                     success: function (data) {
@@ -76,7 +76,7 @@
 
                     }
                 });
-            }
+            //}
         }
 
         function deleteRow(obj) {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.ServiceModel.Web;
 
 namespace Vacation_management_system
 {
@@ -19,7 +20,7 @@ namespace Vacation_management_system
 
     }
 
-    [DataContract]
+  [DataContractFormat]
     public class JClass
     {
         public string hoilday { get; set; }

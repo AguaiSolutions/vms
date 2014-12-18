@@ -19,9 +19,9 @@ namespace Vacation_management_system
             var data = json;
 
             string connectionString =
-                @"Initial Catalog=Aguai_Leave_Management;Data Source=RAGHAV-PC\SQLEXPRESS2012;Integrated Security=SSPI;";
-            // for (int i = 0; i < data.Count; i++)
-            {
+                @"Initial Catalog=Aguai_Leave_Management;Data Source=VEERA-PC\SQLEXPRESS;Integrated Security=SSPI;";
+            //for (int i = 0; i < data.Count; i++)
+            //{
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
@@ -30,7 +30,7 @@ namespace Vacation_management_system
                     cmd.Parameters.AddWithValue("@Day", data.hoilday);
                     res += cmd.ExecuteNonQuery();
                 }
-            }
+            //}
             return res;
         }
 
