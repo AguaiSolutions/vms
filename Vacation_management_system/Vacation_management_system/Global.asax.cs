@@ -28,7 +28,7 @@ namespace Aguai_Leave_Management_System
             data.Close();
             ob.Close();
 
-            string query2 = "select holiday_date from holidays";
+            string query2 = "select holiday_name, holiday_date from holidays order by holiday_date ";
             Database ob2 = new Database();
             SqlDataReader data2;
             ob2.RunQuery(out data2, query2);

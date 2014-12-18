@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using Aguai_Leave_Management_System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
+
 using Vacation_management_system.Web.Common.Class;
 namespace Vacation_management_system.Web.Dashboard
 {
@@ -16,23 +22,21 @@ namespace Vacation_management_system.Web.Dashboard
             {
                 Database ds = new Database();
                 lblBirth.Text = DateTime.Now.ToString("MMMM", new CultureInfo("en-US"))+"  Birthdays";
-                string query = "select holiday_name as Name,CONVERT(varchar,holiday_date,103) as Date from holidays where year(holiday_date)=year(getdate())";
-                SqlDataReader _data;
-                ds.RunQuery(out _data, query);
-                DataTable table = new DataTable();
-                if (_data.HasRows == true)
-                {
-                    table.Load(_data);
-                    grdHolidayList.DataSource = table;
+                DataTable dt = (DataTable)Session["holiday"];
+                DateTime now = DateTime.Now;
+               now=now.AddDays(-1);
+                var thisYearRows = dt.AsEnumerable().Where(r => r.Field<DateTime>("holiday_date").Year == now.Year && r.Field<DateTime>("holiday_date") >= now);
+               if (thisYearRows.Any())
+               {
+                    DataView dataview = thisYearRows.AsDataView();
+                    grdHolidayList.DataSource =dataview;
                     grdHolidayList.DataBind();
                 }
                 else
                     lblEmpty.Text = "No records found";
-                _data.Close();
-                ds.Close();
-
+                
                 //profile information
-                query = "select (first_name+' ' +last_name) as name, convert(varchar,date_of_join,103) as doj, emp_no, official_email,  image from employee join employee_additional on  employee.id=" + Session["userId"] + " and employee_additional.emp_id=" + Session["userId"] + "";
+                string  query = "select (first_name+' ' +last_name) as name, convert(varchar,date_of_join,103) as doj, emp_no, official_email,  image from employee join employee_additional on  employee.id=" + Session["userId"] + " and employee_additional.emp_id=" + Session["userId"] + "";
                 SqlDataReader data;
                 ds.RunQuery(out data, query);
 
@@ -53,15 +57,32 @@ namespace Vacation_management_system.Web.Dashboard
                 double balance, currentVaction, previousVacation;
                 Int32 approve_count, pending_count, cancel_count, reject_count;
                 ob.employees_leave_balance(out balance, out currentVaction, out previousVacation, Convert.ToInt32(Session["userId"]));
-                approve_count = Queries.VacationDetails("a", Convert.ToInt32(Session["userId"]));
-                pending_count = Queries.VacationDetails("p", Convert.ToInt32(Session["userId"]));
-                cancel_count = Queries.VacationDetails("c", Convert.ToInt32(Session["userId"]));
-                reject_count = Queries.VacationDetails("r", Convert.ToInt32(Session["userId"]));
-                lblTotalVaction.Text = balance.ToString() ;
+                if (Session["role_ID"].Equals(1))
+                {
+                  //  ClientScript.RegisterStartupScript(Page.GetType(), "validation", "Hide_Row();");
+                Row_id.Style.Add("display", "none");
+                approve_count = Queries.VacationDetails("a" ,0);
+                pending_count = Queries.VacationDetails("p",0);
+                cancel_count = Queries.VacationDetails("c", 0);
+                reject_count = Queries.VacationDetails("r", 0); 
+                
                 lblApprovedVaction.Text =  approve_count.ToString();
                 lblPendingVaction.Text =  pending_count.ToString();
                 lblCancelVaction.Text = cancel_count.ToString();
                 lblrejectedVaction.Text = reject_count .ToString();
+                }
+                else
+                {
+                    approve_count = Queries.VacationDetails("a", Convert.ToInt32(Session["userId"]));
+                    pending_count = Queries.VacationDetails("p", Convert.ToInt32(Session["userId"]));
+                    cancel_count = Queries.VacationDetails("c", Convert.ToInt32(Session["userId"]));
+                    reject_count = Queries.VacationDetails("r", Convert.ToInt32(Session["userId"]));
+                    lblTotalVaction.Text = balance.ToString();
+                    lblApprovedVaction.Text = approve_count.ToString();
+                    lblPendingVaction.Text = pending_count.ToString();
+                    lblCancelVaction.Text = cancel_count.ToString();
+                    lblrejectedVaction.Text = reject_count.ToString();
+                }
 
             }
         }

@@ -49,7 +49,12 @@ text-align:center;
             width: 198px;
         }
     </style> 
-      
+  <%--  <script>
+        function Hide_Row()
+        {
+            document.getElementById('Row_id').hide();
+        }
+    </script>  --%>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -150,11 +155,11 @@ text-align:center;
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-plane"></i> Current year vacation summary</h3>
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body" >
                                
                                  <table style="width: 100%;">
-                                         <tr>
-                                             <td class="auto-style1">Available  Vacations </td>
+                                         <tr id="Row_id" runat="server">
+                                             <td class="auto-style1" >Available  Vacations </td>
                                              <td>:<b> <asp:Label ID="lblTotalVaction" runat="server"></asp:Label></b></td>
                                              
                                          </tr>
@@ -203,7 +208,7 @@ text-align:center;
                                     <div class="text-right">
                                         <a href="#">
                                         <asp:Label ID="lblEmpty" runat="server"></asp:Label>
-                                        <asp:GridView ID="grdHolidayList"  runat="server" class="table table-bordered  text-center " CellPadding="4" ForeColor="#333333" GridLines="None">
+                                        <asp:GridView ID="grdHolidayList"  runat="server" class="table table-bordered  text-center " AutoGenerateColumns="false" CellPadding="4" ForeColor="#333333" GridLines="None">
                                             <AlternatingRowStyle BackColor="White" />
                                             <EditRowStyle BackColor="#7C6F57" />
                                             <FooterStyle BackColor="#1C5E55" ForeColor="White" Font-Bold="True"  />
@@ -215,6 +220,11 @@ text-align:center;
                                             <SortedAscendingHeaderStyle BackColor="#246B61" />
                                             <SortedDescendingCellStyle BackColor="#D4DFE1" />
                                             <SortedDescendingHeaderStyle BackColor="#15524A" />
+                                            <Columns>
+                                                <asp:BoundField DataField="holiday_name" HeaderText="Name" />
+                                                <asp:BoundField DataField="holiday_date" HeaderText="Holiday Date" DataFormatString="{0:dd/MM/yyyy}" />
+
+                                            </Columns>
                                         </asp:GridView>
                                         View Details <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
