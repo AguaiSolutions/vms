@@ -25,7 +25,9 @@ namespace Vacation_management_system.Master
                 }
                 else
                     Response.Redirect("~/Web/Login/Login.aspx");
-                getMenu();
+               
+                    getMenu();
+                    AlertsMessages();
             }
 
         }
@@ -97,6 +99,60 @@ namespace Vacation_management_system.Master
             Session.RemoveAll();
             Session.Abandon();
             Response.Redirect("~/Web/Login/Login.aspx");
+        }
+
+        protected void AlertsMessages()
+        {
+
+            List<string> Name = new List<string>();
+            List<string> image = new List<string>();
+            List<string> date = new List<string>(); 
+           
+            Database ob = new Database();
+            string query = "select  (first_name+' ' +last_name) as name, (DATENAME(month, date_of_birth)+' '+DATENAME(DAY, date_of_birth)) as dob, image from employee join employee_additional on  employee.id= employee_additional.emp_id  where day(date_of_birth)=DAY(GETDATE()) and MONTH(date_of_birth)=MONTH(GETDATE())";
+            SqlDataReader data;
+            ob.RunQuery(out data, query);
+            while(data.Read())
+            {
+                Name.Add(data["name"].ToString());
+                date.Add (data["dob"].ToString());
+                image.Add(data["image"].ToString());
+              
+            }
+            data.Close();
+            ob.Close();
+            StringBuilder menulist = new StringBuilder();
+
+            menulist.Append("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-bell\"></i><span class=\"badge\" id=\"count\">" + Name.Count + "</span></a>");
+            menulist.Append("<ul class=\"dropdown-menu alert-dropdown arrow_box\" >");
+            menulist.Append("<li class=\"text-center\" style=\"color:blue\">");
+            menulist.Append(" Notifications <br /></li>");
+            menulist.Append("<li class=\"divider\"></li>");
+            if (Name.Count != 0)
+            {
+                for (int j = 0; j < Name.Count; j++)
+                {
+                    menulist.Append("<li >");
+                    menulist.Append(" <img src =\"../Images/" + image[j] + "\" id=\"alertbdayimage\" width=\"55\" height=\"45\"/>");
+                    menulist.Append(" <div id=\"alertbirthday\"> " + Name[j] + "<br/> birthday Today.<//div>");
+
+                }
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "hide", "counthide();", true);
+                menulist.Append("<li style=\"margin-left: 30px;\" >");
+              
+                menulist.Append("  No birthdays Today.");
+
+            }
+
+
+
+            menulist.Append("<li class=\"divider\"></li>");
+            menulist.Append("<li class=\"text-center\" style=\"color:blue\">");
+            menulist.Append("<a href=\"#\">View All</a> </li> </ul>");
+            alerts.InnerHtml = menulist.ToString(); 
         }
 
     }
