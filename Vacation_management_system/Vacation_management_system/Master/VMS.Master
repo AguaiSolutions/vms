@@ -87,6 +87,11 @@ font-size: 9px;
 
       }
      </style>
+    <script>
+        function counthide() {
+            $('#count').hide();
+        }
+    </script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
         

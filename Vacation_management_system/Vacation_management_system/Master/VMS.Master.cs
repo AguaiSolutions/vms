@@ -109,7 +109,7 @@ namespace Vacation_management_system.Master
             List<string> date = new List<string>(); 
            
             Database ob = new Database();
-            string query = "select  (first_name+' ' +last_name) as name, (DATENAME(month, date_of_birth)+' '+DATENAME(DAY, date_of_birth)) as dob, image from employee join employee_additional on  employee.id= employee_additional.emp_id  where day(date_of_birth)=DAY(GETDATE())";
+            string query = "select  (first_name+' ' +last_name) as name, (DATENAME(month, date_of_birth)+' '+DATENAME(DAY, date_of_birth)) as dob, image from employee join employee_additional on  employee.id= employee_additional.emp_id  where day(date_of_birth)=DAY(GETDATE()) and MONTH(date_of_birth)=MONTH(GETDATE())";
             SqlDataReader data;
             ob.RunQuery(out data, query);
             while(data.Read())
@@ -128,13 +128,26 @@ namespace Vacation_management_system.Master
             menulist.Append("<li class=\"text-center\" style=\"color:blue\">");
             menulist.Append(" Notifications <br /></li>");
             menulist.Append("<li class=\"divider\"></li>");
-            for (int j = 0; j < Name.Count; j++)
+            if (Name.Count != 0)
             {
-                menulist.Append("<li >");
-                menulist.Append(" <img src =\"../Images/" + image[j] + "\" id=\"alertbdayimage\" width=\"55\" height=\"45\"/>");
-                menulist.Append(" <div id=\"alertbirthday\"> "+Name[j]+"<br/> birthday Today.<//div>");
-                             
+                for (int j = 0; j < Name.Count; j++)
+                {
+                    menulist.Append("<li >");
+                    menulist.Append(" <img src =\"../Images/" + image[j] + "\" id=\"alertbdayimage\" width=\"55\" height=\"45\"/>");
+                    menulist.Append(" <div id=\"alertbirthday\"> " + Name[j] + "<br/> birthday Today.<//div>");
+
+                }
             }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "hide", "counthide();", true);
+                menulist.Append("<li style=\"margin-left: 30px;\" >");
+              
+                menulist.Append("  No birthdays Today.");
+
+            }
+
+
 
             menulist.Append("<li class=\"divider\"></li>");
             menulist.Append("<li class=\"text-center\" style=\"color:blue\">");

@@ -45,6 +45,9 @@ text-align:center;
 #profile a:hover #eg{
   display: block;
 }
+        .auto-style1 {
+            width: 198px;
+        }
     </style> 
       
 
@@ -90,13 +93,30 @@ text-align:center;
                                   </div> 
                                    
                                  <div id="profile_information">
-                                 
-                                    <b><asp:Label ID="lblUsername" runat="server"></asp:Label></b><br />
-                                    <asp:Label ID="lblEmpno" runat="server"></asp:Label>
-                                     <asp:Label ID="lblEmail" runat="server"></asp:Label><br />
-                                    <asp:Label ID="lblBirthday" runat="server"></asp:Label><br />
-                                     <asp:Label ID="lblDOJ" runat="server"></asp:Label>
-                                    
+                                
+                                     <table style="width: 100%;">
+                                         <tr>
+                                             <td>&nbsp;</td>
+                                             <td><asp:Label ID="lblUsername" runat="server"></asp:Label></td>
+                                             
+                                         </tr>
+                                         <tr>
+                                             <td>Employee No.</td>
+                                             <td><b>:</b>&nbsp;<asp:Label ID="lblEmpno" runat="server"></asp:Label></td>
+                                             
+                                         </tr>
+                                         <tr>
+                                             <td>Email</td>
+                                             <td><b>:</b>&nbsp;<asp:Label ID="lblEmail" runat="server"></asp:Label></td>
+                                             
+                                         </tr>
+                                         <tr>
+                                             <td>Date of Joining</td>
+                                             <td><b>:</b>&nbsp;<asp:Label ID="lblDOJ" runat="server"></asp:Label></td>
+                                             
+                                         </tr>
+                                     </table>
+
                                    </div>
                                 <div class="text-right">
                                     <a href="~/web/Employee/PersonalDetails.aspx" runat="server">View more details <i class="fa fa-arrow-circle-right"></i></a>
@@ -131,11 +151,38 @@ text-align:center;
                                 <h3 class="panel-title"><i class="fa fa-plane"></i> Current year vacation summary</h3>
                             </div>
                             <div class="panel-body">
-                               <asp:Label ID="lblTotalVaction" runat="server"></asp:Label><br />
-                                    <asp:Label ID="lblPendingVaction" runat="server"></asp:Label><br />
-                                <asp:Label ID="lblApprovedVaction" runat="server"></asp:Label><br />
-                                    <asp:Label ID="lblCancelVaction" runat="server"></asp:Label><br />
-                                <asp:Label ID="lblrejectedVaction" runat="server"></asp:Label><br />
+                               
+                                 <table style="width: 100%;">
+                                         <tr>
+                                             <td class="auto-style1">Available  Vacations </td>
+                                             <td>:<b> <asp:Label ID="lblTotalVaction" runat="server"></asp:Label></b></td>
+                                             
+                                         </tr>
+                                         <tr>
+                                             <td class="auto-style1">Approved Vacations</td>
+                                             <td>:<b>&nbsp;<asp:Label ID="lblApprovedVaction" runat="server"></asp:Label></b></td>
+                                             
+                                         </tr>
+                                         <tr>
+                                             <td class="auto-style1">Approval Pending Vacations</td>
+                                             <td>:<b>&nbsp;<asp:Label ID="lblPendingVaction" runat="server"></asp:Label></b></td>
+                                             
+                                         </tr>
+                                         <tr>
+                                             <td class="auto-style1">Canceled Vactions </td>
+                                             <td>:<b>&nbsp;<asp:Label ID="lblCancelVaction" runat="server"></asp:Label></b></td>
+                                             
+                                         </tr>
+                                     <tr>
+                                             <td class="auto-style1">Rejected Vactions</td>
+                                             <td>:<b>&nbsp;<asp:Label ID="lblrejectedVaction" runat="server"></asp:Label></b></td>
+                                             
+                                         </tr>
+                                     </table>
+                                
+                               
+                                    <br />
+                             
 
                                 <div class="text-right">
                                     <a href="~/web/MyVacation/MyVacation.aspx" runat="server">View Details <i class="fa fa-arrow-circle-right"></i></a>
@@ -221,5 +268,7 @@ text-align:center;
 
         </div>
         <!-- /#wrapper -->
+
+        </div>
 
 </asp:Content>
