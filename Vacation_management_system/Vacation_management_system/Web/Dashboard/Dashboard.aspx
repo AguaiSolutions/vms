@@ -11,7 +11,7 @@
       }
       #profile_information
       {
-          margin-left: 250px;
+          margin-left: 165px;
           padding-bottom: 20px;
           line-height: 2;
 
@@ -84,7 +84,7 @@ text-align:center;
                             <div class="panel-body">
                                 <div id="profile">
                                   <a href="#myModal"  data-toggle="modal">
-                                   <asp:Image ID="img_profile_pic"  Width="200" Height="200" runat="server"  />
+                                   <asp:Image ID="img_profile_pic"  Width="140" Height="140" runat="server"  />
                                   <span id="eg">Change profile pic</span>
                                   </a>
                                   </div> 
@@ -92,7 +92,10 @@ text-align:center;
                                  <div id="profile_information">
                                  
                                     <b><asp:Label ID="lblUsername" runat="server"></asp:Label></b><br />
-                                    <asp:Label ID="lblBirthday" runat="server"></asp:Label>
+                                    <asp:Label ID="lblEmpno" runat="server"></asp:Label>
+                                     <asp:Label ID="lblEmail" runat="server"></asp:Label><br />
+                                    <asp:Label ID="lblBirthday" runat="server"></asp:Label><br />
+                                     <asp:Label ID="lblDOJ" runat="server"></asp:Label>
                                     
                                    </div>
                                 <div class="text-right">
@@ -100,10 +103,29 @@ text-align:center;
                                 </div>
                              </div>
                             </div>
-                        
-                        
+                        </div>
+                       
+                     <!-- /.Birthday List -->
+                  
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-birthday-cake"></i>  <asp:Label ID="lblBirth" runat="server"></asp:Label></h3>
+                            </div>
+                            <div class="panel-body">
+                                <uc1:BirthDay runat="server" ID="BirthDay" />
+                                <div class="text-right">
+                                    <a href="~/web/Holidays/Holidays.aspx" runat="server">View All <i class="fa fa-arrow-circle-right"></i></a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
 
+                    <div class="row"> 
                       <%--  Vacation summary--%>
+                    <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-plane"></i> Current year vacation summary</h3>
@@ -123,23 +145,9 @@ text-align:center;
 
                     </div>
               
-                     <!-- /.Birthday List -->
-                  
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-birthday-cake"></i>  <asp:Label ID="lblBirth" runat="server"></asp:Label></h3>
-                            </div>
-                            <div class="panel-body">
-                                <uc1:BirthDay runat="server" ID="BirthDay" />
-                                <div class="text-right">
-                                    <a href="~/web/Holidays/Holidays.aspx" runat="server">View All <i class="fa fa-arrow-circle-right"></i></a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-
+                    
                      <%--   Holiday List--%>
+                 <div class="col-lg-6">
                          <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-list"></i>  Holiday List</h3>
@@ -148,24 +156,26 @@ text-align:center;
                                     <div class="text-right">
                                         <a href="#">
                                         <asp:Label ID="lblEmpty" runat="server"></asp:Label>
-                                        <asp:GridView ID="grdHolidayList"  runat="server" BackColor="#DEBA84" class="table table-bordered  text-center "  BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
-                                            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510"  />
-                                            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White"  />
-                                            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                                            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510"   />
-                                            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                                            <SortedAscendingCellStyle BackColor="#FFF1D4" />
-                                            <SortedAscendingHeaderStyle BackColor="#B95C30" />
-                                            <SortedDescendingCellStyle BackColor="#F1E5CE" />
-                                            <SortedDescendingHeaderStyle BackColor="#93451F" />
+                                        <asp:GridView ID="grdHolidayList"  runat="server" class="table table-bordered  text-center " CellPadding="4" ForeColor="#333333" GridLines="None">
+                                            <AlternatingRowStyle BackColor="White" />
+                                            <EditRowStyle BackColor="#7C6F57" />
+                                            <FooterStyle BackColor="#1C5E55" ForeColor="White" Font-Bold="True"  />
+                                            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White"  />
+                                            <PagerStyle ForeColor="White" HorizontalAlign="Center" BackColor="#666666" />
+                                            <RowStyle BackColor="#E3EAEB"   />
+                                            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                                            <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                                            <SortedAscendingHeaderStyle BackColor="#246B61" />
+                                            <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                                            <SortedDescendingHeaderStyle BackColor="#15524A" />
                                         </asp:GridView>
                                         View Details <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
+                     </div>
 
-
-                    </div>
+                    
                </div>
 
 

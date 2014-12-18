@@ -119,6 +119,8 @@ namespace Vacation_management_system.Master
                 image.Add(data["image"].ToString());
               
             }
+            data.Close();
+            ob.Close();
             StringBuilder menulist = new StringBuilder();
 
             menulist.Append("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-bell\"></i><span class=\"badge\" id=\"count\">" + Name.Count + "</span></a>");

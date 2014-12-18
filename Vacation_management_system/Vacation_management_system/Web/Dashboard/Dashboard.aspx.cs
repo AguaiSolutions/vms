@@ -32,7 +32,7 @@ namespace Vacation_management_system.Web.Dashboard
                 ds.Close();
 
                 //profile information
-                query = "select (first_name+' ' +last_name) as name, (DATENAME(month, date_of_birth)+' '+DATENAME(DAY, date_of_birth)) as dob, image from employee join employee_additional on  employee.id=" + Session["userId"] + " and employee_additional.emp_id=" + Session["userId"] + "";
+                query = "select (first_name+' ' +last_name) as name, (DATENAME(month, date_of_birth)+' '+DATENAME(DAY, date_of_birth)) as dob, convert(varchar,date_of_join,103) as doj, emp_no, official_email,  image from employee join employee_additional on  employee.id=" + Session["userId"] + " and employee_additional.emp_id=" + Session["userId"] + "";
                 SqlDataReader data;
                 ds.RunQuery(out data, query);
 
@@ -41,6 +41,9 @@ namespace Vacation_management_system.Web.Dashboard
                     img_profile_pic.ImageUrl = "~/Web/Images/" + data["image"].ToString() + "?dt=" + DateTime.Now;
                     lblUsername.Text = data["name"].ToString();
                     lblBirthday.Text = "BirthDay   <b>:</b> " + data["dob"].ToString();
+                    lblDOJ.Text = "Date of joining    <b>:</b> " + data["doj"].ToString();
+                    lblEmail.Text = "<b>" + data["official_email"].ToString() + "</b>";
+                   
                 }
 
                 data.Close();
