@@ -22,12 +22,12 @@ namespace Vacation_management_system.Master
                 if (Session["UserName"] != null)
                 {
                     lblUsername.Text = Session["UserName"].ToString();
+                    getMenu();
+                    AlertsMessages();
                 }
                 else
                     Response.Redirect("~/Web/Login/Login.aspx");
-               
-                    getMenu();
-                    AlertsMessages();
+                 
             }
 
         }

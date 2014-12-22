@@ -48,6 +48,11 @@ text-align:center;
         .auto-style1 {
             width: 198px;
         }
+         th{
+            color:White;
+            background-color:#1C5E55  !important;
+            font-weight:bold !important;
+        }
     </style> 
   <%--  <script>
         function Hide_Row()
@@ -101,8 +106,8 @@ text-align:center;
                                 
                                      <table style="width: 100%;">
                                          <tr>
-                                             <td>&nbsp;</td>
-                                             <td><asp:Label ID="lblUsername" runat="server"></asp:Label></td>
+                                             <td>Employee Name</td>
+                                             <td><b>:</b>&nbsp;<asp:Label ID="lblUsername" runat="server"></asp:Label></td>
                                              
                                          </tr>
                                          <tr>
@@ -155,7 +160,7 @@ text-align:center;
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-plane"></i> Current year vacation summary</h3>
                             </div>
-                            <div class="panel-body" >
+                            <div class="panel-body"  style="height: 260px;" >
                                
                                  <table style="width: 100%;">
                                          <tr id="Row_id" runat="server">
@@ -189,7 +194,7 @@ text-align:center;
                                     <br />
                              
 
-                                <div class="text-right">
+                                <div class="text-right" style="padding-top:100px">
                                     <a href="~/web/MyVacation/MyVacation.aspx" runat="server">View Details <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
@@ -208,7 +213,7 @@ text-align:center;
                                     <div class="text-right">
                                         <a href="#">
                                         <asp:Label ID="lblEmpty" runat="server"></asp:Label>
-                                        <asp:GridView ID="grdHolidayList"  runat="server" class="table table-bordered  text-center " AutoGenerateColumns="false" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                       <%-- <asp:GridView ID="grdHolidayList"  runat="server" class="table table-bordered  text-center " AutoGenerateColumns="false" CellPadding="4" ForeColor="#333333" GridLines="None">
                                             <AlternatingRowStyle BackColor="White" />
                                             <EditRowStyle BackColor="#7C6F57" />
                                             <FooterStyle BackColor="#1C5E55" ForeColor="White" Font-Bold="True"  />
@@ -225,8 +230,19 @@ text-align:center;
                                                 <asp:BoundField DataField="holiday_date" HeaderText="Holiday Date" DataFormatString="{0:dd/MM/yyyy}" />
 
                                             </Columns>
-                                        </asp:GridView>
-                                        View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                        </asp:GridView>--%>
+                                            <asp:Calendar ID="Calendar1" runat="server" BackColor="#E3EAEB" BorderColor="Gray" 
+                                               BorderWidth="1px"  DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="Small" Font-Bold="false"
+                                               ForeColor="#663399" ShowGridLines="True" OnDayRender="Calendar1_DayRender" >
+                                               <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
+                                               <SelectorStyle BackColor="#99ff33" />
+                                               <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
+                                               <OtherMonthDayStyle ForeColor="#CC9966" />
+                                               <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
+                                               <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
+                                               <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" ForeColor="#FFFFCC" />
+                                            </asp:Calendar>
+                                        
                                 </div>
                             </div>
                         </div>
@@ -280,5 +296,7 @@ text-align:center;
         <!-- /#wrapper -->
 
         </div>
+
+        </a>
 
 </asp:Content>

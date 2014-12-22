@@ -60,6 +60,12 @@ font-size: 9px;
 	position: absolute;
 	pointer-events: none;
 }
+.navbar-inverse{
+       background-color:#35D29D !important;
+    }
+.body{
+    background-color:#35D29D !important;
+}
 
 .arrow_box:after {
 	border-color: rgba(136, 183, 213, 0);

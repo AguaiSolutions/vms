@@ -9,6 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
+using System.Collections;
 
 using Vacation_management_system.Web.Common.Class;
 namespace Vacation_management_system.Web.Dashboard
@@ -16,21 +17,50 @@ namespace Vacation_management_system.Web.Dashboard
     public partial class Dashboard : System.Web.UI.Page
     {
         Queries ob = new Queries();
+        Hashtable HolidayList = new Hashtable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 Database ds = new Database();
-                lblBirth.Text = DateTime.Now.ToString("MMMM", new CultureInfo("en-US"))+"  Birthdays";
+               // lblBirth.Text = DateTime.Now.ToString("MMMM", new CultureInfo("en-US"))+"  Birthdays";
+               // DataTable dt = (DataTable)Session["holiday"];
+               // DateTime now = DateTime.Now;
+               //now=now.AddDays(-1);
+               // var thisYearRows = dt.AsEnumerable().Where(r => r.Field<DateTime>("holiday_date").Year == now.Year && r.Field<DateTime>("holiday_date") >= now);
+               //if (thisYearRows.Any())
+               //{
+               //     DataView dataview = thisYearRows.AsDataView();
+               //     grdHolidayList.DataSource =dataview;
+               //     grdHolidayList.DataBind();
+               // }
+                Calendar1.FirstDayOfWeek = FirstDayOfWeek.Sunday;
+                Calendar1.NextPrevFormat = NextPrevFormat.ShortMonth;
+                Calendar1.TitleFormat = TitleFormat.MonthYear;
+                Calendar1.ShowGridLines = false;
+                Calendar1.DayStyle.Height = new Unit(30);
+                Calendar1.DayStyle.Width = new Unit(490);
+                Calendar1.DayStyle.HorizontalAlign = HorizontalAlign.Center;
+                Calendar1.DayStyle.VerticalAlign = VerticalAlign.Middle;
+                Calendar1.OtherMonthDayStyle.BackColor = System.Drawing.Color.AliceBlue;
+
                 DataTable dt = (DataTable)Session["holiday"];
                 DateTime now = DateTime.Now;
-               now=now.AddDays(-1);
-                var thisYearRows = dt.AsEnumerable().Where(r => r.Field<DateTime>("holiday_date").Year == now.Year && r.Field<DateTime>("holiday_date") >= now);
-               if (thisYearRows.Any())
-               {
-                    DataView dataview = thisYearRows.AsDataView();
-                    grdHolidayList.DataSource =dataview;
-                    grdHolidayList.DataBind();
+                now = now.AddDays(-1);
+                var thisYearRows = dt.AsEnumerable().Where(r => r.Field<DateTime>("holiday_date").Year == now.Year);
+                if (thisYearRows.Any())
+                {
+                    int k = 0;
+                    for (k = 0; k < thisYearRows.Count(); k++)
+                    {
+                        var result = thisYearRows.ElementAt(k);
+                        DateTime dt1 = (DateTime)result.ItemArray[1];
+
+                        //string get = dt1.ToShortDateString();
+                        //string fd = (string)result.ItemArray[0];
+                        HolidayList[dt1.ToShortDateString()] = (string)result.ItemArray[0];
+
+                    }
                 }
                 else
                     lblEmpty.Text = "No records found";
@@ -43,7 +73,7 @@ namespace Vacation_management_system.Web.Dashboard
                 while (data.Read())
                 {
                     img_profile_pic.ImageUrl = "~/Web/Images/" + data["image"].ToString() + "?dt=" + DateTime.Now;
-                    lblUsername.Text = "<b>&nbsp;&nbsp;" + data["name"].ToString() + "</b>";
+                    lblUsername.Text = "<b>" + data["name"].ToString() + "</b>";
                     lblEmpno.Text = data["emp_no"].ToString();
                     lblDOJ.Text =  data["doj"].ToString();
                     lblEmail.Text = data["official_email"].ToString();
@@ -126,6 +156,21 @@ namespace Vacation_management_system.Web.Dashboard
 
             }
         }
+
+         protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+         {
+
+             if (HolidayList[e.Day.Date.ToShortDateString()] != null)
+             {
+                 Literal literal1 = new Literal();
+                 literal1.Text = "<br/>";
+                 e.Cell.Controls.Add(literal1);
+                 Label label1 = new Label();
+                 label1.Text = (string)HolidayList[e.Day.Date.ToShortDateString()];
+                 label1.Font.Size = new FontUnit(FontSize.Small);
+                 e.Cell.Controls.Add(label1);
+             }
+         }
 
     }
 }
