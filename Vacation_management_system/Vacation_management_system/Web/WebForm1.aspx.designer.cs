@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vacation_management_system {
+namespace Vacation_management_system.Web {
     
     
     public partial class WebForm1 {
@@ -22,12 +22,12 @@ namespace Vacation_management_system {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// gd control.
+        /// btnInactive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gd;
+        protected global::System.Web.UI.WebControls.Button btnInactive;
     }
 }

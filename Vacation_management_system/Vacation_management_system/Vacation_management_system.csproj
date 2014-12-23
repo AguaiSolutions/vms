@@ -162,7 +162,6 @@
     <Content Include="obj\Debug\Vacation_management_system.dll" />
     <Content Include="obj\Debug\Vacation_management_system.pdb" />
     <Content Include="VMSUnitTest.csproj" />
-    <Content Include="WebForm1.aspx" />
     <Content Include="Web\Common\BirthDay.ascx" />
     <Content Include="Web\Common\Footer.ascx" />
     <Content Include="Web\Common\MailTemplate\ApplyVacationMail.xml" />
@@ -201,6 +200,7 @@
     <Content Include="Web\MyVacation\ApplyNewVacation.aspx" />
     <Content Include="Web\MyVacation\MyVacation.aspx" />
     <Content Include="Web\MyVacation\Report.aspx" />
+    <Content Include="Web\WebForm1.aspx" />
     <Content Include="bin\Vacation_management_system.dll.config" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\Vacation_management_system.csprojResolveAssemblyReference.cache" />
@@ -275,13 +275,6 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Web\Common\BirthDay.ascx.cs">
       <DependentUpon>BirthDay.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -386,6 +379,13 @@
     </Compile>
     <Compile Include="Web\MyVacation\Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
