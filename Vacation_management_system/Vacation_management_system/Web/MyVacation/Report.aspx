@@ -1,7 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/VMS.Master" AutoEventWireup="true" CodeBehind="Report.aspx.cs" Inherits="Vacation_management_system.Web.MyVacation.Report" %>
-
+<%--<%@ Register Assembly="DropDownCheckBoxes" Namespace="Saplin.Controls" TagPrefix="asp" %>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
+        $(document).ready(
+          function () {
+              $("#Month").select2();
+              $('#<%= month.ClientID %>').select2();
+
+              $("#drpEmployee").select2();
+              $('#<%= drpEmployee.ClientID %>').select2();
+              $("#drpStatus").select2();
+              $('#<%= drpStatus.ClientID %>').select2();
+              $("#drpName").select2();
+              $('#<%= drpName.ClientID %>').select2();
+          }
+        );
+      
         $(function () {
             $("[id$=txtFromDate]").datepicker({
                 format: 'dd/mm/yyyy',
@@ -16,8 +30,9 @@
                 todayHighlight: true
             });
         });
+
     </script>
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="wrapper">
 
@@ -53,44 +68,72 @@
                                 <h2>REPORT</h2>
                             </div>--%>
                             <div class="panel-body">
+               
+                              
+                                <table style="width:100%;">
+                                    <tr>
+                                        <td>
+                                            <label class="control-label">From:</label>&nbsp;
+                                        </td>
+                                        <td> <asp:TextBox ID="txtFromDate"  name="From Date" placeholder="From Date" runat="server" Height="35px"></asp:TextBox>
+                                                                                   <br />
+                                 <br />
+                                                                                   </td>
+                                        <td> <label class="control-label">To:</label></td>
+                                        <td><asp:TextBox ID="txtToDate"  name="To Date" placeholder="To Date" runat="server" Height="35px"></asp:TextBox>
+                                            <br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="control-label">Month:</label></td>
+                                        <td><select id="month" runat="server" style="width:150px" placeholder="Month">
+                                            <option></option>
+                                            </select> 
+                                            
+                                            
+                                            <br />
+                                            
+                                            <br />
+                                            
+                                        </td>
+                                        <td><label id="name" class="control-label" runat="server">Employee Name:</label></td>
+                                        <td>  <select id="drpName" runat="server" style="width:150px" placeholder="Name">
+                                            <option></option>
+                                              </select> </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="control-label">Employee Status:</label></td>
+                                        <td><select id="drpEmployee"  runat="server" style="width:150px" multiple="true" placeholder="Employee Status">
+                                            <option></option>
+                                          <option value="1">Active</option>
+                                          <option value="0">Inactive</option>
+                                      </select><br />
+                                            <br />
+                                        </td>
+                                        <td><label class="control-label">Leave Status:</label></td>
+                                        <td> <select id="drpStatus" runat="server" style="width:150px" multiple="true" placeholder="Leave Status">
+                                              <option></option>
+                                             <option value="a">Approved</option>
+                                         
+                                     <option value="r">Rejected</option>
+                                     <option value="c"> Cancel</option>
+                                     <option value="p">Pending</option>
+                                     <option value="x">Cancel pendding</option>
+                                     <option value="i">Ideal</option>
 
-                                <div class="form-group form-inline">
-                                    <label class="control-label">Month:</label>
-                                    <asp:DropDownList ID="drpMonth" runat="server" class="form-control"></asp:DropDownList>
-                                    <label class="control-label">Employee:</label>
-                                    <asp:DropDownList class="form-control" ID="drpEmployee" runat="server">
-                                        <asp:ListItem Text="Active" Value="1"></asp:ListItem>
-                                        <asp:ListItem Text="Inactive" Value="0"></asp:ListItem>
-
-                                    </asp:DropDownList>
-                                    <label class="control-label">Status:</label>
-                                    <asp:DropDownList class="form-control" ID="drpStatus" runat="server">
-                                        <asp:ListItem Text="Approved" Value="a"></asp:ListItem>
-                                        <asp:ListItem Text="Rejected" Value="r"></asp:ListItem>
-                                        <asp:ListItem Text="Cancel" Value="c"></asp:ListItem>
-                                        <asp:ListItem Text="Cancel pendding" Value="x"></asp:ListItem>
-                                        <asp:ListItem Text="Ideal" Value="i"></asp:ListItem>
-                                        <asp:ListItem Text="Pending" Value="p"></asp:ListItem>
-                                    </asp:DropDownList>
-                                    <div>
-                                        <br />
-
-                                    </div>
-                                    <div>
-                                        <label class="control-label">From:</label>
-                                        <asp:TextBox ID="txtFromDate" class="form-control" name="From Date" placeholder="From Date" runat="server" />
-                                        <label class="control-label">To:</label>
-                                        <asp:TextBox ID="txtToDate" class="form-control" name="To Date" placeholder="To Date" runat="server" />
-                                        <div>
-                                            <div>
-                                                <br />
-                                            </div>
-                                            <asp:Button ID="btnView" CssClass="btn btn-primary" runat="server" Text="View" OnClick="btnView_Click" />
-                                            <asp:Button ID="btnclear" CssClass="btn btn-primary" runat="server" Text="Clear" OnClick="btnclear_Click" />
-                                            <%--  <button type="reset" class="btn btn-primary" OnClick="btnclear_Click"> clear </button>--%>
+                                 </select> </td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                                 
+          
+                                           
+                                            
+                                            <asp:Button ID="btnView" CssClass="btn btn-primary btn-sm" runat="server" Text="View" OnClick="btnView_Click" Width="53px" />
+                                           <asp:Button ID="btnclear" runat="server" OnClick="btnclear_Click" CssClass="btn btn-primary btn-sm" Text="Clear" Width="52px" />
                                         </div>
-                                    </div>
-                                </div>
+                                  
                                 <!-- /.container-fluid -->
 
                             </div>
@@ -103,16 +146,16 @@
 
 
                 </div>
-                <div class="col-lg-12" id="grid">
+               <%-- <div class="col-lg-12" id="grid">
                     <%--<div class="panel panel-default" >--%>
 
-                    <div class="panel-heading">
+               <div class="panel-heading">
 
                         <div class="panel-body form-group">
 
                             <div>
                                 <asp:Label ID="lblEmpty" runat="server" Font-Size="Medium" ForeColor="Red"></asp:Label>
-                                <asp:GridView ID="grdview1" runat="server" AutoGenerateColumns="False" class="table table-bordered bg-danger" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None"
+                              <asp:GridView ID="grdview1" runat="server" AutoGenerateColumns="False" class="table table-bordered bg-danger" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None"
                                     OnPageIndexChanging="grdview1_PageIndexChanging" AllowPaging="true" PageSize="5">
                                     <AlternatingRowStyle BackColor="White" />
                                     <Columns>
@@ -142,7 +185,7 @@
             
 
          </div>
-    
+   
     </div>
          </div>
 </asp:Content>

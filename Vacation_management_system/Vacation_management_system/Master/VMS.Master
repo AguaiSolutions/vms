@@ -3,6 +3,7 @@
 <%@ Register Src="~/Web/Common/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
 
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,16 +18,25 @@
     <link href="/Content/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="/Content/bootstrap-datepicker3.css" rel="stylesheet" />
     <link href="/Content/bootstrap-theme.css" rel="stylesheet" />
+   
+   
     <%--<link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />--%>
     <link href="/Content/bootstrap.css" rel="stylesheet" />
     <%--<link href="/Content/bootstrap.min.css" rel="stylesheet" />--%>
     <link href="/Content/sb-admin.css" rel="stylesheet" />
     <link href="/Content/font-awesome.min.css" rel="stylesheet" />
-
+   
     <%--<script src="/Scripts/jquery-2.1.1.min.js"  ></script>--%>
     <script src="/Scripts/jquery-2.1.1.js"></script>
+    
+    <script src="/Scripts/select2.js"></script>
+   
+    <link href="/Content/css/select2.css" rel="stylesheet" />
     <script src="/Scripts/bootstrap-datepicker.js"></script>
     <script src="/Scripts/bootstrap.js"></script>
+  
+    
+
     <%--<script src="/Scripts/bootstrap.min.js"></script>--%>
     <link rel="shortcut icon" type="image/x-icon" href="/Web/Images/VMS.ico" />
      <style>

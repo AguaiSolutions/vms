@@ -10,7 +10,6 @@ using  System.Data.SqlClient;
 using  Aguai_Leave_Management_System;
 
 
-
 namespace Vacation_management_system.Master
 {
     public partial class VMS : System.Web.UI.MasterPage

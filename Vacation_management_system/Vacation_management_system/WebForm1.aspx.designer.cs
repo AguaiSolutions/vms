@@ -7,27 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vacation_management_system.Web {
+namespace Vacation_management_system {
     
     
     public partial class WebForm1 {
         
         /// <summary>
-        /// form1 control.
+        /// drpName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// btnInactive control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInactive;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect drpName;
     }
 }
