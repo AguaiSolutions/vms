@@ -32,6 +32,7 @@ namespace Vacation_management_system.Web.Dashboard {
         
         /// <summary>
         /// lblEmpno control.
+<<<<<<< HEAD
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -50,12 +51,41 @@ namespace Vacation_management_system.Web.Dashboard {
         
         /// <summary>
         /// lblBirthday control.
+=======
+>>>>>>> bf3fbbc26951e799a327d75491d86bde648da3a3
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBirthday;
+        protected global::System.Web.UI.WebControls.Label lblEmpno;
+        
+        /// <summary>
+        /// lblEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmail;
+        
+        /// <summary>
+        /// lblDOJ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDOJ;
+        
+        /// <summary>
+        /// lblBirth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBirth;
         
         /// <summary>
         /// lblDOJ control.
@@ -130,6 +160,60 @@ namespace Vacation_management_system.Web.Dashboard {
         protected global::Vacation_management_system.Web.Common.BirthDay BirthDay;
         
         /// <summary>
+        /// Row_id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Row_id;
+        
+        /// <summary>
+        /// lblTotalVaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalVaction;
+        
+        /// <summary>
+        /// lblApprovedVaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblApprovedVaction;
+        
+        /// <summary>
+        /// lblPendingVaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPendingVaction;
+        
+        /// <summary>
+        /// lblCancelVaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCancelVaction;
+        
+        /// <summary>
+        /// lblrejectedVaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblrejectedVaction;
+        
+        /// <summary>
         /// lblEmpty control.
         /// </summary>
         /// <remarks>
@@ -139,12 +223,40 @@ namespace Vacation_management_system.Web.Dashboard {
         protected global::System.Web.UI.WebControls.Label lblEmpty;
         
         /// <summary>
-        /// grdHolidayList control.
+        /// Calendar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        
+        /// <summary>
+        /// empImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload empImage;
+        
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
+        
+        /// <summary>
+        /// Button3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.GridView grdHolidayList;
         
         /// <summary>
@@ -172,6 +284,8 @@ namespace Vacation_management_system.Web.Dashboard {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+=======
+>>>>>>> bf3fbbc26951e799a327d75491d86bde648da3a3
         protected global::System.Web.UI.WebControls.Button Button3;
     }
 }

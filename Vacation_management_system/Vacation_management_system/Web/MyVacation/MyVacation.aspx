@@ -2,6 +2,27 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
+
+        $(document).ready(function () {
+            validate();
+            $('#<%= txtCreason.ClientID %>').keyup(validate);
+         });
+
+        function validate() {
+            $('#<%= Button2.ClientID %>').addClass('btn');
+            if ($('#<%= txtCreason.ClientID %>').val().length > 10) {
+                $('#<%= Button2.ClientID %>').prop("disabled", false);
+                 $('#<%= Button2.ClientID %>').addClass('btn-primary');
+
+                 <%--$('#<%= btnRole.ClientID %>').css('backgroundColor', 'blue');--%>
+             }
+             else {
+                 $('#<%= Button2.ClientID %>').prop("disabled", true);
+                 $('#<%= Button2.ClientID %>').removeClass('btn-primary');
+
+             }
+        }
+
         function openModal() {
             $('#myModal').modal('show');
         }
@@ -24,7 +45,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-plane"></i> Leave Management
+                                <i class="fa fa-plane"></i> Vacations
                             </li>
                             <li class="active">
                                 <i class="fa fa-calendar"></i> My Vacation
