@@ -204,7 +204,7 @@ namespace Vacation_management_system.Web.MyVacation
                     
                 }
             }
-            if (Session["role_ID"].Equals(3))
+            if (Session["role_ID"].Equals(3))  
             {
                 drpName.Visible = false;
                 if ((month.Value=="") && (drpStatus.Value == "") && (drpEmployee.Value == "") && ((txtFromDate.Text == "") && (txtToDate.Text == "")))

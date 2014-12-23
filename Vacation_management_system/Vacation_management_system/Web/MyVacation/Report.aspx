@@ -133,7 +133,7 @@
                                             <asp:Button ID="btnView" CssClass="btn btn-primary btn-sm" runat="server" Text="View" OnClick="btnView_Click" Width="53px" />
                                            <asp:Button ID="btnclear" runat="server" OnClick="btnclear_Click" CssClass="btn btn-primary btn-sm" Text="Clear" Width="52px" />
                                         </div>
-                                  
+                                    
                                 <!-- /.container-fluid -->
 
                             </div>
