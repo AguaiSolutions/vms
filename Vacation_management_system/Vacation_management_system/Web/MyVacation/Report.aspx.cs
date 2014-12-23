@@ -50,7 +50,12 @@ namespace Vacation_management_system.Web.MyVacation
         }
         private void bindgrind()
         {
-
+            DateTime fromdate;
+            var xxsd = DateTime.TryParseExact(txtFromDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,
+                                    out  fromdate);
+            DateTime todate;
+            var xsd = DateTime.TryParseExact(txtToDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,
+                                    out  todate);
 
             string query;
             if (Session["role_ID"].Equals(1))
@@ -62,10 +67,10 @@ namespace Vacation_management_system.Web.MyVacation
                 }
                 else
                 {
-                    query = "SELECT  L.id, E.first_name, CONVERT(varchar,L.from_date,103) as from_date, CONVERT(varchar,L.to_date,103) as to_date ,'approval_status'= CASE L.Approval_Status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'i' THEN 'Ideal' WHEN 'c' THEN 'Cancelled' WHEN 'x' THEN 'Cancel Pending' END FROM leave_management as L inner join employee as E ";
-                    string oncondition = "on ";
+                    query = "SELECT  L.id, E.first_name, CONVERT(varchar,L.from_date,103) as from_date, CONVERT(varchar,L.to_date,103) as to_date ,'approval_status'= CASE L.Approval_Status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'i' THEN 'Ideal' WHEN 'c' THEN 'Cancelled' WHEN 'x' THEN 'Cancel Pending' END FROM leave_management as L inner join employee as E on E.id=l.emp_id where";
+                    string oncondition = " ";
 
-                   // {
+                    {
 
                         if (drpMonth.SelectedValue != "")
                         {
@@ -84,15 +89,15 @@ namespace Vacation_management_system.Web.MyVacation
                         if (drpStatus.SelectedValue != "")
                         {
                             query += oncondition;
-                            query += "L.approval_status='" + drpStatus.SelectedValue + "'";
+                            query += "   L.approval_status='" + drpStatus.SelectedValue + "'";
                             oncondition = "and ";
                         }
                         if ((txtFromDate.Text.Length > 0) && (txtToDate.Text.Length > 0))
                         {
                             query += oncondition;
-                            query += "L.from_date>'" + txtFromDate.Text + "' and ";
+                            query += "L.from_date>='" + fromdate + "' and ";
                             oncondition = "and ";
-                            query += "L.to_date<='" + txtToDate.Text + "'";
+                            query += "L.to_date<='" + todate + "'";
                         }
 
                         SqlDataReader _data;
@@ -100,6 +105,7 @@ namespace Vacation_management_system.Web.MyVacation
 
                         if (_data.HasRows == true)
                         {
+                            lblEmpty.Visible = false;
                             DataTable dt = new DataTable();
 
 
@@ -121,9 +127,10 @@ namespace Vacation_management_system.Web.MyVacation
 
                         }
                     }
+                }
+            }
 
-
-                if (Session["role_ID"].Equals(2))
+             //  if (Session["role_ID"].Equals(2))
                 {
                     if ((drpMonth.SelectedValue == "") && (drpStatus.SelectedValue == "") && (drpEmployee.SelectedValue == "") && ((txtFromDate.Text == "") && (txtToDate.Text == "")))
                     {
@@ -171,9 +178,9 @@ namespace Vacation_management_system.Web.MyVacation
                         if ((txtFromDate.Text.Length > 0) && (txtToDate.Text.Length > 0))
                         {
                             query += oncondition;
-                            query += "L.from_date>'" + txtFromDate.Text + "' and ";
+                            query += "L.from_date>='" + fromdate + "' and ";
                             oncondition = "and ";
-                            query += "L.to_date<='" + txtToDate.Text + "'";
+                            query += "L.to_date<='" + todate + "'";
                         }
 
                         SqlDataReader _data;
@@ -195,13 +202,14 @@ namespace Vacation_management_system.Web.MyVacation
                             lblEmpty.Text = "No records found";
                             _data.Close();
                             ds.Close();
-
-
+                            }
+                        }
                         }
                     }
-                }
-                    }
-                }
+                
+                    
+            
+                
 
             
         

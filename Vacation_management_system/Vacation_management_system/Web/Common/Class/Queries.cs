@@ -100,7 +100,12 @@ namespace Vacation_management_system.Web.Common.Class
         {
             Database ds = new Database();
             Int32 counts=0;
-             string query = " select count(approval_status) as count from leave_management where approval_status='" + status + "' and  emp_id=" + user_id +" and YEAR(from_date)=YEAR(GETDATE()) " ;
+             string query = " select count(approval_status) as count from leave_management where approval_status='" + status + "'  and YEAR(from_date)=YEAR(GETDATE())" ;
+            if(user_id!=0)
+            {
+                query += " " + "and  emp_id=" + user_id;
+            }
+            
              SqlDataReader _data;
              ds.RunQuery(out _data,query);
             while(_data.Read())

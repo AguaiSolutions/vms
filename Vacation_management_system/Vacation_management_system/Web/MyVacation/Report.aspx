@@ -49,9 +49,9 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="panel panel-default" style="float: left; width: 700px">
-                            <div class="panel-heading">
+                           <%-- <div class="panel-heading">
                                 <h2>REPORT</h2>
-                            </div>
+                            </div>--%>
                             <div class="panel-body">
 
                                 <div class="form-group form-inline">
@@ -67,9 +67,10 @@
                                     <asp:DropDownList class="form-control" ID="drpStatus" runat="server">
                                         <asp:ListItem Text="Approved" Value="a"></asp:ListItem>
                                         <asp:ListItem Text="Rejected" Value="r"></asp:ListItem>
-                                        <asp:ListItem Text="cancel" Value="c"></asp:ListItem>
-                                        <asp:ListItem Text="cancel pendding" Value="x"></asp:ListItem>
-                                        <asp:ListItem Text="ideal" Value="i"></asp:ListItem>
+                                        <asp:ListItem Text="Cancel" Value="c"></asp:ListItem>
+                                        <asp:ListItem Text="Cancel pendding" Value="x"></asp:ListItem>
+                                        <asp:ListItem Text="Ideal" Value="i"></asp:ListItem>
+                                        <asp:ListItem Text="Pending" Value="p"></asp:ListItem>
                                     </asp:DropDownList>
                                     <div>
                                         <br />
@@ -85,7 +86,7 @@
                                                 <br />
                                             </div>
                                             <asp:Button ID="btnView" CssClass="btn btn-primary" runat="server" Text="View" OnClick="btnView_Click" />
-                                            <asp:Button ID="btnclear" CssClass="btn btn-primary" runat="server" Text="clear" OnClick="btnclear_Click" />
+                                            <asp:Button ID="btnclear" CssClass="btn btn-primary" runat="server" Text="Clear" OnClick="btnclear_Click" />
                                             <%--  <button type="reset" class="btn btn-primary" OnClick="btnclear_Click"> clear </button>--%>
                                         </div>
                                     </div>
@@ -124,6 +125,7 @@
                                     <EditRowStyle BackColor="#7C6F57" />
                                     <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                                     <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                    <PagerSettings Mode="NumericFirstLast" />
                                     <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
                                     <RowStyle BackColor="#E3EAEB" />
                                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
