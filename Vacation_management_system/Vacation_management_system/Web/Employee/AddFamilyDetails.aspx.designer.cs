@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vacation_management_system.Web.Holidays {
+namespace Vacation_management_system.Web.Employee {
     
     
-    public partial class Holidays {
+    public partial class AddFamilyDetails {
         
         /// <summary>
         /// lblEmpty4 control.
@@ -22,31 +22,49 @@ namespace Vacation_management_system.Web.Holidays {
         protected global::System.Web.UI.WebControls.Label lblEmpty4;
         
         /// <summary>
-        /// holidaytable control.
+        /// familytable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable holidaytable;
+        protected global::System.Web.UI.HtmlControls.HtmlTable familytable;
         
         /// <summary>
-        /// txtHname1 control.
+        /// textname1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHname1;
+        protected global::System.Web.UI.WebControls.TextBox textname1;
         
         /// <summary>
-        /// txtHdate1 control.
+        /// textrelation1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHdate1;
+        protected global::System.Web.UI.WebControls.TextBox textrelation1;
+        
+        /// <summary>
+        /// textage1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textage1;
+        
+        /// <summary>
+        /// drdDependent1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drdDependent1;
         
         /// <summary>
         /// btnSave control.
@@ -67,12 +85,21 @@ namespace Vacation_management_system.Web.Holidays {
         protected global::System.Web.UI.WebControls.Button btnDelete;
         
         /// <summary>
-        /// gvHolidays control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvHolidays;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// gvDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvDetails;
     }
 }
