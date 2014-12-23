@@ -134,23 +134,28 @@ namespace Vacation_management_system.Web.MyVacation
                         if (remaining_leaves - leave >= 0)
                         {
                             bool update_result = false;
-                            if (previous_year_vacations >= leave)
+                            if (leave != 0)
                             {
-                                previous_year_vacations = previous_year_vacations - leave;
-                                update_result = query_object.updateEmployeeLeaves(user_id, previous_year_vacation: previous_year_vacations);
-                            }
-                            else if (previous_year_vacations != 0)
-                            {
-                                temp = previous_year_vacations - leave;
-                                previous_year_vacations = temp;
-                                current_year_vacations = current_year_vacations + temp;
-                                update_result = query_object.updateEmployeeLeaves(user_id, current_year_vacations, previous_year_vacations);
+                                if (previous_year_vacations >= leave)
+                                {
+                                    previous_year_vacations = previous_year_vacations - leave;
+                                    update_result = query_object.updateEmployeeLeaves(user_id, previous_year_vacation: previous_year_vacations);
+                                }
+                                else if (previous_year_vacations != 0)
+                                {
+                                    temp = previous_year_vacations - leave;
+                                    previous_year_vacations = temp;
+                                    current_year_vacations = current_year_vacations + temp;
+                                    update_result = query_object.updateEmployeeLeaves(user_id, current_year_vacations, previous_year_vacations);
+                                }
+                                else
+                                {
+                                    current_year_vacations = current_year_vacations - leave;
+                                    update_result = query_object.updateEmployeeLeaves(user_id, current_year_vacation: current_year_vacations);
+                                }
                             }
                             else
-                            {
-                                current_year_vacations = current_year_vacations - leave;
-                                update_result = query_object.updateEmployeeLeaves(user_id, current_year_vacation: current_year_vacations);
-                            }
+                                update_result = true;
 
                             query = "insert into leave_management(emp_id,type_id,from_date,to_date,description,approver_id,leaves) values (" + user_id + "," + Convert.ToInt32(drpLeaveType.SelectedValue) + ",'" + Fromdate + "','" + Todate + "','" + txtReason.Text + "'," + lblManager_Id.Text + "," + leave + ") SELECT SCOPE_IDENTITY()";
                             Int32 leave_Id = Convert.ToInt32(ds.ExecuteObjectQuery(query));

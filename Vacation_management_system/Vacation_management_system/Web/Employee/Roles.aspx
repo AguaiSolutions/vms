@@ -12,31 +12,32 @@
 
     </style>
      <script>
-   
+         $(document).ready(function () {
+             validate();
+             $('#<%= txtRole_Name.ClientID %>').keyup(validate);
+         });
+
+        function validate() {
+            $('#<%= btnRole.ClientID %>').addClass('btn');
+            if ($('#<%= txtRole_Name.ClientID %>').val().length > 0) {
+                $('#<%= btnRole.ClientID %>').prop("disabled", false);
+                 $('#<%= btnRole.ClientID %>').addClass('btn-primary');
+
+                 <%--$('#<%= btnRole.ClientID %>').css('backgroundColor', 'blue');--%>
+             }
+             else {
+                 $('#<%= btnRole.ClientID %>').prop("disabled", true);
+                 $('#<%= btnRole.ClientID %>').removeClass('btn-primary');
+
+             }
+         }
+
          function openModal() {
              $('#myModalRole').modal('show');
          }
 
-
-         //$(function () {
-         //    $('button').click(function () {
-         //        alert(getString());
-         //    });
-
-         //    function getString()
-         //    {
-         //        var rows = $('table>tbody>tr'); // all browsers always create the tbody element in DOM
-         //        var arr = [];
-         //        for (var i = 0; i < rows.length; i++) {
-         //            var cells = rows.eq(i).children('td');
-         //            var text1 = cells.eq(0).find('input').val();
-         //            var text2 = cells.eq(1).find('select').val();
-         //            //var text2 = cells.eq(1).find('select option:selected').html();//alternative, if you want to collect the inner html instead
-         //            arr.push(text1 + ',' + text2); // add string to array
-         //        }
-         //        return arr.join('|'); // join the string in array to single string
-         //    }
-         //});
+        
+         
     </script>
 
 </asp:Content>
@@ -155,10 +156,10 @@
 
                                             <div class="form-group">
                                               <b>Role Name</b><br /><br />
-                                               <asp:TextBox  ID="txtRole_Name" runat="server" CssClass="form-control" ></asp:TextBox>
+                                               <asp:TextBox  ID="txtRole_Name" runat="server"  CssClass="form-control" ></asp:TextBox>
                                                 
                                             </div>
-                                            <asp:Button ID="btnRole" runat="server" OnClick=" btnAdd_Click" CssClass="btn btn-primary" Font-Size="Medium"  Height="30px" Text="Add" />&nbsp;&nbsp;
+                                            <asp:Button ID="btnRole" runat="server" OnClick=" btnAdd_Click"  Font-Size="Medium"  Height="30px" Text="Add"  Enabled="false"/>&nbsp;&nbsp;
                                             <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" data-dismiss="modal" Font-Size="Medium"  Height="30px" Text="Cancel" />
 
                                         </div>

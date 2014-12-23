@@ -179,7 +179,7 @@ text-align:center;
                                              
                                          </tr>
                                          <tr>
-                                             <td class="auto-style1">Canceled Vactions </td>
+                                             <td class="auto-style1">Cancelled Vactions </td>
                                              <td>:<b>&nbsp;<asp:Label ID="lblCancelVaction" runat="server"></asp:Label></b></td>
                                              
                                          </tr>
