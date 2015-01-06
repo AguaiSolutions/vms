@@ -66,11 +66,3 @@ E:\vms\Vacation_management_system\Vacation_management_system\bin\ko\System.Spati
 E:\vms\Vacation_management_system\Vacation_management_system\bin\ru\System.Spatial.resources.dll
 E:\vms\Vacation_management_system\Vacation_management_system\bin\zh-Hans\System.Spatial.resources.dll
 E:\vms\Vacation_management_system\Vacation_management_system\bin\zh-Hant\System.Spatial.resources.dll
-C:\Project\VMS\Vacation_management_system\Vacation_management_system\bin\Vacation_management_system.dll.config
-C:\Project\VMS\Vacation_management_system\Vacation_management_system\bin\Vacation_management_system.dll
-C:\Project\VMS\Vacation_management_system\Vacation_management_system\bin\Vacation_management_system.pdb
-C:\Project\VMS\Vacation_management_system\Vacation_management_system\bin\Newtonsoft.Json.dll
-C:\Project\VMS\Vacation_management_system\Vacation_management_system\bin\Newtonsoft.Json.xml
-C:\Project\VMS\Vacation_management_system\Vacation_management_system\obj\Debug\Vacation_management_system.dll
-C:\Project\VMS\Vacation_management_system\Vacation_management_system\obj\Debug\Vacation_management_system.pdb
-C:\Project\VMS\Vacation_management_system\Vacation_management_system\obj\Debug\Vacation_management_system.csprojResolveAssemblyReference.cache

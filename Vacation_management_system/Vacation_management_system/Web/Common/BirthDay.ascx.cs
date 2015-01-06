@@ -12,6 +12,8 @@ using Aguai_Leave_Management_System;
 using System.Data.SqlClient;
 using System.Data;
 
+
+
 namespace Vacation_management_system.Web.Common
 {
     public partial class BirthDay : System.Web.UI.UserControl
@@ -25,7 +27,7 @@ namespace Vacation_management_system.Web.Common
         protected void BindDataList()
         {
             Database ob = new Database();
-            string query = "select (first_name+' ' +last_name) as name, (DATENAME(month, date_of_birth)+' '+DATENAME(DAY, date_of_birth)) as dob from employee join employee_additional on  employee.id=employee_additional.emp_id";
+            string query = "select (first_name+' ' +last_name) as name, (DATENAME(month, date_of_birth)+' '+DATENAME(DAY, date_of_birth)) as dob, image from employee join employee_additional on  employee.id=employee_additional.emp_id";
             SqlDataReader data;
             ob.RunQuery( out data, query);
             DataTable dt = new DataTable();
