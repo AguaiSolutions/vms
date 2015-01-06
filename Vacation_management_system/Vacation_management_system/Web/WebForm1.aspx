@@ -24,7 +24,24 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div>
     <asp:Button ID="btnInactive" runat="server"  Text="deactive" OnClientClick="confirmation()" />
+            </div>
+        <div>
+            <asp:FileUpload ID="FileUpload1" runat="server" />
+        </div>
+        <div>
+            <asp:Button ID="Button1" runat="server" Text="Save" OnClick="Button1_Click" />
+            </div>
+        <div>
+            <asp:Button ID="Button2" runat="server" Text="Retrieve" OnClick="Button2_Click" />
+        </div>
+        <div>
+            <asp:Label ID="lblImageStatus" runat="server" Text="Label"></asp:Label>
+        </div>
+        <div>
+            <asp:Image ID="Image1" runat="server" />
+        </div>
     </form>
 </body>
 </html>

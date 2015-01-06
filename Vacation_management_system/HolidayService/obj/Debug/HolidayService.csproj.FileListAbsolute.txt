@@ -1,0 +1,6 @@
+C:\Project\VMS\Vacation_management_system\HolidayService\bin\HolidayService.dll.config
+C:\Project\VMS\Vacation_management_system\HolidayService\bin\HolidayService.dll
+C:\Project\VMS\Vacation_management_system\HolidayService\bin\HolidayService.pdb
+C:\Project\VMS\Vacation_management_system\HolidayService\obj\Debug\HolidayService.dll
+C:\Project\VMS\Vacation_management_system\HolidayService\obj\Debug\HolidayService.pdb
+C:\Project\VMS\Vacation_management_system\HolidayService\obj\Debug\HolidayService.csprojResolveAssemblyReference.cache
