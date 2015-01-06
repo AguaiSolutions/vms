@@ -21,27 +21,35 @@ namespace Vacation_management_system.Web.Common.Class
         private string query;
         public double Countleave(DateTime Fromdate, DateTime Todate, DataTable weeklyoffdays, DataTable holidaylist)
         {
+           
             int i;
             double leave = 0, diff, h = 0, w = 0;
             diff = Todate.ToOADate() - Fromdate.ToOADate() + 1;
+            var thisYearRows = holidaylist.AsEnumerable().Where(r => r.Field<DateTime>("holiday_date") >= Fromdate && r.Field<DateTime>("holiday_date") <= Todate);
+             
             for (i = 0; i < diff; i++)
             {
+                //exclude holidays.
+                if (thisYearRows.Any())
+                {
+                    int k = 0;
+                    for (k = 0; k < thisYearRows.Count(); k++)
+                    {
+                        var result = thisYearRows.ElementAt(k);
+                        var get = (DateTime)result.ItemArray[1];
+                        if (0 == get.CompareTo(Fromdate))
+                            h++;
+                    }
+
+                }
+
+                //exclude weekends.
                 foreach (DataRow row in weeklyoffdays.Rows)
                 {
                     foreach (var weeklyoff in row.ItemArray)
                     {
                         if (weeklyoff.Equals(Convert.ToString(Fromdate.DayOfWeek)))
                             w++;
-                    }
-                }
-
-                foreach (DataRow row in holidaylist.Rows)
-                {
-                    foreach (var item in row.ItemArray)
-                    {
-                        var get = (DateTime)item;
-                        if (0 == get.CompareTo(Fromdate))
-                            h++;
                     }
                 }
 
@@ -57,16 +65,14 @@ namespace Vacation_management_system.Web.Common.Class
 
         public bool checkholidaylist(DateTime todate, DataTable holidaylist, out int year)
         {
-
             year =todate.Year;
-            int i = holidaylist.Rows.Count;
-            var lastholidaydate = (DateTime)holidaylist.Rows[i - 1]["holiday_date"];
-            if (year > lastholidaydate.Year)
+             var thisYearRows =holidaylist.AsEnumerable().Where(r => r.Field<DateTime>("holiday_date").Year >= todate.Year);
+            if (thisYearRows.Any())
             {
-                return false;
+                return true;
             }
             else
-                return true;
+                return false;
         }
 
 

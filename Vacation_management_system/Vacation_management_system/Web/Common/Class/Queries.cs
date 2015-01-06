@@ -17,30 +17,30 @@ namespace Vacation_management_system.Web.Common.Class
 
             string _query;
             _query = "update employee_configuration set";
-
-            if (previous_year_vacation != 0 && current_year_vacation == 0)
             {
-                _query += "  previous_year_leaves= " + previous_year_vacation;
-
-            }
-            else
-                if (previous_year_vacation < 0 && current_year_vacation != 0)
+                if (previous_year_vacation != 0 && current_year_vacation == 0)
                 {
-                    previous_year_vacation = 0;
-                    _query += " previous_year_leaves= " + previous_year_vacation;
-                    _query += ",";
-                    _query = _query + " current_year_leaves= " + current_year_vacation;
+                    _query += "  previous_year_leaves= " + previous_year_vacation;
+
                 }
                 else
-                {
-                    _query = _query + " current_year_leaves= " + current_year_vacation;
-                }
+                    if (previous_year_vacation < 0 && current_year_vacation != 0)
+                    {
+                        previous_year_vacation = 0;
+                        _query += " previous_year_leaves= " + previous_year_vacation;
+                        _query += ",";
+                        _query = _query + " current_year_leaves= " + current_year_vacation;
+                    }
+                    else
+                    {
+                        _query = _query + " current_year_leaves= " + current_year_vacation;
+                    }
 
-            _query += " where emp_id=" + user_id + " ";
-            var res = ds.RunCommand(_query);
-            return res;
+                _query += " where emp_id=" + user_id + " ";
+                var res = ds.RunCommand(_query);
+                return res;
+            }
         }
-
         public void employees_leave_balance(out double remaining_leaves, out double current_year_vacations, out double previous_year_vacations, Int32 user_id)
         {
             string _query;
@@ -96,26 +96,26 @@ namespace Vacation_management_system.Web.Common.Class
 
         }
 
-        //public bool Cancelleaves(double previousYearLeaves, double leaves,int empId)
-        //{
-        //    string query = "update employee_configuration set";
+        public  static Int32 VacationDetails(string status, Int32 user_id)
+        {
+            Database ds = new Database();
+            Int32 counts=0;
+             string query = " select count(approval_status) as count from leave_management where approval_status='" + status + "'  and YEAR(from_date)=YEAR(GETDATE())" ;
+            if(user_id!=0)
+            {
+                query += " " + "and  emp_id=" + user_id;
+            }
+            
+             SqlDataReader _data;
+             ds.RunQuery(out _data,query);
+            while(_data.Read())
+            {
+                counts = Convert.ToInt32(_data["count"]);
+            }
+            _data.Close();
+            ds.Close();
+            return counts;
+        }
 
-        //    if (previousYearLeaves > 0)
-        //    {
-        //        query +=" previous_year_leaves = previous_year_leaves+" + leaves;
-        //    }
-        //    else
-        //    {
-        //        query += "current_year_leaves = current_year_leaves+" + leaves;
-        //    }
-
-        //    query+= " where emp_id =" +empId;
-
-        //    Database db = new Database();
-
-        //    var res = db.RunCommand(query);
-
-        //    return res;
-        //}
     }
 }

@@ -63,6 +63,8 @@
       <HintPath>..\packages\WindowsAzure.Storage.2.1.0.4\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
@@ -151,13 +153,22 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\select2-spinner.gif" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\select2.png" />
+    <Content Include="Content\css\select2x2.png" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\sb-admin.css" />
+    <Content Include="Content\select2-bootstrap.css" />
     <Content Include="Global.asax" />
+    <Content Include="Holidays.svc" />
     <Content Include="obj\Debug\Vacation_management_system.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Vacation_management_system.dll" />
     <Content Include="obj\Debug\Vacation_management_system.pdb" />
+    <Content Include="VMSUnitTest.csproj" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="Web\Common\BirthDay.ascx" />
     <Content Include="Web\Common\Footer.ascx" />
     <Content Include="Web\Common\MailTemplate\ApplyVacationMail.xml" />
     <Content Include="Web\Common\MailTemplate\RegisterEmployee.xml" />
@@ -182,17 +193,27 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Web\EmployeeVacation\EmployeeVacation.aspx" />
     <Content Include="Web\Employee\Add.aspx" />
+    <Content Include="Web\Employee\AddFamilyDetails.aspx" />
     <Content Include="Web\Employee\EmployeeList.aspx" />
+    <Content Include="Web\Employee\PersonalDetails.aspx" />
+    <Content Include="Web\Employee\Roles.aspx" />
     <Content Include="Web\Holidays\Holidays.aspx" />
+    <Content Include="Web\Images\b.png" />
     <Content Include="Web\Images\Capture.PNG" />
+    <Content Include="Web\Images\kumar.jpg" />
+    <Content Include="Web\Images\Logo.png" />
     <Content Include="Web\Images\VMS.ico" />
     <Content Include="Web\Login\Login.aspx" />
     <Content Include="Web\MyVacation\ApplyNewVacation.aspx" />
     <Content Include="Web\MyVacation\MyVacation.aspx" />
-    <Content Include="Web\WebForm1.aspx" />
+    <Content Include="Web\MyVacation\Report.aspx" />
     <Content Include="bin\Vacation_management_system.dll.config" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\Vacation_management_system.csprojResolveAssemblyReference.cache" />
+    <Content Include="Content\select2-bootstrap-build.less" />
+    <Content Include="Content\select2-bootstrap-build.scss" />
+    <Content Include="Content\select2-bootstrap.less" />
+    <Content Include="Content\select2-bootstrap.scss" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -257,9 +278,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Holidays.svc.cs">
+      <DependentUpon>Holidays.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IHolidays.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Common\BirthDay.ascx.cs">
+      <DependentUpon>BirthDay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Common\BirthDay.ascx.designer.cs">
+      <DependentUpon>BirthDay.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Common\Class\ApplyVacation.cs" />
     <Compile Include="Web\Common\Class\Email.cs" />
     <Compile Include="Web\Common\Class\Queries.cs" />
@@ -302,12 +341,33 @@
     <Compile Include="Web\Employee\Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\Employee\AddFamilyDetails.aspx.cs">
+      <DependentUpon>AddFamilyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Employee\AddFamilyDetails.aspx.designer.cs">
+      <DependentUpon>AddFamilyDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Employee\EmployeeList.aspx.cs">
       <DependentUpon>EmployeeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\Employee\EmployeeList.aspx.designer.cs">
       <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Employee\PersonalDetails.aspx.cs">
+      <DependentUpon>PersonalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Employee\PersonalDetails.aspx.designer.cs">
+      <DependentUpon>PersonalDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Employee\Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Employee\Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\Holidays\Holidays.aspx.cs">
       <DependentUpon>Holidays.aspx</DependentUpon>
@@ -337,12 +397,12 @@
     <Compile Include="Web\MyVacation\MyVacation.aspx.designer.cs">
       <DependentUpon>MyVacation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Web\MyVacation\Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Web\MyVacation\Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

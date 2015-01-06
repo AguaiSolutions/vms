@@ -1,0 +1,7 @@
+E:\vms\Vacation_Management_System\VMSUnitTest\obj\Debug\VMSUnitTest.csprojResolveAssemblyReference.cache
+E:\vms\Vacation_Management_System\VMSUnitTest\bin\Debug\VMSUnitTest.dll
+E:\vms\Vacation_Management_System\VMSUnitTest\bin\Debug\VMSUnitTest.pdb
+E:\vms\Vacation_Management_System\VMSUnitTest\bin\Debug\Vacation_management_system.dll
+E:\vms\Vacation_Management_System\VMSUnitTest\bin\Debug\Vacation_management_system.pdb
+E:\vms\Vacation_Management_System\VMSUnitTest\obj\Debug\VMSUnitTest.dll
+E:\vms\Vacation_Management_System\VMSUnitTest\obj\Debug\VMSUnitTest.pdb

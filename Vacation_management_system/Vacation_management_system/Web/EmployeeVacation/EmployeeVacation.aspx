@@ -44,7 +44,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-plane"></i> Leave Management
+                                <i class="fa fa-plane"></i> Vacations
                             </li>
                             <li class="active">
                                 <i class="fa fa-taxi"></i> Employee Vacation

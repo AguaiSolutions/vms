@@ -18,48 +18,74 @@ namespace Vacation_management_system.Web.MyVacation
     {
         Database ds = new Database();
         private SqlDataReader _data;
+        double remaining_leaves, current_year_vacations, previous_year_vacations, temp;
         private string query;
+        ApplyVacation vacation = new ApplyVacation();
+        Queries query_object = new Queries();
+        Int32 user_id;
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (!IsPostBack)
             {
-                if (Session["role_ID"].Equals(1))
+                try
                 {
-                    btnapplyleave.Visible = false;
-                    btnapplyleave1.Visible = false;
-                    query = "SELECT  L.id, E.first_name,CONVERT(varchar,L.from_date,103)as from_date,CONVERT(varchar,L.to_date,103)as to_date,L.description,leave_type.leave_type as type_id, 'approval_status'= CASE L.Approval_Status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' THEN 'Cancelled' END,L.reason,L.leaves FROM leave_management as L left JOIN leave_type ON leave_type.id=L.type_id Left join employee as E on E.id = L.emp_id  order by 1 DESC";
-                    ds.RunQuery(out _data, query);
-                    DataTable table = new DataTable();
-                    if (_data.HasRows == true)
-                    {
-                        table.Load(_data);
-                        GridView1.DataSource = table;
-                        GridView1.DataBind();
-                    }
-                    else
-                        lblEmpty.Text = "No records found";
-                    _data.Close();
-                    ds.Close();
 
-                }
-                else
-                {
-                    //Employee Leave Management
-                    query = "SELECT   L.id,E.first_name,CONVERT(varchar,L.from_date,103)as from_date,CONVERT(varchar,L.to_date,103)as to_date,L.description,leave_type.leave_type as type_id, 'approval_status'= CASE L.Approval_Status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' THEN 'Cancelled' WHEN 'x' THEN 'Cancel Pending' END,L.reason,L.leaves FROM leave_management as L left JOIN leave_type ON leave_type.id=L.type_id Left join employee as E on E.id = L.emp_id where emp_id=" + Session["userId"] + " order by 1 DESC";
+                    int approved = 0;
+                    user_id = Convert.ToInt32(Session["userId"]);
+                    query_object.employees_leave_balance(out remaining_leaves, out  current_year_vacations, out previous_year_vacations, user_id);
+                    query = "select leaves from leave_management where approval_status='a' and emp_id=" + user_id + "";
                     ds.RunQuery(out _data, query);
-                    DataTable table = new DataTable();
-                    if (_data.HasRows == true)
+                    while (_data.Read())
                     {
-                        table.Load(_data);
-                        GridView1.DataSource = table;
-                        GridView1.DataBind();
+                        approved += Convert.ToInt32(_data["leaves"]);
                     }
-                    else
-                        lblEmpty.Text = "No records found";
                     _data.Close();
                     ds.Close();
+                    lblApproved.Text = approved.ToString();
+                    lblRemaining.Text = remaining_leaves.ToString();
+
+                    if (Session["role_ID"].Equals(1))
+                    {
+                        btnapplyleave.Visible = false;
+                        btnapplyleave1.Visible = false;
+                        query = "SELECT  L.id, E.first_name,CONVERT(varchar,L.from_date,103)as from_date,CONVERT(varchar,L.to_date,103)as to_date,L.description,leave_type.leave_type as type_id, 'approval_status'= CASE L.Approval_Status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' THEN 'Cancelled' END,L.reason,L.leaves FROM leave_management as L left JOIN leave_type ON leave_type.id=L.type_id Left join employee as E on E.id = L.emp_id  order by 1 DESC";
+                        ds.RunQuery(out _data, query);
+                        DataTable table = new DataTable();
+                        if (_data.HasRows == true)
+                        {
+                            table.Load(_data);
+                            GridView1.DataSource = table;
+                            GridView1.DataBind();
+                        }
+                        else
+                            lblEmpty.Text = "No records found";
+                        _data.Close();
+                        ds.Close();
+
+                    }
+                    else
+                    {
+                        //Employee Leave Management
+                        query = "SELECT   L.id,E.first_name,CONVERT(varchar,L.from_date,103)as from_date,CONVERT(varchar,L.to_date,103)as to_date,L.description,leave_type.leave_type as type_id, 'approval_status'= CASE L.Approval_Status  WHEN 'p' THEN 'Pending' WHEN 'a' THEN 'Approved' WHEN 'r' THEN 'Rejected' WHEN 'c' THEN 'Cancelled' WHEN 'x' THEN 'Cancel Pending' END,L.reason,L.leaves FROM leave_management as L left JOIN leave_type ON leave_type.id=L.type_id Left join employee as E on E.id = L.emp_id where emp_id=" + Session["userId"] + " order by 1 DESC";
+                        ds.RunQuery(out _data, query);
+                        DataTable table = new DataTable();
+                        if (_data.HasRows == true)
+                        {
+                            table.Load(_data);
+                            GridView1.DataSource = table;
+                            GridView1.DataBind();
+                        }
+                        else
+                            lblEmpty.Text = "No records found";
+                        _data.Close();
+                        ds.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/Web/Login/Login.aspx");
                 }
             }
         }
