@@ -13,6 +13,24 @@ namespace Vacation_management_system.Web.MyVacation {
     public partial class Vacation {
         
         /// <summary>
+        /// lblApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblApproved;
+        
+        /// <summary>
+        /// lblRemaining control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRemaining;
+        
+        /// <summary>
         /// btnapplyleave1 control.
         /// </summary>
         /// <remarks>

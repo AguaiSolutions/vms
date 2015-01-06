@@ -40,6 +40,15 @@ namespace Vacation_management_system.Master {
         protected global::System.Web.UI.WebControls.Label lblWelcome;
         
         /// <summary>
+        /// alerts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alerts;
+        
+        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>

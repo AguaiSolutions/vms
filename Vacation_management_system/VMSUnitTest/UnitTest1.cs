@@ -44,7 +44,7 @@ namespace VMSUnitTest
         [TestMethod]
         public void EmailTester()
         {
-            Assert.IsTrue(mailtest.SendRegistrationEmail("Kumar", "ksk90044@gmail.com", "100", "jfdkfj"));
+            ///Assert.IsTrue(mailtest.SendRegistrationEmail("Kumar", "ksk90044@gmail.com", "100", "jfdkfj"));
         }
 
     }
