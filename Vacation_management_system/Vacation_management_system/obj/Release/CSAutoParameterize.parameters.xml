@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="conStr-Web.config Connection String" description="conStr Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:enbli27647.database.windows.net,1433;Database=Aguai_Leave_Management;User ID=aguaitestaccount@enbli27647;Password=Aguai24072014;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Project\\Backup\\Vacation_management_system\\Vacation_management_system\\Vacation_management_system\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='conStr']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mail>
+  <subject>Welcome to Vacation Management System</subject>
+  <body>
+    <![CDATA[  
+      <div style="padding:10px;border:10px solid;border-color:#c7e7f7">
+      <br/>
+      <br/>
+	 
+  Hi  $$username$$,
+  <br>
+  <br>
+  Welcome to Vacation Management System.Please click the link to start using vacation management system.
+  <br/><br/>
+  The Details are as follows:<br/><br/>
+  Employee no:<b>$$EmpNo$$ </b>
+  <br/>
+  <br/>
+  Email :<b>$$Official_Email$$</b> 
+  <br/>
+  <br/>
+  Password :</b>$$Password$$ </b><br/><br/>
+  <span style="font-size: 12px; font-family: sans-serif, calibri;">
+   Please<a href="$$host$$"> click here </a>to Login to VMS
+  </span>`
+  
+    
+<br/>
+<br/>
+<br/>
+  Thank you,
+  <br/>
+ VMS Team
+  <br/> 
+  
+  <br/>
+  <span style="color: #000; font-size: 10px;"> 2014 © - Aguai solutions Pvt. ltd.. All rights reserved.
+  <br/><br/>
+..................................................................<br/>
+This is system generated mail please don't  reply for this mail.<br/>
+For any queries please contact VMS team.</span>
+  <br/>
+  </div>
+  ]]>
+  </body>
+</mail>
